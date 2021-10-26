@@ -71,6 +71,7 @@ $pdv-title-line5-fontsize: 1.16 * $pdv-main-title-l;
 body {
   background-color: black;
   margin: 0;
+  cursor: default;
 }
 .body_cl {
   width: 100vw;
@@ -107,7 +108,7 @@ body {
   width: 100%;
 }
 .legal_info_icon {
-  display:none;
+  display: none;
   position: fixed;
   color: white;
   font-size: 15px;

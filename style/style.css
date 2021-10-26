@@ -11,6 +11,7 @@
 body {
   background-color: black;
   margin: 0;
+  cursor: default;
 }
 
 .body_cl {
