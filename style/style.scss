@@ -107,6 +107,7 @@ body {
   width: 100%;
 }
 .legal_info_icon {
+  display:none;
   position: fixed;
   color: white;
   font-size: 15px;
@@ -348,6 +349,7 @@ a {
   }
   .legal_info_icon {
     top: $ms-legal-padding-l;
+    right: $ms-legal-padding-s-lr;
   }
   #legal_bottom {
     bottom: $ms-legal-padding-l;
@@ -356,9 +358,7 @@ a {
   .legal-item {
     padding-left: $ms-legal-padding-items;
   }
-  .legal_info_icon {
-    right: $ms-legal-padding-s-lr;
-  }
+
   #legal_bottom_right {
     padding-right: $ms-legal-padding-s-lr;
   }

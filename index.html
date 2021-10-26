@@ -15,7 +15,7 @@
       href="https://unpkg.com/animate.css@3.5.2/animate.min.css"
     />
     <link rel="stylesheet" href="style/style.css" />
-    <!-- face music libs start here -->
+    <!--------------------- face music libs start here ------------------------>
     <link rel="preload" href="img/spinner.svg" as="image" />
     <!--
         Bose AR SDK supplied from https://github.com/zakaton/Bose-Frames-Web-SDK
@@ -81,7 +81,7 @@
 
     <style>
       .animated {
-        animation-delay: 0.2s;
+        animation-delay: 0.02s;
       }
       #app {
         position: fixed;
@@ -135,10 +135,13 @@
     let listenButton;
     let infoButton;
     let closeInfoButton;
-
+    let legalInfoIcon = document.getElementsByClassName("legal_info_icon")[0];
     let renderPage = new Render({
       baseURI: "./template",
     });
+    // console.log("legalInfoIcon is");
+    // console.log(legalInfoIcon);
+
     // main page
     renderPage
       .create("main", document.getElementById("app"), {
@@ -148,8 +151,12 @@
       })
       .then((res) => {
         this.loadIndex("add");
-        infoButton = document.getElementsByClassName("info_icon_cl")[0];
-        listenButton = document.getElementsByClassName("listen_icon_cl")[0];
+        //hide the info button
+        document.getElementsByClassName("legal_info_icon")[0].style.display =
+          "none";
+        infoButton = document.getElementsByClassName("info_icon_cl");
+        listenButton = document.getElementsByClassName("listen_icon_cl");
+        // legalInfoIcon = document.getElementsByClassName("legal_info_icon")[0];
       });
 
     // info page
@@ -160,16 +167,38 @@
         load: "loadInfo",
       })
       .then((res) => {
-        infoButton.onclick = () => {
-          this.loadInfo("cover");
-          closeInfoButton = document.getElementById("info-big-screen-close-id");
-          console.log(closeInfoButton);
-          closeInfoButton.onclick = () => {
+        //hide the info button
+        document.getElementsByClassName("legal_info_icon")[0].style.display =
+          "none";
+        infoButton.forEach(function (infoBtn) {
+          infoBtn.addEventListener("click", function () {
+            window.loadInfo("cover");
+            closeInfoButton = document.getElementsByClassName("close_icons");
             console.log(closeInfoButton);
-            loadIndex("cover");
-          };
-        };
+            closeInfoButton.forEach(function (infoBtn) {
+              infoBtn.addEventListener("click", function () {
+                console.log(closeInfoButton);
+                loadIndex("cover");
+                //hide the info button
+                document.getElementsByClassName(
+                  "legal_info_icon"
+                )[0].style.display = "none";
+              });
+            });
+          });
+        });
       });
+    //legal icon info jump to info page
+    legalInfoIcon.onclick = function () {
+      window.loadInfo("cover");
+      closeInfoButton = document.getElementsByClassName("close_icons");
+      closeInfoButton.forEach(function (infoBtn) {
+        infoBtn.addEventListener("click", function () {
+          console.log(closeInfoButton);
+          loadIndex("cover");
+        });
+      });
+    };
 
     //    music page
     renderPage
@@ -179,9 +208,15 @@
         load: "loadMusicPage",
       })
       .then((res) => {
-        listenButton.onclick = () => {
-          this.loadMusicPage("cover");
-        };
+        listenButton.forEach(function (listenBtn) {
+          listenBtn.addEventListener("click", function () {
+            console.log(listenButton);
+            loadMusicPage("cover");
+            document.getElementsByClassName(
+              "legal_info_icon"
+            )[0].style.display = "block";
+          });
+        });
       });
   </script>
 </html>

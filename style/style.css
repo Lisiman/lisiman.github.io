@@ -58,6 +58,7 @@ body {
 }
 
 .legal_info_icon {
+  display: none;
   position: fixed;
   color: white;
   font-size: 15px;
@@ -344,6 +345,7 @@ a {
   }
   .legal_info_icon {
     top: 35px;
+    right: 3vw;
   }
   #legal_bottom {
     bottom: 35px;
@@ -351,9 +353,6 @@ a {
   }
   .legal-item {
     padding-left: 12px;
-  }
-  .legal_info_icon {
-    right: 3vw;
   }
   #legal_bottom_right {
     padding-right: 3vw;
