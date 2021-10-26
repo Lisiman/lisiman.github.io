@@ -16,19 +16,43 @@
     />
     <link rel="stylesheet" href="style/style.css" />
     <!-- face music libs start here -->
+    <link rel="preload" href="img/spinner.svg" as="image" />
+    <!--
+        Bose AR SDK supplied from https://github.com/zakaton/Bose-Frames-Web-SDK
+        Please visit the github link above for the most recently maintained minified js
+        -->
+    <script src="js/bose-ar-web-sdk.min.js"></script>
 
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils@0.6/control_utils.css"
-      crossorigin="anonymous"
-    />
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.7.0/dist/tf.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-wasm@2.7.0/dist/tf-backend-wasm.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/facemesh@0.0.5/dist/facemesh.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.6/dat.gui.min.js"></script>
+    <script src="js/three.js/libs/stats.min.js"></script>
+    <script src="js/three.js/loaders/GLTFLoader.js"></script>
+    <script src="js/three.js/postprocessing/EffectComposer.js"></script>
+    <script src="js/three.js/postprocessing/RenderPass.js"></script>
+    <script src="js/three.js/postprocessing/ShaderPass.js"></script>
+    <script src="js/three.js/shaders/CopyShader.js"></script>
+
+    <script src="js/osc.min.js"></script>
+    <script src="js/1euro.js"></script>
+    <script src="js/Gimbal.js"></script>
+    <!-- <script src="js/triangle.js"></script> -->
+    <script src="js/triangle.js"></script>
+
+    <script src="js/Mach1SoundPlayer.js"></script>
+    <script src="js/Mach1Decode.js"></script>
+    <link rel="stylesheet" href="style/style.css" />
+
+    <!-- start of the new libs -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils@0.6/control_utils.css"
+      crossorigin="anonymous"
+    />
     <script
       src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils@0.3/camera_utils.js"
       crossorigin="anonymous"
@@ -53,24 +77,6 @@
       src="https://cdn.jsdelivr.net/npm/@mediapipe/holistic@0.1/holistic.js"
       crossorigin="anonymous"
     ></script>
-    <script src="js/M1SpatialAudioPlayer.js"></script>
-    <!-- Loading / Progress Bar -->
-    <link rel="preload" href="img/spinner.svg" as="image" />
-    <script src="js/bose-ar-web-sdk.min.js"></script>
-    <script src="js/three.js/libs/stats.min.js"></script>
-    <script src="js/three.js/loaders/GLTFLoader.js"></script>
-    <script src="js/three.js/postprocessing/EffectComposer.js"></script>
-    <script src="js/three.js/postprocessing/RenderPass.js"></script>
-    <script src="js/three.js/postprocessing/ShaderPass.js"></script>
-    <script src="js/three.js/shaders/CopyShader.js"></script>
-
-    <script src="js/osc.min.js"></script>
-    <script src="js/1euro.js"></script>
-    <script src="js/Gimbal.js"></script>
-    <script src="js/triangle.js"></script>
-
-    <script src="js/Mach1SoundPlayer.js"></script>
-    <script src="js/Mach1Decode.js"></script>
     <!-- face music libs end here -->
 
     <style>
@@ -86,8 +92,7 @@
     </style>
   </head>
   <body>
-    <div id="app">
-    </div>
+    <div id="app"></div>
     <div class="legal">
       <div id="legal_top">
         <img id="icon_logo" src="resources/logo.svg" />
