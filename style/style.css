@@ -405,6 +405,12 @@ a {
     cursor: pointer;
     z-index: 1000;
   }
+  #legal-item_id_2 {
+    position: fixed;
+    left: 3vw;
+    padding-top: 15px;
+    padding-left: 0;
+  }
   #again_icons_div {
     padding-top: 32vw;
   }
@@ -424,6 +430,14 @@ a {
   }
   .button_icon {
     font-size: 48px;
+  }
+  .square_div {
+    bottom: 10%;
+  }
+  .square_player_div,
+  .square_text,
+  .square_content {
+    width: 94vw;
   }
   .button_title_cl {
     height: 18.4vw;
@@ -470,6 +484,14 @@ a {
   }
   #again_icons_div {
     padding-top: 50vw;
+  }
+  .info_text, #play_btn_inner {
+    font-size: 14px;
+  }
+  .playpause {
+    height: 10px;
+    border-width: 8px 0 8px 10px;
+    padding-right: 2px !important;
   }
 }
 /*# sourceMappingURL=style.css.map */
