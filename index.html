@@ -173,7 +173,7 @@
             closeInfoButton.forEach(function (infoBtn) {
               infoBtn.addEventListener("click", function () {
                 console.log(closeInfoButton);
-                loadIndex("cover");
+                window.loadIndex("cover");
                 //hide the info button
                 document.getElementsByClassName(
                   "legal_info_icon"
@@ -190,7 +190,7 @@
       closeInfoButton.forEach(function (infoBtn) {
         infoBtn.addEventListener("click", function () {
           console.log(closeInfoButton);
-          loadIndex("cover");
+          window.loadIndex("cover");
         });
       });
     };
@@ -206,7 +206,8 @@
         listenButton.forEach(function (listenBtn) {
           listenBtn.addEventListener("click", function () {
             console.log(listenButton);
-            loadMusicPage("cover");
+            // window.loadMusicPage("cover");
+            window.location.href = "M1SpatialAudioPlayer.html";
             document.getElementsByClassName(
               "legal_info_icon"
             )[0].style.display = "block";
