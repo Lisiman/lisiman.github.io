@@ -1,0 +1,44 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <div class="center-inside">
+        <span class="loader_font">BROWSER HIST</span>
+        <span class="loader_o" id="loader_o_id"></span>
+        <span class="loader_font">RY</span>
+    </div>
+    <div class="legal">
+        <div class="legal_top" id="legal_top_id">
+            <img class="legal_item clickable" id="legal_logo" src="resources/img/sqsp_icon.svg" alt="">
+            <div class="legal_item clickable" id="legal_info">INFO</div>
+            <div class="legal_item" id="legal_mode">MODE<label class="switch" ><input onclick="myFunction()" type="checkbox"><span class="slider round"></span></label>
+            </div>
+            <div class="legal_item clickable" id="legal_index"> INDEX
+                <div id="hamburger">
+                <!-- <input id="dot-menu" type="checkbox" class="dot-menu__checkbox"> -->
+                <div class="topleft"></div>
+                <div class="topright"></div>
+                <div class="bottomright"></div>
+                <div class="bottomleft"></div>
+              </div>
+            </div>
+    </div>
+        <div class="legal_bottom" >
+            <a href="https://www.squarespace.com/privacy" target="_blank" class="legal_item legal_bottom_links" id="legal_privacy">PRIVACY POLICY</a>
+            <a href="https://www.squarespace.com/terms-of-service" target="_blank" class="legal_item legal_bottom_links" id="legal_terms">TERMS OF SERVICE</a>
+            <div>
+    </div>
+    <script>
+        function myFunction() {
+           var element = document.body;
+           element.classList.toggle("dark-mode");
+        //    console.log("clicked");
+        }
+        </script>
+</body>
+</html>

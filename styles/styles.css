@@ -1,0 +1,372 @@
+@font-face {
+  font-family: "clark_book";
+  src: url("../resources/Clarkson/Clarkson-BookProduct.woff") format("woff");
+}
+
+@font-face {
+  font-family: "clark_light";
+  src: url("../resources/Clarkson/Clarkson-Light.woff") format("woff");
+}
+
+body {
+  background-color: #efedea;
+  margin: 0;
+  font-family: clark_book;
+  padding: 0;
+  cursor: defalut;
+}
+
+.dark-mode {
+  background-color: #010101;
+  color: #efedea;
+}
+
+.legal {
+  position: fixed;
+  top: 0;
+}
+
+.legal_item {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  font-size: 20px;
+}
+
+.legal_top {
+  position: fixed;
+  top: 25px;
+  left: 0;
+  display: inline-block;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+  vertical-align: top;
+  height: 30px;
+  width: 100vw;
+}
+
+.legal_bottom {
+  position: fixed;
+  bottom: 25px;
+  width: 100vw;
+}
+
+.legal_bottom_links {
+  font-size: 18px;
+  color: #010101;
+  text-decoration: none;
+}
+
+#legal_logo {
+  left: 25px;
+}
+
+#legal_info {
+  left: 45%;
+}
+
+#legal_mode {
+  left: 70%;
+}
+
+#legal_index {
+  right: 37.5px;
+}
+
+#legal_privacy {
+  left: 25px;
+}
+
+#legal_terms {
+  position: relative;
+  left: 200px;
+}
+
+.switch {
+  margin-left: 5px;
+  margin-top: 3.5px;
+  position: relative;
+  display: inline-block;
+  width: 32px;
+  height: 16px;
+  top: 0;
+  position: absolute;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #010101;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 10.67px;
+  width: 10.67px;
+  left: 2.3px;
+  bottom: 2.3px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(16.5px);
+  transform: translateX(16.5px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+#hamburger {
+  display: inline-block;
+  position: absolute;
+  top: 3px;
+  margin-left: 6px;
+  height: 14px;
+  width: 14px;
+}
+
+#hamburger:onclick {
+  background-color: red;
+}
+
+.topleft, .topright, .bottomright, .bottomleft {
+  position: absolute;
+  background-color: #010101;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.topright, .bottomright {
+  margin-left: 10px;
+}
+
+.bottomright, .bottomleft {
+  margin-top: 10px;
+}
+
+p {
+  margin: 0;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.center-inside {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.pics_half {
+  width: 47vw;
+}
+
+.pics_full {
+  width: 94vw;
+}
+
+#loader_ani_div {
+  position: fixed;
+  top: 0;
+}
+
+#enter_flex {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.loader_font {
+  font-size: 4.5vw;
+  font-family: clark_book;
+  color: #010101;
+}
+
+.loader_title {
+  height: 16px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.loader_o {
+  display: inline-block;
+  border-radius: 2vw;
+  border: 0.45vw solid #010101;
+  margin-left: 0.3vw;
+  margin-right: 0.3vw;
+  height: 2.385vw;
+  width: 4.5vw;
+}
+
+#loader_o_id {
+  width: 4.5vw;
+  -webkit-transition: width 1s ease-in-out;
+  transition: width 1s ease-in-out;
+}
+
+#loader_o_id:hover {
+  width: 18vw;
+}
+
+.enter_main_title {
+  font-size: 6vw;
+}
+
+.enter_main_title_o {
+  border: 0.64vw solid #010101;
+  border-radius: 3vw;
+  width: 8vw;
+  height: 3.18vw;
+}
+
+.enter_text {
+  font-family: clark_light;
+  width: 45vw;
+  font-size: 24px;
+  text-align: center;
+}
+
+#enter_title {
+  margin-top: 0.5vw;
+  margin-bottom: 0.5vw;
+}
+
+.button {
+  background-color: transparent;
+  border: 2px solid #010101;
+  color: #010101;
+  text-align: center;
+  font-size: 40px;
+  -webkit-transition-duration: 0.4s;
+          transition-duration: 0.4s;
+  font-family: clark_light;
+  border-radius: 3vw;
+}
+
+.enter_button {
+  width: 200px;
+  height: 73px;
+  margin-top: 2vw;
+}
+
+.button:hover {
+  background-color: #010101;
+  color: #efedea;
+}
+
+#loader_img1 {
+  opacity: 0;
+  -webkit-animation: appear 3s;
+          animation: appear 3s;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+}
+
+#loader_img2 {
+  -webkit-animation: disappear 1s;
+          animation: disappear 1s;
+  -webkit-animation-delay: 2s;
+          animation-delay: 2s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+#loader_img3 {
+  opacity: 0;
+  -webkit-animation: appear 2s;
+          animation: appear 2s;
+  -webkit-animation-delay: 4s;
+          animation-delay: 4s;
+}
+
+#loader_img4 {
+  opacity: 0;
+  -webkit-animation: appear 2s;
+          animation: appear 2s;
+  -webkit-animation-delay: 3s;
+          animation-delay: 3s;
+}
+
+@-webkit-keyframes appear {
+  0% {
+    display: none;
+    opacity: 1;
+  }
+  100% {
+    display: none;
+    opacity: 1;
+  }
+}
+
+@keyframes appear {
+  0% {
+    display: none;
+    opacity: 1;
+  }
+  100% {
+    display: none;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes disappear {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+  100% {
+    display: none;
+    opacity: 0;
+  }
+}
+
+@keyframes disappear {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+  100% {
+    display: none;
+    opacity: 0;
+  }
+}
+/*# sourceMappingURL=styles.css.map */
