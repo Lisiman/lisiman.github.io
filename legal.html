@@ -21,10 +21,10 @@
             <div class="legal_item clickable" id="legal_index"> INDEX
                 <div id="hamburger">
                 <!-- <input id="dot-menu" type="checkbox" class="dot-menu__checkbox"> -->
-                <div class="topleft"></div>
-                <div class="topright"></div>
-                <div class="bottomright"></div>
-                <div class="bottomleft"></div>
+                <div class="topleft" id="index_tl_id"></div>
+                <div class="topright" id="index_tr_id"></div>
+                <div class="bottomright" id="index_br_id"></div>
+                <div class="bottomleft" id="index_bl_id"></div>
               </div>
             </div>
     </div>
@@ -35,10 +35,26 @@
     </div>
     <script>
         function myFunction() {
-           var element = document.body;
+           let element = document.body;
            element.classList.toggle("dark-mode");
         //    console.log("clicked");
         }
+        let indexButton = document.getElementById("hamburger");
+        let index_tl=document.getElementById("index_tl_id");
+        let index_tr=document.getElementById("index_tr_id");
+        let index_br=document.getElementById("index_br_id");
+        let index_bl=document.getElementById("index_bl_id");
+
+        indexButton .addEventListener("click", function() {
+//   document.getElementById("demo").innerHTML = "Hello World";
+         console.log(index_tl);
+         index_tl.classList.toggle("on");
+         index_tr.classList.toggle("on");
+         index_br.classList.toggle("on");
+         index_bl.classList.toggle("on");
+});
+
+
         </script>
 </body>
 </html>

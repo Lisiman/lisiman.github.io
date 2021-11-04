@@ -141,8 +141,8 @@ input:checked + .slider:before {
 #hamburger {
   display: inline-block;
   position: absolute;
-  top: 3px;
-  margin-left: 6px;
+  top: 6.5px;
+  margin-left: 8px;
   height: 14px;
   width: 14px;
 }
@@ -151,20 +151,51 @@ input:checked + .slider:before {
   background-color: red;
 }
 
-.topleft, .topright, .bottomright, .bottomleft {
+#dot-menu:checked {
+  height: 50px;
+  width: 50px;
+}
+
+.topleft,
+.topright,
+.bottomright,
+.bottomleft {
   position: absolute;
   background-color: #010101;
+  border-radius: 50%;
   width: 6px;
   height: 6px;
-  border-radius: 50%;
+  -webkit-transition-duration: 0.1s;
+          transition-duration: 0.1s;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 
-.topright, .bottomright {
-  margin-left: 10px;
+.topright,
+.topleft {
+  top: 0;
 }
 
-.bottomright, .bottomleft {
-  margin-top: 10px;
+.bottomleft,
+.bottomright {
+  top: 9px;
+}
+
+.topright,
+.bottomright {
+  left: 9px;
+}
+
+.topleft,
+.bottomleft {
+  left: 0;
+}
+
+.on {
+  left: 5px;
+  top: 5px;
+  width: 16px;
+  height: 16px;
 }
 
 p {
