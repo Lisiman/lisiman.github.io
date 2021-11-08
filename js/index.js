@@ -2,154 +2,169 @@ const itemsData = [
   {
     name: "HAZEL BUCKET",
     seller: "EMMA BREWIN",
-    type: ["SELF CARE", "SHIPPED EXPRESS"],
+    price: "$39.99",
     url: "https://learnwebcode.github.io/json-example/images/cat-2.jpg",
     photo: "resources/img/product1.png",
   },
   {
     name: "HAZEL BUCKET",
     seller: "EMMA BREWIN",
-    type: ["SELF CARE", "SHIPPED EXPRESS"],
+    price: "$39.99",
     url: "https://learnwebcode.github.io/json-example/images/cat-2.jpg",
     photo: "resources/img/product2.png",
   },
   {
     name: "HAZEL BUCKET",
     seller: "EMMA BREWIN",
-    type: ["SELF CARE", "SHIPPED EXPRESS"],
+    price: "$39.99",
     url: "https://learnwebcode.github.io/json-example/images/cat-2.jpg",
     photo: "resources/img/product1.png",
   },
   {
     name: "HAZEL BUCKET",
     seller: "EMMA BREWIN",
-    type: ["SELF CARE", "SHIPPED EXPRESS"],
+    price: "$39.99",
     url: "https://learnwebcode.github.io/json-example/images/cat-2.jpg",
     photo: "resources/img/product2.png",
   },
   {
     name: "HAZEL BUCKET",
     seller: "EMMA BREWIN",
-    type: ["SELF CARE", "SHIPPED EXPRESS"],
+    price: "$39.99",
     url: "https://learnwebcode.github.io/json-example/images/cat-2.jpg",
     photo: "resources/img/product1.png",
   },
   {
     name: "HAZEL BUCKET",
     seller: "EMMA BREWIN",
-    type: ["SELF CARE", "SHIPPED EXPRESS"],
+    price: "$39.99",
     url: "https://learnwebcode.github.io/json-example/images/cat-2.jpg",
     photo: "resources/img/product2.png",
   },
   {
     name: "HAZEL BUCKET",
     seller: "EMMA BREWIN",
-    type: ["SELF CARE", "SHIPPED EXPRESS"],
+    price: "$39.99",
     url: "https://learnwebcode.github.io/json-example/images/cat-2.jpg",
     photo: "resources/img/product1.png",
   },
   {
     name: "HAZEL BUCKET",
     seller: "EMMA BREWIN",
-    type: ["SELF CARE", "SHIPPED EXPRESS"],
+    price: "$39.99",
+    url: "https://learnwebcode.github.io/json-example/images/cat-2.jpg",
+    photo: "resources/img/product2.png",
+  },
+
+  {
+    name: "HAZEL BUCKET",
+    seller: "EMMA BREWIN",
+    price: "$39.99",
+    url: "https://learnwebcode.github.io/json-example/images/cat-2.jpg",
+    photo: "resources/img/product1.png",
+  },
+  {
+    name: "HAZEL BUCKET",
+    seller: "EMMA BREWIN",
+    price: "$39.99",
     url: "https://learnwebcode.github.io/json-example/images/cat-2.jpg",
     photo: "resources/img/product2.png",
   },
   {
     name: "HAZEL BUCKET",
     seller: "EMMA BREWIN",
-    type: ["SELF CARE", "SHIPPED EXPRESS"],
+    price: "$39.99",
     url: "https://learnwebcode.github.io/json-example/images/cat-2.jpg",
     photo: "resources/img/product1.png",
   },
   {
     name: "HAZEL BUCKET",
     seller: "EMMA BREWIN",
-    type: ["SELF CARE", "SHIPPED EXPRESS"],
+    price: "$39.99",
     url: "https://learnwebcode.github.io/json-example/images/cat-2.jpg",
     photo: "resources/img/product2.png",
   },
   {
     name: "HAZEL BUCKET",
     seller: "EMMA BREWIN",
-    type: ["SELF CARE", "SHIPPED EXPRESS"],
+    price: "$39.99",
     url: "https://learnwebcode.github.io/json-example/images/cat-2.jpg",
     photo: "resources/img/product1.png",
   },
   {
     name: "HAZEL BUCKET",
     seller: "EMMA BREWIN",
-    type: ["SELF CARE", "SHIPPED EXPRESS"],
+    price: "$39.99",
     url: "https://learnwebcode.github.io/json-example/images/cat-2.jpg",
     photo: "resources/img/product2.png",
   },
   {
     name: "HAZEL BUCKET",
     seller: "EMMA BREWIN",
-    type: ["SELF CARE", "SHIPPED EXPRESS"],
+    price: "$39.99",
     url: "https://learnwebcode.github.io/json-example/images/cat-2.jpg",
     photo: "resources/img/product1.png",
   },
   {
     name: "HAZEL BUCKET",
     seller: "EMMA BREWIN",
-    type: ["SELF CARE", "SHIPPED EXPRESS"],
+    price: "$39.99",
     url: "https://learnwebcode.github.io/json-example/images/cat-2.jpg",
     photo: "resources/img/product2.png",
   },
   {
     name: "HAZEL BUCKET",
     seller: "EMMA BREWIN",
-    type: ["SELF CARE", "SHIPPED EXPRESS"],
+    price: "$39.99",
     url: "https://learnwebcode.github.io/json-example/images/cat-2.jpg",
     photo: "resources/img/product1.png",
   },
   {
     name: "HAZEL BUCKET",
     seller: "EMMA BREWIN",
-    type: ["SELF CARE", "SHIPPED EXPRESS"],
+    price: "$39.99",
     url: "https://learnwebcode.github.io/json-example/images/cat-2.jpg",
     photo: "resources/img/product2.png",
   },
   {
     name: "HAZEL BUCKET",
     seller: "EMMA BREWIN",
-    type: ["SELF CARE", "SHIPPED EXPRESS"],
+    price: "$39.99",
     url: "https://learnwebcode.github.io/json-example/images/cat-2.jpg",
     photo: "resources/img/product1.png",
   },
   {
     name: "HAZEL BUCKET",
     seller: "EMMA BREWIN",
-    type: ["SELF CARE", "SHIPPED EXPRESS"],
+    price: "$39.99",
     url: "https://learnwebcode.github.io/json-example/images/cat-2.jpg",
     photo: "resources/img/product2.png",
   },
   {
     name: "HAZEL BUCKET",
     seller: "EMMA BREWIN",
-    type: ["SELF CARE", "SHIPPED EXPRESS"],
+    price: "$39.99",
     url: "https://learnwebcode.github.io/json-example/images/cat-2.jpg",
     photo: "resources/img/product1.png",
   },
   {
     name: "HAZEL BUCKET",
     seller: "EMMA BREWIN",
-    type: ["SELF CARE", "SHIPPED EXPRESS"],
+    price: "$39.99",
     url: "https://learnwebcode.github.io/json-example/images/cat-2.jpg",
     photo: "resources/img/product2.png",
   },
   {
     name: "HAZEL BUCKET",
     seller: "EMMA BREWIN",
-    type: ["SELF CARE", "SHIPPED EXPRESS"],
+    price: "$39.99",
     url: "https://learnwebcode.github.io/json-example/images/cat-2.jpg",
     photo: "resources/img/product1.png",
   },
   {
     name: "HAZEL BUCKET",
     seller: "EMMA BREWIN",
-    type: ["SELF CARE", "SHIPPED EXPRESS"],
+    price: "$39.99",
     url: "https://learnwebcode.github.io/json-example/images/cat-2.jpg",
     photo: "resources/img/product2.png",
   },
@@ -168,9 +183,10 @@ function itemTemplate(item) {
   return `
       <div class="items clickable">
       <img class="item-photo" src="${item.photo}">
-      <div class="item-des"><p class="item-name">${item.name}<br>BY ${item.seller}</p>
-      <p class="item-type" >${item.type} </p></div>
-      <button class="purchase_btn button clickable" onclick="location.href='${item.url}'" type="button">PURCHASE</button>
+      <div class="item-des"><p class="item-name">${item.name}<br>BY ${item.seller}<br>${item.price}</p>
+      <p class="item-price" ></p>
+      <button class="purchase_btn button clickable" onclick="location.href='${item.url}'" type="button">PURCHASE</button> 
+</div>
       </div>
     `;
 }
@@ -181,11 +197,8 @@ document.getElementById("app").innerHTML = `
 
 let itemsPicArray = document.getElementsByClassName("item-photo");
 let itemsArray = document.getElementsByClassName("items");
-let itemNmouseIn = false;
-
-// console.log(itemsArray);
+let itemsDesArray = document.getElementsByClassName("item-des");
 for (let i = 0; i <= itemsPicArray.length; i++) {
-  // console.log(i);
   itemsArray[i].addEventListener(
     "mouseenter",
     function (event) {
@@ -193,7 +206,8 @@ for (let i = 0; i <= itemsPicArray.length; i++) {
         console.log("mouseover");
         itemNmouseIn = true;
         console.log(itemNmouseIn);
-        itemsPicArray[i].style.display = "block";
+        itemsPicArray[i].style.display = "none";
+        itemsDesArray[i].style.display = "inline";
       }, 100);
     },
     false
@@ -203,31 +217,10 @@ for (let i = 0; i <= itemsPicArray.length; i++) {
     "mouseout",
     function (event) {
       setTimeout(function () {
-        itemsPicArray[i].style.display = "none";
+        itemsPicArray[i].style.display = "inline";
+        itemsDesArray[i].style.display = "none";
       }, 1300);
     },
     false
   );
 }
-// itemsArray[0].addEventListener(
-//   "mouseenter",
-//   function (event) {
-//     setTimeout(function () {
-//       console.log("mouseover");
-//       itemNmouseIn = true;
-//       console.log(itemNmouseIn);
-//       itemsPicArray[0].style.display = "block";
-//     }, 100);
-//   },
-//   false
-// );
-
-// itemsArray[0].addEventListener(
-//   "mouseout",
-//   function (event) {
-//     setTimeout(function () {
-//       itemsPicArray[0].style.display = "none";
-//     }, 1000);
-//   },
-//   false
-// );
