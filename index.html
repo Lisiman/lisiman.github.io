@@ -7,19 +7,23 @@
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
-    <div class="center-inside">
-        <span class="loader_font">BROWSER HIST</span>
-        <span class="loader_o" id="loader_o_id"></span>
-        <span class="loader_font">RY</span>
+    <!-- <section class="main-section"> -->
+        <section class="product-cata">
+            <div id="app"></div>
+        </section>    
+        <!-- </section> -->
+<div class="sub-title">
+    <div class="sub-title-text">INDEX</div>
     </div>
+
     <div class="legal">
         <div class="legal_top" id="legal_top_id">
             <img class="legal_item clickable" id="legal_logo" src="resources/img/sqsp_icon.svg" alt="">
             <div class="legal_item clickable" id="legal_info">INFO</div>
             <div class="legal_item" id="legal_mode">MODE<label class="switch" ><input onclick="myFunction()" type="checkbox"><span class="slider round"></span></label>
             </div>
-            <div class="legal_item clickable" id="legal_index"> INDEX
-                <div id="hamburger">
+            <div class="legal_item clickable legal_index_cl" id="legal_index"> INDEX
+                <div class="legal_index_cl" id="hamburger">
                 <!-- <input id="dot-menu" type="checkbox" class="dot-menu__checkbox"> -->
                 <div class="topleft" id="index_tl_id"></div>
                 <div class="topright" id="index_tr_id"></div>
@@ -33,28 +37,8 @@
             <a href="https://www.squarespace.com/terms-of-service" target="_blank" class="legal_item legal_bottom_links" id="legal_terms">TERMS OF SERVICE</a>
             <div>
     </div>
-    <script>
-        function myFunction() {
-           let element = document.body;
-           element.classList.toggle("dark-mode");
-        //    console.log("clicked");
-        }
-        let indexButton = document.getElementById("hamburger");
-        let index_tl=document.getElementById("index_tl_id");
-        let index_tr=document.getElementById("index_tr_id");
-        let index_br=document.getElementById("index_br_id");
-        let index_bl=document.getElementById("index_bl_id");
+<script src="js/script.js"></script>
+<script src="js/index.js"></script>
 
-        indexButton .addEventListener("click", function() {
-//   document.getElementById("demo").innerHTML = "Hello World";
-         console.log(index_tl);
-         index_tl.classList.toggle("on");
-         index_tr.classList.toggle("on");
-         index_br.classList.toggle("on");
-         index_bl.classList.toggle("on");
-});
-
-
-        </script>
 </body>
 </html>

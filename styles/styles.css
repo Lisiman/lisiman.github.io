@@ -400,4 +400,107 @@ p {
     opacity: 0;
   }
 }
+
+.sub-title {
+  position: fixed;
+  top: 0;
+  height: 300px;
+  background-color: #efedea;
+  width: 100%;
+  margin-left: 25px;
+}
+
+.sub-title-text {
+  font-size: 108px;
+  font-family: clark_book;
+  position: absolute;
+  bottom: 0;
+}
+
+.main-section {
+  width: 100%;
+  padding: 25px;
+  position: absolute;
+  top: 250px;
+  height: 200px;
+}
+
+.product-cata {
+  position: absolute;
+  top: 300px;
+  width: 100%;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+#app {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 0;
+  padding-left: 25px;
+  padding-right: 25px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#app:after {
+  content: "";
+  -webkit-box-flex: 1;
+      -ms-flex: auto;
+          flex: auto;
+}
+
+.app-title {
+  text-align: center;
+  font-weight: normal;
+  font-size: 2.6rem;
+}
+
+.item-des {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.items {
+  text-align: left;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 20%;
+  margin-bottom: 50px;
+}
+
+.item-photo {
+  width: 18vw;
+  border-radius: 20%;
+  display: none;
+}
+
+.item-name {
+  font-size: 18.28px;
+  font-weight: normal;
+  text-align: left;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.item-type {
+  font-size: 12.2px;
+  text-align: left;
+}
+
+.purchase_btn {
+  width: 167px;
+  height: 44.38px;
+  font-size: 24.65px;
+  border-radius: 69.4288px;
+  border: 1px solid #010101;
+  background-color: transparent;
+}
 /*# sourceMappingURL=styles.css.map */
