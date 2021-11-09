@@ -37,6 +37,10 @@ body {
   // width: 100vw;
   // overflow: hidden;
 }
+::-webkit-scrollbar {
+  display: none;
+}
+
 .dark-mode {
   background-color: $black;
   color: $beige;
@@ -45,6 +49,8 @@ body {
 .legal {
   position: fixed;
   top: 0;
+  z-index: 100;
+
 }
 .legal_item {
   display: inline-block;
@@ -69,6 +75,8 @@ body {
   position: fixed;
   bottom: $tb_padding;
   width: 100vw;
+  z-index: 20;
+
 }
 .legal_bottom_links {
   font-size: 18px;
@@ -85,7 +93,6 @@ body {
   left: 70%;
 }
 #legal_index {
-  //   right: $lr_padding;
   right: 1.5 * $lr_padding;
 }
 #legal_privacy {
@@ -138,10 +145,6 @@ body {
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
-
-// input:checked + .slider {
-//   background-color: #2196f3;
-// }
 
 input:checked + .slider:before {
   -webkit-transform: translateX(16.5px);
@@ -286,8 +289,8 @@ p {
 .enter_text {
   //650/1440=0.4513
   font-family: clark_light;
-  width: 45vw;
-  font-size: 24px;
+  width: 59vw;
+  font-size: 22px;
   text-align: center;
 }
 #enter_title {
@@ -306,9 +309,12 @@ p {
 }
 
 .enter_button {
-  width: 200px;
-  height: 73px;
-  margin-top: 2vw;
+  // width: 200px;
+  height: 44px;
+  margin-top: 1.3vw;
+  padding-left: 30px;
+  padding-right: 30px;
+  font-size: 25px;
 }
 .button:hover {
   background-color: $black;
@@ -370,11 +376,14 @@ p {
   // top:3*$tb_padding;
   background-color: $beige;
   width: 100%;
-  margin-left: $lr_padding;
+  z-index: 10;
+
 }
 .sub-title-text {
   font-size: 108px;
   font-family: clark_book;
+  margin-left: $lr_padding;
+
   position: absolute;
   bottom: 0;
 }
@@ -425,7 +434,6 @@ img {
 .item-des {
   text-align: center;
   margin-bottom: 10px;
-  
 }
 .items {
   // border: 1px solid lightgreen;
@@ -440,15 +448,19 @@ img {
   justify-content: center;
   align-items: center;
 }
-.item-des{
-  display:none;
-}
+// .item-des {
+//   display: none;
+// }
 .item-photo {
   // width: 18vw;
-  width:16.67vw;
+  width: 16.67vw;
   border-radius: 20%;
+  position: absolute;
+
   // display: none;
   // display:block;
+  z-index: 1;
+
 }
 
 .item-name {
@@ -466,4 +478,41 @@ img {
   border-radius: 69.4288px;
   border: 1px solid $black;
   background-color: transparent;
+}
+
+//--------animated loading squezzed animation
+.animate_img_cl {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: pink;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.anim_img {
+  border-radius: 4%;
+  width: 80%;
+  height: 90%;
+}
+#sq_ani_img1 {
+  position: fixed;
+  right: 0px;
+  animation-name: move;
+  animation-duration: 4s;
+}
+@keyframes move {
+  0% {
+    width: 0;
+    right: 0px;
+  }
+  50% {
+    width: 80%;
+    right: 720px;
+  }
+  100% {
+    width: 0%;
+    right: 1440px;
+  }
 }
