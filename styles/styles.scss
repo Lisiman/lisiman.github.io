@@ -50,7 +50,6 @@ body {
   position: fixed;
   top: 0;
   z-index: 100;
-
 }
 .legal_item {
   display: inline-block;
@@ -76,7 +75,6 @@ body {
   bottom: $tb_padding;
   width: 100vw;
   z-index: 20;
-
 }
 .legal_bottom_links {
   font-size: 18px;
@@ -377,7 +375,6 @@ p {
   background-color: $beige;
   width: 100%;
   z-index: 10;
-
 }
 .sub-title-text {
   font-size: 108px;
@@ -460,7 +457,6 @@ img {
   // display: none;
   // display:block;
   z-index: 1;
-
 }
 
 .item-name {
@@ -515,4 +511,53 @@ img {
     width: 0%;
     right: 1440px;
   }
+}
+
+//--------------anim3
+.parent {
+  display: flex;
+  flex-wrap: wrap;
+  // width: 0;
+}
+
+.child {
+  border: 3px solid green;
+  flex: 1 0 21%; /* explanation below */
+  // margin: 5px;
+  height: 100vh;
+  background-color: lightpink;
+}
+.child img {
+  height: 98%;
+  border-radius: 5%;
+}
+#child4 {
+  flex-grow: 1;
+}
+
+// .parent div{
+//   flex-shrink: 1;
+//   flex-grow: 0;
+//   flex-basis: 500px;
+// }
+* {
+  margin: 0;
+  padding: 0;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+#box {
+  position: fixed;
+  top: 0;
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+}
+#box img {
+  flex-shrink: 0;
+  transition: 0.4s;
+  height: 100vh;
+  transform-origin: left center;
+  border-radius: 50px;
 }
