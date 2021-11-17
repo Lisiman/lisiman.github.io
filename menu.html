@@ -1,0 +1,96 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Legal</title>
+    <link rel="stylesheet" href="styles/styles.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div class="center-inside" id="page_window">
+      <div class="menu_div_cl">
+        <div class="row">
+          <div class="column leftCol">
+            <p class="title_num" id="menu_title1">1/4</p>
+            <p class="title_text" id="menu_title2">BIG NESTING<br />ENERGY</p>
+            <div class="cta_menu clickable" id="menu_cta">
+              VIEW
+              <img id="arrow_icon" src="resources/img/arrow_icon.svg" alt="" />
+            </div>
+          </div>
+          <div class="column rigCol">
+                <img src="resources/img/f1.jpg" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="legal"></div>
+    <script src="js/legal.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+      let menu_title1 = document.getElementById("menu_title1");
+      let menu_title2 = document.getElementById("menu_title2");
+      const title_num = ["1/4", "2/4", "3/4", "4/4"];
+      const title_name = [
+        "BIG NESTING ENERGY",
+        "EATING OUR FEELINGS",
+        "SELF CARE,<br>SHIPPED EXPRESS",
+        "NEVER KNEW WE NEEDED",
+      ];
+      function wheel(ele, callback) {
+        let timer;
+        ele.onwheel = (ev) => {
+          clearTimeout(timer);
+          let { wheelDelta } = ev;
+          timer = setTimeout(() => {
+            // console.log("测试");
+            callback(wheelDelta > 0 ? true : false);
+          }, 200);
+        };
+      }
+      let i = 0;
+      let box = document.getElementById("page_window");
+      wheel(box, (status) => {
+        console.log(status ? "上" : "下");
+        if (status) {
+          //scroll up
+          i--;
+        } else {
+          //scroll down
+          i++;
+        }
+        if (i > 3) {
+          i = 0;
+        }
+        if (i < 0) {
+          i = 0;
+        }
+        // console.log("i is" + i);
+        menu_title1.innerHTML = title_num[i];
+        menu_title2.innerHTML = title_name[i];
+      });
+
+      function scrollDownSwitch() {
+        // console.log("scroll down things");
+        setTimeout(function () {
+          //   if (i < title_num.length) {
+          i++;
+          //   }
+        }, 1000);
+        console.log("here" + i);
+        menu_title1.innerHTML = title_num[i];
+        menu_title2.innerHTML = title_name[i];
+      }
+      function changeTitleDown() {
+        if (i < title_num.length) {
+          i++;
+          console.log("here" + i);
+          menu_title1.innerHTML = title_num[i];
+          menu_title2.innerHTML = title_name[i];
+        }
+        // i=0;
+      }
+    </script>
+  </body>
+</html>
