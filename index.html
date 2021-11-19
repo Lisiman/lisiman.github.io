@@ -1,24 +1,212 @@
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Legal</title>
-    <link rel="stylesheet" href="styles/styles.css" />
-  </head>
-  <body>
-    <!-- <section class="main-section"> -->
-    <section class="product-cata">
-      <div class="catalog" id="app" value="all"></div>
-    </section>
-    <!-- </section> -->
-    <div class="sub-title">
-      <div class="sub-title-text">INDEX</div>
-    </div>
+  <html lang="zh">
+    <head>
+      <meta charset="UTF-8" />
+      <meta
+        name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+      />
+      <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+      <title>Browser History 2021</title>
+      <script src="js/pageControl.js"></script>
+      <link
+        rel="stylesheet"
+        href="https://unpkg.com/animate.css@3.5.2/animate.min.css"
+      />
+      <link rel="stylesheet" href="style/styles.css" />
 
-    <div id="legal"></div>
-    <script src="js/index.js"></script>
-    <script src="js/legal.js"></script>
-    <script src="js/script.js"></script>
-  </body>
+      <style>
+        .animated {
+          animation-delay: 0;
+        }
+        #app {
+          position: fixed;
+        }
+      </style>
+    </head>
+    <body>
+      <div class="legal">
+        <div class="legal_top" id="legal_top_id">
+          <img
+            class="legal_item clickable"
+            id="legal_logo"
+            src="resources/img/sqsp_icon.svg"
+            alt=""
+          />
+          <div class="legal_item clickable" id="legal_info">INFO</div>
+          <div class="legal_item" id="legal_mode">
+            MODE<label class="switch"
+              ><input onclick="myFunction()" type="checkbox" /><span
+                class="slider round"
+              ></span
+            ></label>
+          </div>
+          <div class="legal_item clickable legal_index_cl" id="legal_index">
+            INDEX
+            <div class="legal_index_cl" id="hamburger">
+              <div class="topleft ham_dot transitionAni" id="index_tl_id"></div>
+              <div
+                class="topright ham_dot transitionAni"
+                id="index_tr_id"
+              ></div>
+              <div
+                class="bottomright ham_dot transitionAni"
+                id="index_br_id"
+              ></div>
+              <div
+                class="bottomleft ham_dot transitionAni"
+                id="index_bl_id"
+              ></div>
+            </div>
+          </div>
+        </div>
+        <div class="legal_bottom transitionAni">
+          <a
+            href="https://www.squarespace.com/privacy"
+            target="_blank"
+            class="legal_item legal_bottom_links transitionAni"
+            id="legal_privacy"
+            >PRIVACY POLICY</a
+          >
+          <a
+            href="https://www.squarespace.com/terms-of-service"
+            target="_blank"
+            class="legal_item legal_bottom_links transitionAni"
+            id="legal_terms"
+            >TERMS OF SERVICE</a
+          >
+        </div>
+      </div>
+      <div id="app"></div>
+    </body>
+    <script>
+      let topLegal = document.getElementById("legal_top_id");
+      let loader_later_text =
+        document.getElementsByClassName("loader_later_text");
+      var loadDone = false; //if the loader+animation is done
+
+      //render base URL
+      let render = new Render({
+        baseURI: "./template",
+      });
+      //---------------------------!loading+ animation page !--------------------------//
+      render
+        .create("enterAni2", document.getElementById("app"), {
+          // animate: "fadeIn",
+          animate: "none",
+          mode: "load",
+          load: "loadIndex",
+        })
+        .then((res) => {
+          //   console.log(res);
+          // !!!!load the page
+          loadIndex("add");
+          //hide the top legal when loading
+          topLegal.style.opacity = "0";
+          //hide the later text when loading bar is working
+          Array.from(loader_later_text).forEach(
+            (element) => (element.style.opacity = "0")
+          );
+          //-----------loading page animation stretch--------------//
+          //-----loader bar start
+          var i = 0;
+          move();
+          function move() {
+            if (i == 0) {
+              i = 1;
+              var elem = document.getElementById("loader_bar_id");
+              var width = 38;
+              var id = setInterval(frame, 30);
+              function frame() {
+                if (width <= 8) {
+                  //when the loading is finished
+                  clearInterval(id);
+                  i = 0;
+                  //get the other text elements back in
+                  Array.from(loader_later_text).forEach(
+                    (element) => (element.style.opacity = "100")
+                  );
+                } else {
+                  width--;
+                  elem.style.width = width + "vw";
+                }
+              }
+            }
+          }
+          //-----loader bar end, below is the stretch animation code
+
+          let startButton = document.getElementById("start_button");
+          startButton.addEventListener("click", stretchAnimation);
+          function stretchAnimation() {
+            console.log("now animation");
+            let ele = document.getElementById("box");
+            for (let i = 1; i <= 4; i++) {
+              let imgEle = document.createElement("img");
+              imgEle.src = `resources/img/s${i}.png`;
+              imgEle.className = "imgBox";
+              imgEle.style.width = document.body.clientWidth + "px";
+              // imgEle.style.height =  + 'px';
+              ele.append(imgEle);
+            }
+            let imgList = document.getElementsByClassName("imgBox");
+            // window.onresize = () => {
+            //     Array.from(imgList).map(ele => {
+            //         ele.style.width = document.body.clientWidth + 'px';
+            //     })
+            // }
+            let i = 0;
+
+            Array.from(imgList).forEach((item, index) => {
+              setTimeout(() => {
+                i++;
+                item.style.width = 0;
+                console.log(i);
+                if (i == 4) {
+                  //animation finished
+                  console.log("strech done");
+                  loadMenuFuc();
+                  loadDone = true;
+                  console.log(loadDone);
+                }
+              }, index * 1000);
+            });
+          }
+
+          // window.onload = () => {};
+        });
+
+      //---------------------------menu page !--------------------------//
+      function loadMenuFuc() {
+        console.log("hey menu");
+        render
+          .create("menu3", document.getElementById("app"), {
+            animate: "fadeIn",
+            mode: "load",
+            load: "loadMenu",
+          })
+          .then((res) => {
+            // window.loadMenu("add");
+            topLegal.style.opacity = "100"; //make the upper legal appear
+            console.log("load is true");
+            window.loadMenu("cover");
+          });
+      }
+      //---------------------------open index page !--------------------------//
+      render
+        .create("index5", document.getElementById("app"), {
+          animate: "fadeIn",
+          mode: "load",
+          load: "loadIndex",
+        })
+        .then((res) => {
+          // window.loadMenu("add");
+          // topLegal.style.opacity = "100"; //make the upper legal appear
+          console.log("load index");
+          window.loadIndex("cover");
+        });
+    </script>
+    <!-- <script src="js/loading.js"></script> -->
+    <script src="js/legal&dark.js"></script>
+  </html>
 </html>

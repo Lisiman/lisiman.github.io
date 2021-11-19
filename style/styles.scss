@@ -3,7 +3,7 @@ $black: #010101;
 $beige: #efedea;
 
 //animation duration
-$ani_dur: 0.5s;
+$ani_dur: 0.4s;
 
 //---loaders 1440px
 //66/1440=0.045
@@ -45,6 +45,12 @@ body {
   // height: 100vh;
   // width: 100vw;
   // overflow: hidden;
+}
+.body_cl {
+  width: 100vw;
+  height: 100vh;
+  // background-color: black;
+  margin: 0;
 }
 ::-webkit-scrollbar {
   display: none;
@@ -191,9 +197,8 @@ input:checked + .slider:before {
   width: 50px;
   // background-color: red;
 }
-.ham_dot{
+.ham_dot {
   background-color: $black;
-
 }
 .topleft,
 .topright,
@@ -300,8 +305,15 @@ p {
   border: 0.64vw solid $black;
   border-radius: 3vw;
   //140 / 1440=
-  width: 8vw;
   height: 0.53 * $loader-font-size-enter-1440;
+}
+#loader_bar_id{
+  // width: 8vw;
+  width: 38vw;
+}
+.loader_later_text{
+  //we want a slower effect
+  transition-duration: 1s;
 }
 .enter_text {
   //650/1440=0.4513
@@ -449,14 +461,23 @@ img {
 .theme_catalog {
   display: flex;
   flex-wrap: wrap;
+  // width:5400px;
+  width: 330vw;
+  background: pink;
+
   // justify-content: space-between;
-  flex-direction: column;
+  // flex-direction: column;
 }
 .detail-items {
-  flex: 1 0 21%; /* explanation below */
-  margin: 5px;
-  height: 100px;
-  background-color: blue;
+  flex-shrink: 0;
+  width: 40vw;
+  // flex: 1 0 21%; /* explanation below */
+  margin-right: 0.5vw;
+  margin-bottom: 0.5vw;
+  height: 30vh;
+  background: darkcyan;
+  display: flex;
+  align-items: center;
 }
 .app-title {
   text-align: center;
@@ -470,6 +491,7 @@ img {
 .item_info {
   font-size: 15px;
   line-height: 21px;
+  margin-bottom: 20px;
 }
 .items {
   // border: 1px solid lightgreen;
@@ -488,13 +510,16 @@ img {
 //   display: none;
 // }
 .item-photo {
-  // width: 18vw;
   width: 16.67vw;
   border-radius: 20%;
   position: absolute;
-
-  // display: none;
-  // display:block;
+  z-index: 1;
+}
+.item-photo-detail {
+  // width: 17vw;
+  height: 30vh;
+  border-radius: 20%;
+  position: absolute;
   z-index: 1;
 }
 
@@ -502,6 +527,18 @@ img {
   font-size: 18.28px;
   font-weight: normal;
   // margin: 0 0 1rem 0;
+  text-align: left;
+  margin-bottom: 15px;
+}
+.item-des-detail {
+  line-height: normal;
+  position: relative;
+  left: 20vw;
+  width: 20vw;
+}
+.item-name-detail {
+  font-size: 18.28px;
+  font-weight: normal;
   text-align: left;
   margin-bottom: 15px;
 }
@@ -594,7 +631,7 @@ img {
   align-items: center;
 }
 #row_detail {
-  // width: 150%;
+  width: 250%;
   // height: 100vh;
 }
 
@@ -605,7 +642,7 @@ img {
   width: 100%;
   height: 100%;
 }
-.column img {
+.midCol img {
   width: 100%;
   height: 100%;
   border-radius: $imgRoundRadius;
@@ -621,13 +658,48 @@ img {
   letter-spacing: -4px;
   display: flex;
   flex-shrink: 2;
+  flex: 1 1 0;
+}
+.leftCol_menu{
+  font-family: "clark_light";
+  display: flex;
+  flex-direction: column;
+  // background-color: pink;
+  height: 90%;
+  // font-size: 108px;
+  letter-spacing: -4px;
+  display: flex;
+}
+
+.midCol{
+  flex-shrink: 1;
+  flex: 2 1 0;
 }
 .rigCol {
   flex-shrink: 1;
+  flex: 2 1 0;
+  // width: 100%;
+  // height: 100%;
+  // border-radius: $imgRoundRadius;
+  // object-fit: cover;
 }
-.title_text {
+.rigCol_menu{
+  flex-shrink: 1;
+  // flex: 2 1 0;
+}
+.rigCol_menu img{
+  width: 100%;
+  height: 100%;
+  border-radius: $imgRoundRadius;
+  object-fit: cover;
+}
+.menu_title_text{
   line-height: 98px;
   font-size: 108px;
+}
+.title_text {
+  // line-height: 98px;
+  // font-size: 108px;
 }
 .detail_explain {
   font-size: 30px;
@@ -640,7 +712,9 @@ img {
 }
 #menu_title2 {
   position: relative;
-  top: 10%;
+  // top: 10%;
+  top: 5%;
+
 }
 #detail_product_title {
   top: 10%;
@@ -668,7 +742,7 @@ img {
   position: relative;
   right: 0;
   float: right;
-  padding-top: 3%;
+  // padding-top: 3%;
 }
 .blue-column {
   background-color: blue;
@@ -691,11 +765,11 @@ img {
 .dark-mode-logo {
   background: url("sqsp_icon_w.svg");
 }
-.dark-mode-r{
-  background-color:$beige;
+.dark-mode-r {
+  background-color: $beige;
 }
-.dark-mode .slider:before{
-  background-color:$black;
+.dark-mode .slider:before {
+  background-color: $black;
 }
 
 //--------------------Media Query ---------------------//
