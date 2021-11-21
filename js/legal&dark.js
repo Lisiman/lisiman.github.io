@@ -39,13 +39,25 @@ function myFunction() {
 }
 //index menu animation
 let indexButton = document.getElementById("hamburger");
-let legal_index = document.getElementById("legal_index");
-legal_index.addEventListener("click", indexFunction);
+// let legal_index = document.getElementById("legal_index");
+// legal_index.addEventListener("click", indexFunction);
 
-function indexFunction() {
-  console.log("hello");
-  index_tl.classList.toggle("on");
-  index_tr.classList.toggle("on");
-  index_br.classList.toggle("on");
-  index_bl.classList.toggle("on");
-}
+// function indexFunction() {
+//   console.log("hello");
+//   index_tl.classList.toggle("on");
+//   index_tr.classList.toggle("on");
+//   index_br.classList.toggle("on");
+//   index_bl.classList.toggle("on");
+//   render
+//     .create("index5", document.getElementById("app"), {
+//       animate: "fadeIn",
+//       mode: "cover",
+//       load: "loadIndex",
+//     })
+//     .then((res) => {
+//       // window.loadMenu("add");
+//       // topLegal.style.opacity = "100"; //make the upper legal appear
+//       console.log("load index");
+//       // window.loadIndex("cover");
+//     });
+// }

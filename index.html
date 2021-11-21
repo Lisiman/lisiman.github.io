@@ -10,20 +10,13 @@
       <meta http-equiv="X-UA-Compatible" content="ie=edge" />
       <title>Browser History 2021</title>
       <script src="js/pageControl.js"></script>
+      <script src="js/catalog.js"></script>
+
       <link
         rel="stylesheet"
         href="https://unpkg.com/animate.css@3.5.2/animate.min.css"
       />
       <link rel="stylesheet" href="style/styles.css" />
-
-      <style>
-        .animated {
-          animation-delay: 0;
-        }
-        #app {
-          position: fixed;
-        }
-      </style>
     </head>
     <body>
       <div class="legal">
@@ -78,21 +71,23 @@
           >
         </div>
       </div>
-      <div id="app"></div>
+      <div id="app_l"></div>
     </body>
     <script>
       let topLegal = document.getElementById("legal_top_id");
       let loader_later_text =
         document.getElementsByClassName("loader_later_text");
       var loadDone = false; //if the loader+animation is done
+      var atMenu = false; //check if we are at menu page, if not click logo to go back
 
+      // let indexButton = document.getElementById("legal_index");
       //render base URL
       let render = new Render({
         baseURI: "./template",
       });
       //---------------------------!loading+ animation page !--------------------------//
       render
-        .create("enterAni2", document.getElementById("app"), {
+        .create("enterAni2", document.getElementById("app_l"), {
           // animate: "fadeIn",
           animate: "none",
           mode: "load",
@@ -169,10 +164,9 @@
                   loadDone = true;
                   console.log(loadDone);
                 }
-              }, index * 1000);
+              }, index * 500);
             });
           }
-
           // window.onload = () => {};
         });
 
@@ -180,31 +174,101 @@
       function loadMenuFuc() {
         console.log("hey menu");
         render
-          .create("menu3", document.getElementById("app"), {
+          .create("menu3", document.getElementById("app_l"), {
             animate: "fadeIn",
-            mode: "load",
+            mode: "cover",
             load: "loadMenu",
           })
           .then((res) => {
             // window.loadMenu("add");
             topLegal.style.opacity = "100"; //make the upper legal appear
             console.log("load is true");
-            window.loadMenu("cover");
+            atMenu=true;
+            // window.loadMenu("cover");
           });
       }
       //---------------------------open index page !--------------------------//
-      // render
-      //   .create("index5", document.getElementById("app"), {
-      //     animate: "fadeIn",
-      //     mode: "load",
-      //     load: "loadIndex",
-      //   })
-      //   .then((res) => {
-      //     // window.loadMenu("add");
-      //     // topLegal.style.opacity = "100"; //make the upper legal appear
-      //     console.log("load index");
-      //     window.loadIndex("cover");
-      //   });
+      let legal_index = document.getElementById("legal_index");
+      legal_index.addEventListener("click", indexFunction);
+      var indexShow = false;
+
+      function indexFunction() {
+        //control the index animation
+        index_tl.classList.toggle("on");
+        index_tr.classList.toggle("on");
+        index_br.classList.toggle("on");
+        index_bl.classList.toggle("on");
+        if (!indexShow) {
+          console.log("show the index");
+          //load the index page
+          render
+            .create("index5", document.getElementById("app_l"), {
+              animate: "fadeIn",
+              mode: "add",
+              // mode: "cover",
+              load: "loadIndex",
+            })
+            .then((res) => {
+              console.log("load index");
+              // document.getElementById("app").style.position="";
+            });
+          indexShow = true;
+        } else {
+          console.log("hide the index");
+          //remove the index page
+          render.remove(document.getElementById("index_page_id"), {
+            animate: "fadeInDown",
+          });
+          indexShow = false;
+          atMenu = false;
+        }
+      }
+      //---------------------------open info page !--------------------------//
+      let legal_info_btn = document.getElementById("legal_info");
+      legal_info_btn.addEventListener("click", infoFunction);
+      var infoShow = false;
+
+      function infoFunction() {
+        if (!infoShow) {
+          console.log("show info");
+          render
+            .create("info", document.getElementById("app_l"), {
+              animate: "fadeIn",
+              mode: "add",
+              load: "loadInfo",
+            })
+            .then((res) => {
+              // console.log("load index");
+            });
+          infoShow = true;
+        } else {
+          console.log("hide info");
+          //remove the info page
+          render.remove(document.getElementById("info_page_id"), {
+            animate: "fadeInDown",
+          });
+          infoShow = false;
+          atMenu = false;
+        }
+      }
+      //-------------------------click logo to go back to menu !--------------------------//
+      let logo_btn = document.getElementById("legal_logo");
+      logo_btn.addEventListener("click", goBackMenu);
+      function goBackMenu() {
+        if (!atMenu) {
+          console.log("we are not at menu, click on logo to go back menu");
+          render
+            .create("menu3", document.getElementById("app_l"), {
+              animate: "fadeIn",
+              mode: "cover",
+              load: "loadMenu",
+            })
+            .then((res) => {
+              // console.log("load index");
+              atMenu=true;
+            });
+        }
+      }
     </script>
     <!-- <script src="js/loading.js"></script> -->
     <script src="js/legal&dark.js"></script>

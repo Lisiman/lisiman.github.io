@@ -291,7 +291,6 @@ const itemsData4 = [
   },
 ];
 const itemsData = itemsDataT1.concat(itemsDataT2, itemsDataT3, itemsData4);
-console.log("in index.js!");
 function totalItemTemplate(item) {
   return `
       <div class="items clickable cardBox">
@@ -313,43 +312,6 @@ function itemTemplate1(item) {
         </div>
       `;
 }
-function itemTemplate2(item) {
-}
-function itemTemplate3(item) {
-}
-function itemTemplate4(item) {
-}
-let value = document.getElementsByClassName("catalog")[0].getAttribute("value");
-console.log(value);
-
-if (value == "all") {
-  console.log("they1");
-
-  document.getElementsByClassName("catalog")[0].innerHTML = `
-    ${itemsData.map(totalItemTemplate).join("")}
-  `;
-}
-for (let i = 1; i < 4; i++) {
-  if (value == "theme" + i) {
-    console.log("they2");
-    document.getElementsByClassName("catalog")[0].innerHTML = `
-        ${eval(`itemsDataT${i}`)
-          .map(eval(`itemTemplate${i}`))
-          .join("")}
-      `;
-  }
-}
-
-let itemsDesArray = document.getElementsByClassName("cardBox");
-Array.from(itemsDesArray).map((ele, idx) => {
-  let event = ["onmouseenter", "onmouseleave"];
-  ele.status = true;
-  event.map((item) => {
-    ele[item] = (ev) => {
-      let ele = ev.target.children[0];
-      if (!ele) return;
-      ele.status = !ele.status;
-      ele.style.display = ele.status ? "none" : "block";
-    };
-  });
-});
+function itemTemplate2(item) {}
+function itemTemplate3(item) {}
+function itemTemplate4(item) {}

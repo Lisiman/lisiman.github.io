@@ -464,6 +464,7 @@ p {
 }
 
 .product-cata {
+  background-color: #efedea;
   position: absolute;
   top: 300px;
   width: 100%;
@@ -471,6 +472,11 @@ p {
 
 .detail_cata {
   top: 100px;
+}
+
+.animated {
+  -webkit-animation-delay: 0;
+          animation-delay: 0;
 }
 
 img {
@@ -874,6 +880,54 @@ img {
 .green-column {
   height: 100px;
   background-color: green;
+}
+
+#rigCol_info_id {
+  height: 90%;
+}
+
+#info_page_id {
+  position: fixed;
+  top: 0;
+  background-color: #efedea;
+}
+
+.info_title {
+  font-family: clark_light;
+  /* font-weight: 300; */
+  font-size: 45px;
+  line-height: 52px;
+  margin-bottom: 2vw;
+}
+
+.info_title_s {
+  font-family: clark_light;
+  text-transform: uppercase;
+  font-size: 23.34px;
+  line-height: 29px;
+  margin-top: 3.5vw;
+}
+
+.info_main_text {
+  font-family: clark_light;
+  margin-top: 1vw;
+  font-weight: 300;
+  font-size: 28px;
+  line-height: 35px;
+  letter-spacing: -0.03em;
+}
+
+#sqsp_btn_id {
+  width: auto;
+  height: auto;
+  padding-left: 1.5vw;
+  padding-right: 1.5vw;
+  padding-top: 0.6vw;
+  padding-bottom: 0.6vw;
+  border: 2px solid #000000;
+  margin-top: 1.7vw;
+  font-size: 33.9769px;
+  /* margin: 1vw; */
 }
 
 .dark-mode {
