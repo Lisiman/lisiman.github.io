@@ -704,6 +704,10 @@ img {
   width: 100%;
 }
 
+.lineTwo_title {
+  --animate-delay: 0.05s;
+}
+
 .row {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -870,6 +874,32 @@ img {
   position: relative;
   right: 0;
   float: right;
+  -webkit-animation: arrowMove 1.2s infinite;
+          animation: arrowMove 1.2s infinite;
+}
+
+@-webkit-keyframes arrowMove {
+  0% {
+    right: 3%;
+  }
+  60% {
+    right: 0%;
+  }
+  100% {
+    right: 3%;
+  }
+}
+
+@keyframes arrowMove {
+  0% {
+    right: 3%;
+  }
+  60% {
+    right: 0%;
+  }
+  100% {
+    right: 3%;
+  }
 }
 
 .blue-column {

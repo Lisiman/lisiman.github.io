@@ -4,11 +4,28 @@
       <div class="menu_div_cl">
         <div class="row">
           <div class="column leftCol_menu">
-            <p class="menu_title_text title_num animate__fadeInUp" id="menu_title1">1/4</p>
-            <p class="menu_title_text title_text animate__fadeInUp" id="menu_title2">
-              BIG NESTING<br />ENERGY
-            </p>
-            <div class="menu_title_text cta_menu clickable animate__fadeInUp" id="menu_cta">
+            <p class="menu_title_text title_num" id="menu_title1">1/4</p>
+            <div class="menu_title_text title_text" id="menu_title2">
+              <p class="animate__animated animate__fadeInUp">BIG NESTING</p>
+              <p
+                class="
+                  animate__animated animate__fadeInUp
+                  lineTwo_title
+                  animate__delay-2s
+                "
+              >
+                ENERGY
+              </p>
+            </div>
+            <div
+              class="
+                menu_title_text
+                cta_menu
+                clickable
+                animate__animated animate__fadeInUp
+              "
+              id="menu_cta"
+            >
               VIEW
               <img
                 id="arrow_icon"
@@ -18,7 +35,7 @@
             </div>
           </div>
           <div class="column rigCol_menu">
-            <img src="../resources/img/f1.jpg" alt="" />
+            <img id="menu_main_pic_id" src="../resources/img/f1.jpg" alt="" />
           </div>
         </div>
       </div>
@@ -32,13 +49,17 @@
   console.log("now in the menu page");
   let menu_title1 = document.getElementById("menu_title1");
   let menu_title2 = document.getElementById("menu_title2");
+  let menu_main_pic_id = document.getElementById("menu_main_pic_id");
   const title_num = ["1/4", "2/4", "3/4", "4/4"];
   const title_name = [
     "BIG NESTING ENERGY",
     "EATING OUR FEELINGS",
-    "SELF CARE,<br>SHIPPED EXPRESS",
-    "NEVER KNEW WE NEEDED",
+    "SELF CARE,<br>SHIPPED<br>EXPRESS",
+    "NEVER KNEW<br>WE NEEDED",
   ];
+  // const menu_main_pic_urls=[
+  //   ""
+  // ];
   function wheel(ele, callback) {
     let timer;
     ele.onwheel = (ev) => {
@@ -65,31 +86,33 @@
       i = 0;
     }
     if (i < 0) {
-      i = 0;
+      i = 3;
     }
     // console.log("i is" + i);
     menu_title1.innerHTML = title_num[i];
     menu_title2.innerHTML = title_name[i];
+    menu_main_pic_id.src = `../resources/img/f${i+1}.jpg`;
+
   });
 
-  function scrollDownSwitch() {
-    // console.log("scroll down things");
-    setTimeout(function () {
-      //   if (i < title_num.length) {
-      i++;
-      //   }
-    }, 1000);
-    console.log("here" + i);
-    menu_title1.innerHTML = title_num[i];
-    menu_title2.innerHTML = title_name[i];
-  }
-  function changeTitleDown() {
-    if (i < title_num.length) {
-      i++;
-      console.log("here" + i);
-      menu_title1.innerHTML = title_num[i];
-      menu_title2.innerHTML = title_name[i];
-    }
-    // i=0;
-  }
+  // function scrollDownSwitch() {
+  //   // console.log("scroll down things");
+  //   setTimeout(function () {
+  //     //   if (i < title_num.length) {
+  //     i++;
+  //     //   }
+  //   }, 1000);
+  //   console.log("here" + i);
+  //   menu_title1.innerHTML = title_num[i];
+  //   menu_title2.innerHTML = title_name[i];
+  // }
+  // function changeTitleDown() {
+  //   if (i < title_num.length) {
+  //     i++;
+  //     console.log("here" + i);
+  //     menu_title1.innerHTML = title_num[i];
+  //     menu_title2.innerHTML = title_name[i];
+  //   }
+  //   // i=0;
+  // }
 </script>

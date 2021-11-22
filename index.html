@@ -2,6 +2,10 @@
 <html lang="en">
   <html lang="zh">
     <head>
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+        />
       <meta charset="UTF-8" />
       <meta
         name="viewport"
@@ -183,7 +187,7 @@
             // window.loadMenu("add");
             topLegal.style.opacity = "100"; //make the upper legal appear
             console.log("load is true");
-            atMenu=true;
+            atMenu = true;
             // window.loadMenu("cover");
           });
       }
@@ -238,7 +242,12 @@
               load: "loadInfo",
             })
             .then((res) => {
-              // console.log("load index");
+              // console.log("pause and remove info");
+              // setTimeout(() => {
+              //   render.remove(document.getElementById("info_page_id"), {
+              //     animate: "fadeInDown",
+              //   });
+              // }, 3000);
             });
           infoShow = true;
         } else {
@@ -265,7 +274,7 @@
             })
             .then((res) => {
               // console.log("load index");
-              atMenu=true;
+              atMenu = true;
             });
         }
       }

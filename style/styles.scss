@@ -619,7 +619,7 @@ img {
   transform-origin: left center;
   border-radius: $imgRoundRadius;
 }
-//--------------menu
+//--------------menu-------//
 
 .menu_div_cl {
   margin: 30px;
@@ -627,6 +627,10 @@ img {
   height: 88%;
   width: 100%;
 }
+.lineTwo_title{
+  --animate-delay: 2s;
+}
+
 
 .row {
   display: flex;
@@ -748,7 +752,12 @@ img {
   position: relative;
   right: 0;
   float: right;
-  // padding-top: 3%;
+  animation: arrowMove 1.2s infinite;
+}
+@keyframes arrowMove {
+  0%   {right: 3%;}
+  60%  {right: 0%;}
+  100%  {right: 3%;}
 }
 .blue-column {
   background-color: blue;
