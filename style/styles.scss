@@ -11,8 +11,9 @@ $loader-font-size-1440: 4.5vw;
 $loader-font-size-enter-1440: 6vw;
 
 //legal
-$tb_padding: 25px;
-$lr_padding: 25px;
+$tb_padding: 28px;
+$lr_padding: 28px;
+$legal_bottom_height: 73.04px;
 
 //index page
 $sub-title-height: 300px;
@@ -54,13 +55,12 @@ html body {
   // background-color: black;
   margin: 0;
 }
-.menu_detail_main_id{
-  width:auto;
+.menu_detail_main_id {
+  width: auto;
 }
 ::-webkit-scrollbar {
   display: none;
 }
-
 // ------------ legal CSS start here ------------ //
 .transitionAni {
   transition: 0.4s;
@@ -74,7 +74,7 @@ html body {
   display: inline-block;
   position: absolute;
   // top: 0;
-  font-size: 20px;
+  font-size: 19px;
 }
 .legal_top {
   position: fixed;
@@ -95,19 +95,26 @@ html body {
   bottom: 0;
   width: 100vw;
   z-index: 20;
-  height: 73.04px;
+  height: $legal_bottom_height;
   background-color: $beige;
   display: flex;
   // justify-content: center;
   align-items: center;
 }
 .legal_bottom_links {
-  font-size: 18px;
+  font-size: 13px;
   color: $black;
   text-decoration: none;
 }
 #legal_logo {
   left: $lr_padding;
+}
+#legal_logo2 {
+  left: 2.1 * $lr_padding;
+}
+#loading_info {
+  right: $lr_padding;
+  font-size: 19px;
 }
 #legal_info {
   left: 50%;
@@ -118,7 +125,7 @@ html body {
   left: 70%;
 }
 #legal_index {
-  right: 1.5 * $lr_padding;
+  right: 2 * $lr_padding;
 }
 #legal_privacy {
   //   position: relative;
@@ -130,6 +137,10 @@ html body {
   //   left: 12%;
   left: 200px;
   background-color: transparent;
+}
+#sqsp_bottom {
+  position: absolute;
+  right: $lr_padding;
 }
 //-----------black mode switch-----------//
 .switch {
@@ -192,7 +203,7 @@ input:checked + .slider:before {
   display: inline-block;
   position: absolute;
   top: 6.5px;
-  margin-left: 8px;
+  margin-left: 16px;
   height: 14px;
   width: 14px;
   // background-color: red;
@@ -249,7 +260,6 @@ p {
 .clickable {
   // cursor: pointer;
   cursor: url("../resources/img/cursor.svg") 20 20, pointer;
-
 }
 .center-inside {
   display: flex;
@@ -444,6 +454,45 @@ p {
 .detail_cata {
   top: 100px;
 }
+//---------cookie banner css
+#cookie_div {
+  width: 420px;
+  height: 250px;
+  background: #ded9d2;
+  border-radius: 60px;
+  position: absolute;
+  right: $lr_padding;
+  bottom: $legal_bottom_height;
+  opacity: 0;
+}
+#cookie_text {
+  width: 344px;
+  font-size: 14px;
+}
+.cookie_a{
+  color: $black;
+}
+.being_centered {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.cookie_btn{
+  display: inline-block;
+  font-size: 16.5704px;
+  line-height: 17px;
+  padding-left: 3%;
+  padding-right: 3%;
+  padding-top:1%;
+  padding-bottom: 1%;
+  margin-top: 1vw;
+  margin-right: 4%;
+  height: 29px;
+}
+// #cookie_manage{}
 
 // -----------------------index page-------------//
 .animated {
@@ -872,5 +921,13 @@ img {
 @media only screen and (max-width: 1680px) {
   .legal_bottom {
     height: 55px;
+  }
+}
+//--------------------Media Query ---------------------//
+//----------1440px----------//
+
+@media only screen and (max-width: 1680px) {
+  .legal_bottom_links {
+    font-size: 10px;
   }
 }

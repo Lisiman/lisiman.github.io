@@ -46,12 +46,12 @@ html body {
 .legal_item {
   display: inline-block;
   position: absolute;
-  font-size: 20px;
+  font-size: 19px;
 }
 
 .legal_top {
   position: fixed;
-  top: 25px;
+  top: 28px;
   left: 0;
   display: inline-block;
   -webkit-box-align: start;
@@ -78,13 +78,22 @@ html body {
 }
 
 .legal_bottom_links {
-  font-size: 18px;
+  font-size: 13px;
   color: #010101;
   text-decoration: none;
 }
 
 #legal_logo {
-  left: 25px;
+  left: 28px;
+}
+
+#legal_logo2 {
+  left: 58.8px;
+}
+
+#loading_info {
+  right: 28px;
+  font-size: 19px;
 }
 
 #legal_info {
@@ -99,11 +108,11 @@ html body {
 }
 
 #legal_index {
-  right: 37.5px;
+  right: 56px;
 }
 
 #legal_privacy {
-  left: 25px;
+  left: 28px;
   background-color: transparent;
 }
 
@@ -111,6 +120,11 @@ html body {
   position: relative;
   left: 200px;
   background-color: transparent;
+}
+
+#sqsp_bottom {
+  position: absolute;
+  right: 28px;
 }
 
 .switch {
@@ -171,7 +185,7 @@ input:checked + .slider:before {
   display: inline-block;
   position: absolute;
   top: 6.5px;
-  margin-left: 8px;
+  margin-left: 16px;
   height: 14px;
   width: 14px;
 }
@@ -453,16 +467,16 @@ p {
 .sub-title-text {
   font-size: 108px;
   font-family: clark_book;
-  margin-left: 25px;
+  margin-left: 28px;
   position: absolute;
   bottom: 0;
 }
 
 .main-section {
   width: 100%;
-  padding: 25px;
+  padding: 28px;
   position: absolute;
-  top: 250px;
+  top: 280px;
   height: 200px;
 }
 
@@ -475,6 +489,48 @@ p {
 
 .detail_cata {
   top: 100px;
+}
+
+#cookie_div {
+  width: 420px;
+  height: 250px;
+  background: #ded9d2;
+  border-radius: 60px;
+  position: absolute;
+  right: 28px;
+  bottom: 73.04px;
+  opacity: 0;
+}
+
+#cookie_text {
+  width: 344px;
+  font-size: 14px;
+}
+
+.cookie_a {
+  color: #010101;
+}
+
+.being_centered {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.cookie_btn {
+  display: inline-block;
+  font-size: 16.5704px;
+  line-height: 17px;
+  padding-left: 3%;
+  padding-right: 3%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  margin-top: 1vw;
+  margin-right: 4%;
+  height: 29px;
 }
 
 .animated {
@@ -994,6 +1050,12 @@ img {
 @media only screen and (max-width: 1680px) {
   .legal_bottom {
     height: 55px;
+  }
+}
+
+@media only screen and (max-width: 1680px) {
+  .legal_bottom_links {
+    font-size: 10px;
   }
 }
 /*# sourceMappingURL=styles.css.map */
