@@ -1,0 +1,85 @@
+<template>
+  <div class="center-inside" id="page_window">
+    <div class="menu_div_cl"></div>
+  </div>
+</template>
+<script>
+
+  let detailMainDiv = document.getElementsByClassName("menu_div_cl")[0];
+  //the width of the right col
+  let rigColWidth = [];
+  for (let i = 0; i <= 3; i++) {
+    let div = document.createElement("div");
+    div.className = "detail_div";
+    div.innerHTML = `
+   <div class="row">
+    <div class="column leftCol">
+          <p class="title_num" id="detail_about_title">ABOUT THE TREND</p>
+          <div class="title_text menu_title_text" id="menu_title2">
+            <p>${title_name[i]}</p>
+            <p class="detail_explain col_left_text">
+               ${title_des[i]}
+            </p>
+          </div>
+          <div
+            class="cta_menu clickable title_text menu_title_text"
+            id="menu_cta"
+          >EXPLORE
+            <img id="arrow_icon" src="resources/img/arrow_icon.svg" alt="" />
+          </div>
+        </div>
+        <div class="column midCol">
+          <img src="resources/img/s${i + 1}.jpg" alt="" />
+        </div>
+    </div>
+    <div class="rigCol">
+        <div class="title_text menu_title_text" id="detail_product_title">
+          <p>FEATURED PRODUCTS</p>
+          <section class="product-cata detail_cata">
+            <div class="catalog theme_catalog" value="theme${i + 1}"></div>
+          </section>
+        </div>
+      </div>
+    
+    `;
+
+    detailMainDiv.append(div);
+    //push items inside
+    let eachCatalog = document.getElementsByClassName("catalog");
+    eachCatalog[i].innerHTML = `
+        ${eval(`itemsDataT${i + 1}`)
+          .map(eval(`itemTemplate`))
+          .join("")}
+      `;
+    //get one item width
+    let oneItem = document.getElementsByClassName("detail-items")[0];
+    console.log("the item width is" + oneItem.offsetWidth);
+    console.log(
+      "the item width is" + oneItem.offsetWidth / window.screen.width + "vw"
+    ); //40vw so far
+
+    //caulate that catalog width
+    rigColWidth[i] =
+      (oneItem.offsetWidth + 0.006 * window.screen.width) * cataRowNum[i];
+    console.log(
+      "rigColWidth width is" + rigColWidth / window.screen.width + "vw"
+    );
+    eachCatalog[i].style.width = rigColWidth[i] + "px";
+  }
+  //move that catalog to the right 
+
+  let eachThemeDiv = document.getElementsByClassName("detail_div");
+//   //the second one
+//   eachThemeDiv[1].style.left=rigColWidth[0]+1.5*window.screen.width+"px";
+//   //the third theme
+//   eachThemeDiv[2].style.left=rigColWidth[0]+rigColWidth[1]+1.5*2*window.screen.width+"px";
+//   //the fourth theme
+//   eachThemeDiv[3].style.left=rigColWidth[0]+rigColWidth[1]+rigColWidth[2]+1.5*3*window.screen.width+"px";
+  //the second one
+  eachThemeDiv[1].style.left=rigColWidth[0]+0.2*window.screen.width+"px";
+  //the third theme
+  eachThemeDiv[2].style.left=rigColWidth[0]+rigColWidth[1]+2*0.2*window.screen.width+"px";
+  //the fourth theme
+  eachThemeDiv[3].style.left=rigColWidth[0]+rigColWidth[1]+rigColWidth[2]+3*0.2*window.screen.width+"px";
+
+</script>

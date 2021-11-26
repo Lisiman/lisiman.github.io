@@ -2,10 +2,10 @@
 <html lang="en">
   <html lang="zh">
     <head>
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-        />
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+      />
       <meta charset="UTF-8" />
       <meta
         name="viewport"
@@ -14,7 +14,10 @@
       <meta http-equiv="X-UA-Compatible" content="ie=edge" />
       <title>Browser History 2021</title>
       <script src="js/pageControl.js"></script>
+      <!-- <script src="js/products.js"></script> -->
       <script src="js/catalog.js"></script>
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
       <link
         rel="stylesheet"
@@ -84,101 +87,100 @@
       var loadDone = false; //if the loader+animation is done
       var atMenu = false; //check if we are at menu page, if not click logo to go back
 
-      // let indexButton = document.getElementById("legal_index");
       //render base URL
       let render = new Render({
         baseURI: "./template",
       });
       //---------------------------!loading+ animation page !--------------------------//
-      render
-        .create("enterAni2", document.getElementById("app_l"), {
-          // animate: "fadeIn",
-          animate: "none",
-          mode: "load",
-          load: "loadIndex",
-        })
-        .then((res) => {
-          //   console.log(res);
-          // !!!!load the page
-          loadIndex("add");
-          //hide the top legal when loading
-          topLegal.style.opacity = "0";
-          //hide the later text when loading bar is working
-          Array.from(loader_later_text).forEach(
-            (element) => (element.style.opacity = "0")
-          );
-          //-----------loading page animation stretch--------------//
-          //-----loader bar start
-          var i = 0;
-          move();
-          function move() {
-            if (i == 0) {
-              i = 1;
-              var elem = document.getElementById("loader_bar_id");
-              var width = 38;
-              var id = setInterval(frame, 30);
-              function frame() {
-                if (width <= 8) {
-                  //when the loading is finished
-                  clearInterval(id);
-                  i = 0;
-                  //get the other text elements back in
-                  Array.from(loader_later_text).forEach(
-                    (element) => (element.style.opacity = "100")
-                  );
-                } else {
-                  width--;
-                  elem.style.width = width + "vw";
-                }
-              }
-            }
-          }
-          //-----loader bar end, below is the stretch animation code
+      // render
+      //   .create("enterAni2", document.getElementById("app_l"), {
+      //     // animate: "fadeIn",
+      //     animate: "none",
+      //     mode: "load",
+      //     load: "loadIndex",
+      //   })
+      //   .then((res) => {
+      //     // !!!!load the page
+      //     loadIndex("add");
+      //     //hide the top legal when loading
+      //     topLegal.style.opacity = "0";
+      //     //hide the later text when loading bar is working
+      //     Array.from(loader_later_text).forEach(
+      //       (element) => (element.style.opacity = "0")
+      //     );
+      //     //-----------loading page animation stretch--------------//
+      //     //-----loader bar start
+      //     var i = 0;
+      //     move();
+      //     function move() {
+      //       if (i == 0) {
+      //         i = 1;
+      //         var elem = document.getElementById("loader_bar_id");
+      //         var width = 38;
+      //         var id = setInterval(frame, 30);
+      //         function frame() {
+      //           if (width <= 8) {
+      //             //when the loading is finished
+      //             clearInterval(id);
+      //             i = 0;
+      //             //get the other text elements back in
+      //             Array.from(loader_later_text).forEach(
+      //               (element) => (element.style.opacity = "100")
+      //             );
+      //           } else {
+      //             width--;
+      //             elem.style.width = width + "vw";
+      //           }
+      //         }
+      //       }
+      //     }
+      //     //-----loader bar end, below is the stretch animation code
 
-          let startButton = document.getElementById("start_button");
-          startButton.addEventListener("click", stretchAnimation);
-          function stretchAnimation() {
-            console.log("now animation");
-            let ele = document.getElementById("box");
-            for (let i = 1; i <= 4; i++) {
-              let imgEle = document.createElement("img");
-              imgEle.src = `resources/img/s${i}.png`;
-              imgEle.className = "imgBox";
-              imgEle.style.width = document.body.clientWidth + "px";
-              // imgEle.style.height =  + 'px';
-              ele.append(imgEle);
-            }
-            let imgList = document.getElementsByClassName("imgBox");
-            // window.onresize = () => {
-            //     Array.from(imgList).map(ele => {
-            //         ele.style.width = document.body.clientWidth + 'px';
-            //     })
-            // }
-            let i = 0;
+      //     let startButton = document.getElementById("start_button");
+      //     startButton.addEventListener("click", stretchAnimation);
+      //     function stretchAnimation() {
+      //       console.log("now animation");
+      //       let ele = document.getElementById("box");
+      //       for (let i = 1; i <= 4; i++) {
+      //         let imgEle = document.createElement("img");
+      //         imgEle.src = `resources/img/s${i}.png`;
+      //         imgEle.className = "imgBox";
+      //         imgEle.style.width = document.body.clientWidth + "px";
+      //         // imgEle.style.height =  + 'px';
+      //         ele.append(imgEle);
+      //       }
+      //       let imgList = document.getElementsByClassName("imgBox");
+      //       // window.onresize = () => {
+      //       //     Array.from(imgList).map(ele => {
+      //       //         ele.style.width = document.body.clientWidth + 'px';
+      //       //     })
+      //       // }
+      //       let i = 0;
 
-            Array.from(imgList).forEach((item, index) => {
-              setTimeout(() => {
-                i++;
-                item.style.width = 0;
-                console.log(i);
-                if (i == 4) {
-                  //animation finished
-                  console.log("strech done");
-                  loadMenuFuc();
-                  loadDone = true;
-                  console.log(loadDone);
-                }
-              }, index * 500);
-            });
-          }
-          // window.onload = () => {};
-        });
+      //       Array.from(imgList).forEach((item, index) => {
+      //         setTimeout(() => {
+      //           i++;
+      //           item.style.width = 0;
+      //           console.log(i);
+      //           if (i == 4) {
+      //             //animation finished
+      //             console.log("strech done");
+      //             loadMenuFuc();
+      //             loadDone = true;
+      //             console.log(loadDone);
+      //           }
+      //         }, index * 500);
+      //       });
+      //     }
+      //     // window.onload = () => {};
+      //   });
 
       //---------------------------menu page !--------------------------//
+      loadMenuFuc(); //let's just go to menu directly for testing now
       function loadMenuFuc() {
         console.log("hey menu");
         render
-          .create("menu3", document.getElementById("app_l"), {
+          .create("menu", document.getElementById("app_l"), {
             animate: "fadeIn",
             mode: "cover",
             load: "loadMenu",
@@ -206,7 +208,7 @@
           console.log("show the index");
           //load the index page
           render
-            .create("index5", document.getElementById("app_l"), {
+            .create("index_all", document.getElementById("app_l"), {
               animate: "fadeIn",
               mode: "add",
               // mode: "cover",
@@ -221,12 +223,14 @@
           console.log("hide the index");
           //remove the index page
           render.remove(document.getElementById("index_page_id"), {
-            animate: "fadeInDown",
+            animate: "fadeInUp",
           });
           indexShow = false;
           atMenu = false;
         }
       }
+      //---------------------------open detail page !--------------------------//
+
       //---------------------------open info page !--------------------------//
       let legal_info_btn = document.getElementById("legal_info");
       legal_info_btn.addEventListener("click", infoFunction);
@@ -254,7 +258,7 @@
           console.log("hide info");
           //remove the info page
           render.remove(document.getElementById("info_page_id"), {
-            animate: "fadeInDown",
+            animate: "fadeInUp",
           });
           infoShow = false;
           atMenu = false;
@@ -267,7 +271,7 @@
         if (!atMenu) {
           console.log("we are not at menu, click on logo to go back menu");
           render
-            .create("menu3", document.getElementById("app_l"), {
+            .create("menu", document.getElementById("app_l"), {
               animate: "fadeIn",
               mode: "cover",
               load: "loadMenu",

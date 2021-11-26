@@ -70,7 +70,8 @@ class Render {
     let elements = document.querySelectorAll(`*[ros-id='${id}']`);
     elements.forEach((item) => {
       if (animate) item.classList.add("animated", animate);
-      item.style.display = "none";
+      // item.style.display = "none";
+      console.log("updates in remove");
       setTimeout(() => {
         item.remove();
       }, 1000);

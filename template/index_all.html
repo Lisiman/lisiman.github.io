@@ -11,28 +11,26 @@
 </template>
 <script>
   console.log("in index.js!");
-  let value = document
-    .getElementsByClassName("catalog")[0]
-    .getAttribute("value");
+  let indexCata=document.getElementById("app");
+  let value = indexCata.getAttribute("value");
   console.log(value);
 
   if (value == "all") {
-    console.log("they1");
-
-    document.getElementsByClassName("catalog")[0].innerHTML = `
+    console.log("value====all");
+    indexCata.innerHTML = `
     ${itemsData.map(totalItemTemplate).join("")}
   `;
   }
-  for (let i = 1; i < 4; i++) {
-    if (value == "theme" + i) {
-      console.log("they2");
-      document.getElementsByClassName("catalog")[0].innerHTML = `
-        ${eval(`itemsDataT${i}`)
-          .map(eval(`itemTemplate${i}`))
-          .join("")}
-      `;
-    }
-  }
+  // for (let i = 1; i < 4; i++) {
+  //   if (value == "theme" + i) {
+  //     console.log("they2");
+  //     document.getElementsByClassName("catalog")[0].innerHTML = `
+  //       ${eval(`itemsDataT${i}`)
+  //         .map(eval(`itemTemplate${i}`))
+  //         .join("")}
+  //     `;
+  //   }
+  // }
 
   let itemsDesArray = document.getElementsByClassName("cardBox");
   Array.from(itemsDesArray).map((ele, idx) => {
@@ -48,7 +46,3 @@
     });
   });
 </script>
-
-<!-- <script src="js/index.js"></script> -->
-<!-- <script src="js/legal.js"></script> -->
-<!-- <script src="js/script.js"></script> -->
