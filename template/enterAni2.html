@@ -7,7 +7,7 @@
         <span class="loader_o enter_main_title_o" id="loader_bar_id"></span>
         <span class="loader_font enter_main_title">RY</span>
       </div>
-      <p class="enter_text loader_later_text">
+      <p class="enter_text loader_later_text" id="loading_short_info">
         Short explanation of all trends desribing each of them ut perspiciatis
         unde omnis iste natus sit tatem accusantium doloremque laudantium, totam
         rem aperiam.
@@ -17,7 +17,13 @@
       </button>
     </div>
     <div id="box"></div>
-    <!-- <script></script> -->
-    <!-- <script src="js/loading.js"></script> -->
   </div>
 </template>
+<script>
+  //replace the info when screen width is smaller
+  if (window.screen.width <= 400) {
+    // document.getElementById("loading_short_info").innerHTML="Short explanation of all trends desribing each of them ut perspiciatis unde omnis iste natus sit tatem.";
+
+}
+
+</script>

@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <meta
-      name="viewport"
-      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+            name="viewport"
+            content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
     />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>Browser History 2021</title>
     <script src="js/pageControl.js"></script>
     <!-- <script src="js/products.js"></script> -->
@@ -19,334 +19,368 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <link
-      rel="stylesheet"
-      href="https://unpkg.com/animate.css@3.5.2/animate.min.css"
+            rel="stylesheet"
+            href="https://unpkg.com/animate.css@3.5.2/animate.min.css"
     />
-    <link rel="stylesheet" href="style/styles.css" />
-  </head>
-  <body>
-    <div class="legal">
-      <div class="legal_top" id="legal_top_id">
+    <link rel="stylesheet" href="style/styles.css"/>
+</head>
+<body>
+<div class="legal">
+    <div class="legal_top" id="legal_top_id">
         <img
-          class="legal_item clickable"
-          id="legal_logo"
-          src="resources/img/sqsp_icon_1.svg"
-          alt=""
+                class="legal_item clickable"
+                id="legal_logo"
+                src="resources/img/sqsp_icon_1.svg"
+                alt=""
         />
         <img
-          class="legal_item clickable hideInLoading"
-          id="legal_logo2"
-          src="resources/img/sqsp_icon_2.svg"
-          alt=""
+                class="legal_item clickable hideInLoading"
+                id="legal_logo2"
+                src="resources/img/sqsp_icon_2.svg"
+                alt=""
         />
         <div class="legal_item clickable hideInLoading" id="legal_info">
-          INFO
+            INFO
         </div>
         <div class="legal_item hideInLoading" id="legal_mode">
-          MODE<label class="switch"
-            ><input onclick="myFunction()" type="checkbox" /><span
-              class="slider round"
-            ></span
-          ></label>
+            MODE<label class="switch"
+        ><input onclick="myFunction()" type="checkbox"/><span
+                class="slider round"
+        ></span
+        ></label>
         </div>
         <div
-          class="legal_item clickable legal_index_cl hideInLoading"
-          id="legal_index"
+                class="legal_item clickable legal_index_cl hideInLoading"
+                id="legal_index"
         >
-          INDEX
-          <div class="legal_index_cl" id="hamburger">
-            <div class="topleft ham_dot transitionAni" id="index_tl_id"></div>
-            <div class="topright ham_dot transitionAni" id="index_tr_id"></div>
-            <div
-              class="bottomright ham_dot transitionAni"
-              id="index_br_id"
-            ></div>
-            <div
-              class="bottomleft ham_dot transitionAni"
-              id="index_bl_id"
-            ></div>
-          </div>
+            INDEX
+            <div class="legal_index_cl" id="hamburger">
+                <div class="topleft ham_dot transitionAni" id="index_tl_id"></div>
+                <div class="topright ham_dot transitionAni" id="index_tr_id"></div>
+                <div
+                        class="bottomright ham_dot transitionAni"
+                        id="index_br_id"
+                ></div>
+                <div
+                        class="bottomleft ham_dot transitionAni"
+                        id="index_bl_id"
+                ></div>
+            </div>
         </div>
         <div class="legal_item clickable" id="loading_info">10%</div>
-      </div>
-      <div class="legal_bottom transitionAni">
-        <a
-          href="https://www.squarespace.com/privacy"
-          target="_blank"
-          class="legal_item legal_bottom_links transitionAni"
-          id="legal_privacy"
-          >PRIVACY POLICY</a
-        >
-        <a
-          href="https://www.squarespace.com/terms-of-service"
-          target="_blank"
-          class="legal_item legal_bottom_links transitionAni"
-          id="legal_terms"
-          >TERMS OF SERVICE</a
-        >
-        <a
-          href="https://www.squarespace.com"
-          target="_blank"
-          class="legal_item legal_bottom_links transitionAni"
-          id="sqsp_bottom"
-          >SQUARESPACE.COM</a
-        >
-      </div>
     </div>
-    <div id="app_l"></div>
-    <div class="transitionAni" id="cookie_div">
-      <div class="being_centered">
+    <div class="legal_bottom transitionAni">
+        <a
+                href="https://www.squarespace.com/privacy"
+                target="_blank"
+                class="legal_item legal_bottom_links transitionAni"
+                id="legal_privacy"
+        >PRIVACY POLICY</a
+        >
+        <a
+                href="https://www.squarespace.com/terms-of-service"
+                target="_blank"
+                class="legal_item legal_bottom_links transitionAni"
+                id="legal_terms"
+        >TERMS OF SERVICE</a
+        >
+        <a
+                href="https://www.squarespace.com"
+                target="_blank"
+                class="legal_item legal_bottom_links transitionAni"
+                id="sqsp_bottom"
+        >SQUARESPACE.COM</a
+        >
+    </div>
+</div>
+<div id="app_l"></div>
+<div class="transitionAni" id="cookie_div">
+    <div class="being_centered">
         <p id="cookie_text">
-          Select "Accept" to agree to Squarespace's use of cookies and similar
-          technologies to enhance your browsing experience, security, analytics,
-          customization and personalized advertising. Select "Manage Settings"
-          to make more granular choices. You can read more in our <a class="cookie_a" href="https://www.squarespace.com/cookie-policy">Cookie Policy
-         </a> and <a class="cookie_a" href="https://www.squarespace.com/privacy">Privacy Policy<a>.
+            Select "Accept" to agree to Squarespace's use of cookies and similar
+            technologies to enhance your browsing experience, security, analytics,
+            customization and personalized advertising. Select "Manage Settings"
+            to make more granular choices. You can read more in our
+            <a class="cookie_a" href="https://www.squarespace.com/cookie-policy"
+            >Cookie Policy
+            </a>
+            and
+            <a class="cookie_a" href="https://www.squarespace.com/privacy"
+            >Privacy Policy</a
+            >.
         </p>
-        <button
-          class="button enter_button clickable cookie_btn"
-          id="cookie_accept"
-        >
-          ACCEPT
+        <button class="button clickable cookie_btn" id="cookie_accept">
+            ACCEPT
         </button>
-        <button
-          class="button enter_button clickable cookie_btn"
-          id="cookie_manage"
-        >
-          MANAGE SETTINGS
+        <button class="button clickable cookie_btn" id="cookie_manage">
+            MANAGE SETTINGS
         </button>
-      </div>
     </div>
-  </body>
-  <script>
+</div>
+</body>
+<script>
     let hideInLoadingItems = document.getElementsByClassName("hideInLoading");
-    let topLegal = document.getElementById("legal_top_id");
+    // let topLegal = document.getElementById("legal_top_id");
     let loader_later_text =
-      document.getElementsByClassName("loader_later_text");
-    var loadDone = false; //if the loader+animation is done
-    var atMenu = false; //check if we are at menu page, if not click logo to go back
+        document.getElementsByClassName("loader_later_text");
+    let loadDone = false; //if the loader+animation is done
+    let atMenu = false; //check if we are at menu page, if not click logo to go back
     //accept cookie setting
-document.getElementById("cookie_div").addEventListener("click", closeCookie);
-function closeCookie(){
-  document.getElementById("cookie_div").style.display="none";
-}
+    document
+        .getElementById("cookie_accept")
+        .addEventListener("click", closeCookie);
+
+    function closeCookie() {
+        document.getElementById("cookie_div").style.display = "none";
+    }
 
     //render base URL
     let render = new Render({
-      baseURI: "./template",
+        baseURI: "./template",
     });
     //---------------------------!loading+ animation page !--------------------------//
     render
-      .create("enterAni2", document.getElementById("app_l"), {
-        // animate: "fadeIn",
-        animate: "none",
-        mode: "load",
-        load: "loadIndex",
-      })
-      .then((res) => {
-        // !!!!load the page
-        loadIndex("add");
-        //hide the top legal when loading
-        Array.from(hideInLoadingItems).forEach(
-          (element) => (element.style.opacity = "0")
-        );
-        // topLegal.style.opacity = "0";
-        // document.getElementById("legal_logo").style.opacity = "100";
-        //hide the later text when loading bar is working
-        Array.from(loader_later_text).forEach(
-          (element) => (element.style.opacity = "0")
-        );
-        //-----------loading page animation stretch--------------//
-        //-----loader bar start
-        var i = 0;
-        move();
-        function move() {
-          if (i == 0) {
-            i = 1;
-            var elem = document.getElementById("loader_bar_id");
-            var width = 38;
-            var id = setInterval(frame, 30);
-            //get from 38 to 8
-            function frame() {
-              if (width <= 8) {
-                //when the loading is finished!!
-                clearInterval(id);
-                i = 0;
-                //get the other text elements back in
-                Array.from(loader_later_text).forEach(
-                  (element) => (element.style.opacity = "100")
-                );
-                //let's load a cookie bar
-                document.getElementById("cookie_div").style.opacity = "100";
-              } else {
-                width--;
-                elem.style.width = width + "vw";
-                let widthMapped = scale(width, 38, 8, 0, 100).toFixed(0);
-                document.getElementById("loading_info").innerHTML =
-                  widthMapped + "%";
-              }
+        .create("enterAni2", document.getElementById("app_l"), {
+            // animate: "fadeIn",
+            animate: "none",
+            mode: "load",
+            load: "loadMain",
+        })
+        .then((res) => {
+            // !!!!load the page
+            loadMain("add");
+            //hide the top legal when loading
+            Array.from(hideInLoadingItems).forEach(
+                (element) => (element.style.opacity = "0")
+            );
+            // topLegal.style.opacity = "0";
+            // document.getElementById("legal_logo").style.opacity = "100";
+            //hide the later text when loading bar is working
+            Array.from(loader_later_text).forEach(
+                (element) => (element.style.opacity = "0")
+            );
+            //-----------loading page animation stretch--------------//
+            //-----loader bar start
+            let i = 0;
+            move();
+
+            function move() {
+                if (i == 0) {
+                    i = 1;
+                    let elem = document.getElementById("loader_bar_id");
+                    let writeWidth;
+                    let widthMax = 38;
+                    // let widthMax = 20;
+                    let widthMin = 8;
+                    writeWidth = widthMax;
+                    let loadingSpeed = 30;
+                    //if on a mobile phone
+                    if (window.screen.width <= 400) {
+                        // replace the info when screen width is smaller
+                        document.getElementById("loading_short_info").innerHTML =
+                            "Short explanation of all trends desribing each of them ut perspiciatis unde omnis iste natus sit tatem.";
+                        //when it is on the screen, the bar is thinner
+                        widthMin = 10;
+                        widthMax = 20;
+                        writeWidth = widthMax;
+                        loadingSpeed = 60;
+                        // console.log("widthmax now is" + widthMax);
+                        //hide the two top
+                        document.getElementById("loading_info").style.display = "none";
+                        // document.getElementById("legal_logo").style.display="none";
+                    }
+                    let id = setInterval(frame, loadingSpeed);
+
+                    //get from 38 to 8
+                    function frame() {
+                        if (writeWidth <= widthMin) {
+                            //when the loading is finished!!
+                            clearInterval(id);
+                            i = 0;
+                            //get the other text elements back in
+                            Array.from(loader_later_text).forEach(
+                                (element) => (element.style.opacity = "100")
+                            );
+                            //let's load a cookie bar
+                            document.getElementById("cookie_div").style.opacity = "100";
+                        } else {
+                            writeWidth--;
+                            elem.style.width = writeWidth + "vw";
+                            let widthMapped = scale(writeWidth, widthMax, widthMin, 0, 100).toFixed(0);
+                            //the number text on the right
+                            document.getElementById("loading_info").innerHTML =
+                                widthMapped + "%";
+                        }
+                    }
+                }
             }
-          }
-        }
-        function scale(number, inMin, inMax, outMin, outMax) {
-          return (
-            ((number - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin
-          );
-        }
 
-        //-----loader bar end, below is the stretch animation code
+            function scale(number, inMin, inMax, outMin, outMax) {
+                return (
+                    ((number - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin
+                );
+            }
 
-        let startButton = document.getElementById("start_button");
-        startButton.addEventListener("click", stretchAnimation);
-        function stretchAnimation() {
-          console.log("now animation");
-          let ele = document.getElementById("box");
-          for (let i = 1; i <= 4; i++) {
-            let imgEle = document.createElement("img");
-            imgEle.src = `resources/img/s${i}.png`;
-            imgEle.className = "imgBox";
-            imgEle.style.width = document.body.clientWidth + "px";
-            // imgEle.style.height =  + 'px';
-            ele.append(imgEle);
-          }
-          let imgList = document.getElementsByClassName("imgBox");
-          // window.onresize = () => {
-          //     Array.from(imgList).map(ele => {
-          //         ele.style.width = document.body.clientWidth + 'px';
-          //     })
-          // }
-          let i = 0;
+            //-----loader bar end, below is the stretch animation code
 
-          Array.from(imgList).forEach((item, index) => {
-            setTimeout(() => {
-              i++;
-              item.style.width = 0;
-              console.log(i);
-              if (i == 4) {
-                //animation finished
-                console.log("strech done");
-                loadMenuFuc();
-                loadDone = true;
-                console.log(loadDone);
-              }
-            }, index * 500);
-          });
-        }
-        // window.onload = () => {};
-      });
+            let startButton = document.getElementById("start_button");
+            startButton.addEventListener("click", stretchAnimation);
+
+            function stretchAnimation() {
+                console.log("now animation");
+                let ele = document.getElementById("box");
+                ele.style.height="100%";
+                for (let i = 1; i <= 4; i++) {
+                    let imgEle = document.createElement("img");
+                    imgEle.src = `resources/img/s${i}.jpg`;
+                    imgEle.className = "imgBox";
+                    imgEle.style.width = document.body.clientWidth + "px";
+                    // imgEle.style.height =  + 'px';
+                    ele.append(imgEle);
+                }
+                let imgList = document.getElementsByClassName("imgBox");
+                // window.onresize = () => {
+                //     Array.from(imgList).map(ele => {
+                //         ele.style.width = document.body.clientWidth + 'px';
+                //     })
+                // }
+                let i = 0;
+
+                Array.from(imgList).forEach((item, index) => {
+                    setTimeout(() => {
+                        i++;
+                        item.style.width = "0";
+                        console.log(i);
+                        if (i == 4) {
+                            //animation finished
+                            console.log("strech done");
+                            // loadMenuFuc();
+                            loadDone = true;
+                            console.log(loadDone);
+                        }
+                    }, index * 800);
+                });
+            }
+
+            // window.onload = () => {};
+        });
 
     //---------------------------menu page !--------------------------//
     // loadMenuFuc(); //let's just go to menu directly for testing now
     function loadMenuFuc() {
-      console.log("hey menu");
-      render
-        .create("menu", document.getElementById("app_l"), {
-          animate: "fadeIn",
-          mode: "cover",
-          load: "loadMenu",
-        })
-        .then((res) => {
-          // window.loadMenu("add");
-          Array.from(hideInLoadingItems).forEach(
-            (element) => (element.style.opacity = "100")
-          );
-          document.getElementById("loading_info").style.display = "none";
-          // topLegal.style.opacity = "100"; //make the upper legal appear
-          console.log("load is true");
-          atMenu = true;
-          // window.loadMenu("cover");
-        });
+        console.log("hey menu");
+        render
+            .create("menu", document.getElementById("app_l"), {
+                animate: "fadeIn",
+                mode: "cover",
+                load: "loadMenu",
+            })
+            .then((res) => {
+                // window.loadMenu("add");
+                Array.from(hideInLoadingItems).forEach(
+                    (element) => (element.style.opacity = "100")
+                );
+                document.getElementById("loading_info").style.display = "none";
+                // topLegal.style.opacity = "100"; //make the upper legal appear
+                console.log("load is true");
+                atMenu = true;
+                // window.loadMenu("cover");
+            });
     }
+
     //---------------------------open index page !--------------------------//
     let legal_index = document.getElementById("legal_index");
     legal_index.addEventListener("click", indexFunction);
-    var indexShow = false;
+    let indexShow = false;
 
     function indexFunction() {
-      //control the index animation
-      index_tl.classList.toggle("on");
-      index_tr.classList.toggle("on");
-      index_br.classList.toggle("on");
-      index_bl.classList.toggle("on");
-      if (!indexShow) {
-        console.log("show the index");
-        //load the index page
-        render
-          .create("index_all", document.getElementById("app_l"), {
-            animate: "fadeIn",
-            mode: "add",
-            // mode: "cover",
-            load: "loadIndex",
-          })
-          .then((res) => {
-            console.log("load index");
-            // document.getElementById("app").style.position="";
-          });
-        indexShow = true;
-      } else {
-        console.log("hide the index");
-        //remove the index page
-        render.remove(document.getElementById("index_page_id"), {
-          animate: "fadeInUp",
-        });
-        indexShow = false;
-        atMenu = false;
-      }
+        //control the index animation
+        index_tl.classList.toggle("on");
+        index_tr.classList.toggle("on");
+        index_br.classList.toggle("on");
+        index_bl.classList.toggle("on");
+        if (!indexShow) {
+            console.log("show the index");
+            //load the index page
+            render
+                .create("index_all", document.getElementById("app_l"), {
+                    animate: "fadeIn",
+                    mode: "add",
+                    // mode: "cover",
+                    load: "loadIndex",
+                })
+                .then((res) => {
+                    console.log("load index");
+                    // document.getElementById("app").style.position="";
+                });
+            indexShow = true;
+        } else {
+            console.log("hide the index");
+            //remove the index page
+            render.remove(document.getElementById("index_page_id"), {
+                animate: "fadeInUp",
+            });
+            indexShow = false;
+            atMenu = false;
+        }
     }
+
     //---------------------------open detail page !--------------------------//
 
     //---------------------------open info page !--------------------------//
     let legal_info_btn = document.getElementById("legal_info");
     legal_info_btn.addEventListener("click", infoFunction);
-    var infoShow = false;
+    let infoShow = false;
 
     function infoFunction() {
-      if (!infoShow) {
-        console.log("show info");
-        render
-          .create("info", document.getElementById("app_l"), {
-            animate: "fadeIn",
-            mode: "add",
-            load: "loadInfo",
-          })
-          .then((res) => {
-            // console.log("pause and remove info");
-            // setTimeout(() => {
-            //   render.remove(document.getElementById("info_page_id"), {
-            //     animate: "fadeInDown",
-            //   });
-            // }, 3000);
-          });
-        infoShow = true;
-      } else {
-        console.log("hide info");
-        //remove the info page
-        render.remove(document.getElementById("info_page_id"), {
-          animate: "fadeInUp",
-        });
-        infoShow = false;
-        atMenu = false;
-      }
+        if (!infoShow) {
+            console.log("show info");
+            render
+                .create("info", document.getElementById("app_l"), {
+                    animate: "fadeIn",
+                    mode: "add",
+                    load: "loadInfo",
+                })
+                .then((res) => {
+                    // console.log("pause and remove info");
+                    // setTimeout(() => {
+                    //   render.remove(document.getElementById("info_page_id"), {
+                    //     animate: "fadeInDown",
+                    //   });
+                    // }, 3000);
+                });
+            infoShow = true;
+        } else {
+            console.log("hide info");
+            //remove the info page
+            render.remove(document.getElementById("info_page_id"), {
+                animate: "fadeInUp",
+            });
+            infoShow = false;
+            atMenu = false;
+        }
     }
+
     //-------------------------click logo to go back to menu !--------------------------//
     let logo_btn = document.getElementById("legal_logo");
     logo_btn.addEventListener("click", goBackMenu);
+
     function goBackMenu() {
-      if (!atMenu) {
-        console.log("we are not at menu, click on logo to go back menu");
-        render
-          .create("menu", document.getElementById("app_l"), {
-            animate: "fadeIn",
-            mode: "cover",
-            load: "loadMenu",
-          })
-          .then((res) => {
-            // console.log("load index");
-            atMenu = true;
-          });
-      }
+        if (!atMenu) {
+            console.log("we are not at menu, click on logo to go back menu");
+            render
+                .create("menu", document.getElementById("app_l"), {
+                    animate: "fadeIn",
+                    mode: "cover",
+                    load: "loadMenu",
+                })
+                .then((res) => {
+                    // console.log("load index");
+                    atMenu = true;
+                });
+        }
     }
-  </script>
-  <!-- <script src="js/loading.js"></script> -->
-  <script src="js/legal&dark.js"></script>
+</script>
+<!-- <script src="js/loading.js"></script> -->
+<script src="js/legal&dark.js"></script>
 </html>
