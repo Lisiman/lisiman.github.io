@@ -18,9 +18,9 @@ $loader-font-size-1440: 4.5vw;
 $loader-font-size-enter-1440: 6vw;
 
 //legal
-$tb_padding: 28px;
+$tb_padding: 19px;
 $lr_padding: 28px;
-$legal_bottom_height: 73.04px;
+$legal_bottom_height: 55px;
 
 //index page
 $sub-title-height: 300px;
@@ -32,7 +32,7 @@ $imgRoundRadius: 50px;
 $left_col_padding: 40px;
 
 //the height without top and bottom legal
-$inner-height-noLegal: 88%;
+$inner-height-noLegal: 90%;
 
 @font-face {
   font-family: "clark_book";
@@ -774,7 +774,7 @@ img {
   border-radius: $imgRoundRadius;
   //width: 0px;
   //width: 100%;
-  position:absolute;
+  position: absolute;
   right: 0;
   //object-fit: cover;
 
@@ -818,7 +818,8 @@ img {
   // position: relative;
   // top: 0;
 }
-.row_detail{
+
+.row_detail {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -893,20 +894,65 @@ img {
 }
 
 .rigCol_menu {
-  flex-shrink: 1;
+  //flex-shrink: 1;
+  flex: 0;
+
   // flex: 2 1 0;
 }
 
 .rigCol_menu img {
   width: 100%;
+  transition: 0.8s;
   height: 100%;
   border-radius: $imgRoundRadius;
   object-fit: cover;
+  display: block;
+  margin:0;
+  //margin-left: auto;
+  //transition: 0.4s;
+}
+
+//menu image
+#rightCol_img_box {
+  display: flex;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.menu_main_image {
+  width: 100%;
+  border-radius: $imgRoundRadius;
+  height: 100%;
+  object-fit: cover;
+  flex-shrink: 0;
+  transition: 0.8s;
+  display: block;
+  margin-left: auto;
+  transform-origin: left center;
+  position: absolute;
+
+}
+
+
+#menu_main_pic_id {
+  width: 10%;
+  //width: 100%;
+  transition: 0.8s;
+  height: 100%;
+  border-radius: $imgRoundRadius;
+  //object-fit: cover;
+  object-fit: fill;
+  display: block;
+  margin-left: auto;
 }
 
 .menu_title_text {
   line-height: 98px;
   font-size: 108px;
+  letter-spacing: -0.05em;
+
 }
 
 .detail_explain {
@@ -1108,9 +1154,15 @@ img {
 }
 
 //--------------------Media Query ---------------------//
-//----------1024px--- ipad pro v-------//
+//----------1366px*1024px ipad pro horizontal----------//
+#menu_title2 {
+  width: 80%;
+}
+
+//--------------------Media Query ---------------------//
+//----------1024px--- ipad pro v---/* your css rules for ipad portrait */----//
 $loader-font-size-enter-1024: 70px;
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 1024px) and (orientation: portrait) {
   .enter_main_title {
     font-size: $loader-font-size-enter-1024;
   }
@@ -1119,6 +1171,19 @@ $loader-font-size-enter-1024: 70px;
     border-radius: 3vw;
     //140 / 1440=
     height: 0.53 * $loader-font-size-enter-1024;
+  }
+  //for the menu page, hortizontal--- vertical
+  .row{
+    flex-direction: column;
+  }
+  .rigCol_menu{
+    flex: 2;
+  }
+  .menu_cta{
+    display:none;
+  }
+  #rightCol_img_box{
+    display: none;
   }
 }
 

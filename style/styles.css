@@ -47,7 +47,7 @@ html body {
 
 .legal_top {
   position: fixed;
-  top: 28px;
+  top: 19px;
   left: 0;
   display: inline-block;
   align-items: start;
@@ -61,7 +61,7 @@ html body {
   bottom: 0;
   width: 100vw;
   z-index: 20;
-  height: 73.04px;
+  height: 55px;
   background-color: #efedea;
   display: flex;
   align-items: center;
@@ -401,9 +401,9 @@ p {
 
 .main-section {
   width: 100%;
-  padding: 28px;
+  padding: 19px;
   position: absolute;
-  top: 280px;
+  top: 190px;
   height: 200px;
 }
 
@@ -425,7 +425,7 @@ p {
   border-radius: 60px;
   position: fixed;
   right: 28px;
-  bottom: 73.04px;
+  bottom: 55px;
   opacity: 0;
 }
 
@@ -628,7 +628,7 @@ img {
 #box img {
   flex-shrink: 0;
   transition: 0.4s;
-  height: 88%;
+  height: 90%;
   transform-origin: left center;
   border-radius: 50px;
   position: absolute;
@@ -637,7 +637,7 @@ img {
 
 .menu_div_cl {
   margin: 28px;
-  height: 88%;
+  height: 90%;
   width: 100%;
   display: flex;
 }
@@ -719,19 +719,54 @@ img {
 }
 
 .rigCol_menu {
-  flex-shrink: 1;
+  flex: 0;
 }
 
 .rigCol_menu img {
   width: 100%;
+  transition: 0.8s;
   height: 100%;
   border-radius: 50px;
   object-fit: cover;
+  display: block;
+  margin: 0;
+}
+
+#rightCol_img_box {
+  display: flex;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.menu_main_image {
+  width: 100%;
+  border-radius: 50px;
+  height: 100%;
+  object-fit: cover;
+  flex-shrink: 0;
+  transition: 0.8s;
+  display: block;
+  margin-left: auto;
+  transform-origin: left center;
+  position: absolute;
+}
+
+#menu_main_pic_id {
+  width: 10%;
+  transition: 0.8s;
+  height: 100%;
+  border-radius: 50px;
+  object-fit: fill;
+  display: block;
+  margin-left: auto;
 }
 
 .menu_title_text {
   line-height: 98px;
   font-size: 108px;
+  letter-spacing: -0.05em;
 }
 
 .detail_explain {
@@ -913,7 +948,11 @@ img {
     font-size: 25px;
   }
 }
-@media only screen and (max-width: 1024px) {
+#menu_title2 {
+  width: 80%;
+}
+
+@media only screen and (max-width: 1024px) and (orientation: portrait) {
   .enter_main_title {
     font-size: 70px;
   }
@@ -922,6 +961,22 @@ img {
     border: 7px solid #010101;
     border-radius: 3vw;
     height: 37.1px;
+  }
+
+  .row {
+    flex-direction: column;
+  }
+
+  .rigCol_menu {
+    flex: 2;
+  }
+
+  .menu_cta {
+    display: none;
+  }
+
+  #rightCol_img_box {
+    display: none;
   }
 }
 @media only screen and (max-width: 400px) {
