@@ -7,8 +7,6 @@
     //lets check which theme we are at
     console.log("yes theme is" + whichTheme);
     let detailMainDiv = document.getElementsByClassName("menu_div_cl")[0];
-    //the width of the right col
-    let rigColWidth = [];
 
     let div = document.createElement("div");
     div.className = "detail_div";
@@ -33,13 +31,7 @@
               <img src="resources/img/s${whichTheme + 1}.jpg" alt="" />
             </div>
         </div>
-    <div class="rigCol">
-        <div class="title_text menu_title_text" id="detail_product_title">
-          <p>FEATURED PRODUCTS</p>
-          <section class="product-cata detail_cata">
-            <div class="catalog theme_catalog" value="theme${whichTheme + 1}"></div>
-          </section>
-        </div>
+
           </div>
     `;
     detailMainDiv.append(div);
@@ -47,62 +39,21 @@
 
     let ticking = false;
     let lastScrollLeft = 0;
-    let
-        $
-    (window).scroll(function () {
+    $(window).scroll(function() {
         if (!ticking) {
-            window.requestAnimationFrame(function () {
-                let documentScrollLeft = $(document).scrollLeft();
+            window.requestAnimationFrame(function() {
+
+                var documentScrollLeft = $(document).scrollLeft();
                 if (lastScrollLeft != documentScrollLeft) {
                     console.log('scroll x');
-                    if (lastScrollLeft > documentScrollLeft) {
-                        console.log('scroll left');
-                    } else {
-                        console.log('scroll right');
-                    }
                     lastScrollLeft = documentScrollLeft;
                 }
+
                 ticking = false;
             });
             ticking = true;
         }
     });
-
-
-    // Get the button, and when the user clicks on it, execute myFunction
-    document.getElementById("menu_cta").onclick = function () {
-        zoomImage()
-    };
-
-    /* myFunction toggles between adding and removing the show class, which is used to hide and show the dropdown content */
-    function zoomImage() {
-        console.log("zoom image");
-    }
-
-
-    //push items inside
-    let eachCatalog = document.getElementsByClassName("catalog");
-    eachCatalog[0].innerHTML = `
-        ${eval(`itemsDataT${whichTheme + 1}`)
-        .map(eval(`itemTemplate`))
-        .join("")}
-      `;
-    //get one item width
-    let oneItem = document.getElementsByClassName("detail-items")[0];
-    console.log("the item width is" + oneItem.offsetWidth);
-    console.log(
-        "the item width is" + oneItem.offsetWidth / window.screen.width + "vw"
-    ); //40vw so far
-
-    //caulate that catalog width
-    rigColWidth[whichTheme] =
-        (oneItem.offsetWidth + 0.006 * window.screen.width) * cataRowNum[whichTheme];
-    console.log(
-        "rigColWidth width is" + rigColWidth / window.screen.width + "vw"
-    );
-    eachCatalog[0].style.width = rigColWidth[whichTheme] + "px";
-
-
 
     ////below the right col part
     // <div className="rigCol">

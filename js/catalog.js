@@ -1,10 +1,12 @@
 //trend info
+let whichTheme=0;
+
 const title_num = ["1/4", "2/4", "3/4", "4/4"];
 const title_name = [
-  "BIG NESTING<br />ENERGY",
-  "EATING OUR FEELINGS",
-  "SELF CARE,<br>SHIPPED<br>EXPRESS",
-  "NEVER KNEW<br>WE NEEDED",
+  "BIG NESTING<br>ENERGY",
+  "A LOT ON<br>OUR PLATES",
+  "ME TIME,<br>ALL THE TIME",
+  "BRAVE NEW<br>NECESSITIES",
 ];
 const title_des = [
   "111An ease in restrictions meant splurging to treat ourselves and slip into something more colorful. Rejecting muted tones we injected color into our wardrobes, and our homes.",

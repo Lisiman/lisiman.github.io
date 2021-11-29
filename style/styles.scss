@@ -32,7 +32,7 @@ $imgRoundRadius: 50px;
 $left_col_padding: 40px;
 
 //the height without top and bottom legal
-$inner-height-noLegal:88%;
+$inner-height-noLegal: 88%;
 
 @font-face {
   font-family: "clark_book";
@@ -531,7 +531,7 @@ p {
   height: 250px;
   background: #ded9d2;
   border-radius: 60px;
-  position: absolute;
+  position: fixed;
   right: $lr_padding;
   bottom: $legal_bottom_height;
   opacity: 0;
@@ -761,23 +761,29 @@ img {
   width: 100%;
   //height: 100%;
   overflow: hidden;
-  align-items:center;
+  align-items: center;
   //display: none;
 }
 
 #box img {
   flex-shrink: 0;
+  //transition: 0.5s;
   transition: 0.4s;
   height: $inner-height-noLegal;
-  top: 8vh;
   transform-origin: left center;
   border-radius: $imgRoundRadius;
+  //width: 0px;
+  //width: 100%;
+  position:absolute;
+  right: 0;
+  //object-fit: cover;
+
 }
 
 //--------------menu-------//
 
 .menu_div_cl {
-  margin: 30px;
+  margin: 28px;
   // background-color: lightblue;
   height: $inner-height-noLegal;
   width: 100%;
@@ -785,7 +791,7 @@ img {
 }
 
 .lineTwo_title {
-  --animate-delay: 2s;
+  //--animate-delay: 2s;
 }
 
 .detail_div {
@@ -808,9 +814,21 @@ img {
   height: 100%;
   justify-content: center;
   align-items: center;
-  width: 150vw;
+  //width: 150vw;
   // position: relative;
   // top: 0;
+}
+.row_detail{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  //width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  //for wider!!!! cases, otherwise uncomment
+  width: 150vw;
+
 }
 
 .column {
@@ -856,7 +874,11 @@ img {
 
 .midCol {
   flex-shrink: 1;
+  //for wider!! unless otherwise!!
   flex: 2 1 0;
+  //for testing of the new writing
+  //flex: 1 1 0;
+
 }
 
 .rigCol {

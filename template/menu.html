@@ -3,13 +3,14 @@
 </template>
 <script>
   //-------------- menu page scroll ---------------//
-  var menuInsteadOfDetail = true;
+  let menuInsteadOfDetail = true;
   if (menuInsteadOfDetail) {
     renderMenu();
     // goDetailPage();
   }
   function renderMenu() {
     console.log("now in the menu page");
+    //the delay class name is   animate__delay-2s
     document.getElementById("menu_detail_main_id").innerHTML = `
   <div class="center-inside" id="page_window">
       <div class="menu_div_cl">
@@ -22,10 +23,8 @@
                 class="
                   animate__animated animate__fadeInUp
                   lineTwo_title
-                  animate__delay-2s
                 "
-              >
-                ENERGY
+              >ENERGY
               </p>
             </div>
             <div
@@ -45,7 +44,7 @@
             </div>
           </div>
           <div class="column rigCol_menu">
-            <img id="menu_main_pic_id" src="../resources/img/f1.jpg" alt="" />
+            <img id="menu_main_pic_id" src="../resources/img/theme_s1.jpg" alt="" />
           </div>
         </div>
       </div>
@@ -79,7 +78,8 @@
       // console.log("i is" + i);
       menu_title1.innerHTML = title_num[i];
       menu_title2.innerHTML = title_name[i];
-      menu_main_pic_id.src = `../resources/img/f${i + 1}.jpg`;
+      menu_main_pic_id.src = `../resources/img/theme_s${i + 1}.jpg`;
+      whichTheme=i;
     });
   }
 

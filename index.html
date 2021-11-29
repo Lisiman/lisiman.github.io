@@ -229,12 +229,13 @@
             function stretchAnimation() {
                 console.log("now animation");
                 let ele = document.getElementById("box");
-                ele.style.height="100%";
+                ele.style.height = "100%";
                 for (let i = 1; i <= 4; i++) {
                     let imgEle = document.createElement("img");
                     imgEle.src = `resources/img/s${i}.jpg`;
                     imgEle.className = "imgBox";
-                    imgEle.style.width = document.body.clientWidth + "px";
+                    imgEle.style.width = "0";
+                    // imgEle.style.width = document.body.clientWidth + "px";
                     // imgEle.style.height =  + 'px';
                     ele.append(imgEle);
                 }
@@ -245,20 +246,28 @@
                 //     })
                 // }
                 let i = 0;
-
                 Array.from(imgList).forEach((item, index) => {
                     setTimeout(() => {
-                        i++;
-                        item.style.width = "0";
-                        console.log(i);
-                        if (i == 4) {
-                            //animation finished
-                            console.log("strech done");
-                            // loadMenuFuc();
-                            loadDone = true;
-                            console.log(loadDone);
-                        }
-                    }, index * 800);
+                        // item.style.width = "0";
+                        item.style.width = document.body.clientWidth + "px";
+
+                        setTimeout(() => {
+                            item.style.width = "0px";
+                            item.style.left = "0px";
+                            i++;
+                            console.log(i);
+                            if (i == 4) {
+                                setTimeout(() => {
+                                    //animation finished
+                                    console.log("strech done");
+                                    loadDone = true;
+                                    console.log(loadDone);
+                                    loadMenuFuc();
+                                }, 800);
+                            }
+                        }, 1000);
+                    }, index * 1000);
+
                 });
             }
 
@@ -266,7 +275,7 @@
         });
 
     //---------------------------menu page !--------------------------//
-    // loadMenuFuc(); //let's just go to menu directly for testing now
+    loadMenuFuc(); //let's just go to menu directly for testing now
     function loadMenuFuc() {
         console.log("hey menu");
         render
