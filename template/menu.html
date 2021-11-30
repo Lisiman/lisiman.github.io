@@ -51,7 +51,7 @@
             </div>
           </div>
           <div class="column rigCol_menu">
-<!--                    <img  class="menu_main_image" id="menu_main_pic_id" src="../resources/img/theme_s1.jpg" alt="" />-->
+                    <img id="menu_img_pad_phone" src="../resources/img/theme_s1.jpg" alt="" />
 
           </div>
         <div  id="rightCol_img_box"></div>
@@ -132,7 +132,7 @@
             }
 
             // imgEle.style.left = `0px`
-            menuImageForIpadVIphone.src = `./resources/img/theme_s${i + 1}.jpg`;
+            document.getElementById("menu_img_pad_phone").src = `./resources/img/theme_s${i + 1}.jpg`;
 
             // menu_main_pic_id.src = `../resources/img/theme_s${i + 1}.jpg`;
             whichTheme = i;
@@ -153,10 +153,23 @@
 
     //-------------------menu page media query---------------------//
     //------------------detecting ipad pro VVV + iphone---------------------//
-    if (screen.width <= 1024 && screen.width < screen.height) {
+    if (window.innerWidth <= 1024 && window.innerHeight > window.innerWidth) {
         console.log("vvvvvvvvvvvvv");
         let rigCol_media = document.getElementsByClassName("rigCol_menu")[0];
         // rigCol_media.append(menuImageForIpadVIphone);
+
+        //move cta to rigCol
+        let viewBtn = document.getElementById("menu_cta");
+        rigCol_media.appendChild(viewBtn);
+        console.log("append!!!!");
+        document.getElementById("arrow_icon").style.transform = "rotate(90deg)";
+        document.getElementById("arrow_icon").style.animation = "none";
+        if (window.innerWidth <= 400) {
+            //check if it is a phone
+            //cookie's width = vw-18*2(margin)
+            document.getElementById("cookie_div").style.width=(window.innerWidth-18*2)+"px";
+
+        }
     }
 
     //------------------------- detail page  ---------------------//

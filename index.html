@@ -39,7 +39,7 @@
                 src="resources/img/sqsp_icon_2.svg"
                 alt=""
         />
-        <div class="legal_item clickable hideInLoading" id="legal_info">
+        <div class="legal_item clickable hideInLoading hideOnMobile" id="legal_info">
             INFO
         </div>
         <div class="legal_item hideInLoading" id="legal_mode">
@@ -70,24 +70,33 @@
         <div class="legal_item clickable" id="loading_info">10%</div>
     </div>
     <div class="legal_bottom transitionAni">
+        <img
+                class="legal_item clickable showOnMobile"
+                id="legal_logo_mobile"
+                src="resources/img/sqsp_icon_1.svg"
+                alt=""
+        />
+        <div class="legal_item clickable hideInLoading showOnMobile" id="legal_info_mobile">
+            INFO
+        </div>
         <a
                 href="https://www.squarespace.com/privacy"
                 target="_blank"
-                class="legal_item legal_bottom_links transitionAni"
+                class="legal_item legal_bottom_links transitionAni hideOnMobile"
                 id="legal_privacy"
         >PRIVACY POLICY</a
         >
         <a
-                href="https://www.squarespace.com/terms-of-service"
+                href="https://www.squarespace.com/terms-of-service "
                 target="_blank"
-                class="legal_item legal_bottom_links transitionAni"
+                class="legal_item legal_bottom_links transitionAni hideOnMobile"
                 id="legal_terms"
         >TERMS OF SERVICE</a
         >
         <a
                 href="https://www.squarespace.com"
                 target="_blank"
-                class="legal_item legal_bottom_links transitionAni"
+                class="legal_item legal_bottom_links transitionAni hideOnMobile"
                 id="sqsp_bottom"
         >SQUARESPACE.COM</a
         >
@@ -119,6 +128,11 @@
 </div>
 </body>
 <script>
+    //add a link to mobile sqsp icon
+    document.getElementById("legal_logo_mobile").addEventListener("click", linkToSqsp);
+    function linkToSqsp(){
+        window.open("https://www.squarespace.com/", '_blank');
+    }
     let hideInLoadingItems = document.getElementsByClassName("hideInLoading");
     // let topLegal = document.getElementById("legal_top_id");
     let loader_later_text =
@@ -210,6 +224,12 @@
                             //the number text on the right
                             document.getElementById("loading_info").innerHTML =
                                 widthMapped + "%";
+                            if(widthMapped>=100){ //if fully loaded
+                                //hide the number bar
+                                document.getElementById("loading_info").style.display = "none";
+                                // document.getElementById("loading_info").style.opacity = "0";
+
+                            }
                         }
                     }
                 }
@@ -275,7 +295,7 @@
         });
 
     //---------------------------menu page !--------------------------//
-    // loadMenuFuc(); //let's just go to menu directly for testing now
+    loadMenuFuc(); //let's just go to menu directly for testing now
     function loadMenuFuc() {
         console.log("hey menu");
         render
@@ -289,7 +309,7 @@
                 Array.from(hideInLoadingItems).forEach(
                     (element) => (element.style.opacity = "100")
                 );
-                document.getElementById("loading_info").style.display = "none";
+                // document.getElementById("loading_info").style.display = "none";
                 // topLegal.style.opacity = "100"; //make the upper legal appear
                 console.log("load is true");
                 atMenu = true;
@@ -337,8 +357,13 @@
     //---------------------------open detail page !--------------------------//
 
     //---------------------------open info page !--------------------------//
+    // infoFunction();//load directly legal_info_mobile
     let legal_info_btn = document.getElementById("legal_info");
+    let legal_info_btn_mobile = document.getElementById("legal_info_mobile");
+
     legal_info_btn.addEventListener("click", infoFunction);
+    legal_info_btn_mobile.addEventListener("click", infoFunction);
+
     let infoShow = false;
 
     function infoFunction() {
