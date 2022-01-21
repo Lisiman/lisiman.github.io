@@ -69,42 +69,60 @@
         /* position: ; */
       }
       .g-section-head {
-        width: 100vw;
+        width: 100%;
         height: 100vh;
         background: #e5dccf;
         text-align: center;
       }
       .g-head-logo {
+        left: 28px;
         width: calc(100vw - 56px);
         /* margin: auto; */
         margin-top: 70px;
         margin-bottom: 68px;
       }
+      #head-logo-top-id {
+        position: fixed;
+        top: 0;
+        z-index: 1;
+      }
       .g-head-img {
         width: 46%;
         position: relative;
-        top: -20%;
+        z-index: 10;
+        top: 40%;
       }
       .g-section-gallery {
+        position: relative;
         width: 100vw;
-        height: 142vh;
+        /* height: 170vw; */
+        height: 242vw;
+        /* height: 170%; */
+        /* height: 142vh; */
         background: #ddd0bd;
       }
       .g-section-film-press {
+        position: relative;
+        z-index: 2;
         width: 100vw;
-        height: 276vh;
+        /* height: 276vh; */
         background: #e5dccf;
       }
       .g-section-social {
+        position: relative;
+        z-index: 2;
         width: 100vw;
         height: 100vh;
         background: #ddd0bd;
       }
       .g-section-info {
         /* position: relative; */
-
-        height: 157vh;
+        position: relative;
+        z-index: 1;
+        /* height: 157vh; */
+        /* height: 134vw; */
         background: #e5dccf;
+        padding-bottom: 10%;
       }
       .active {
         color: red;
@@ -133,22 +151,51 @@
         letter-spacing: -0.01em;
         color: #242424;
       }
+      .gallery_images {
+        z-index: 10;
+      }
       .g-gallery-img-1 {
         /* position: absolute; */
         position: relative;
         left: 28px;
         /* top: 26%; */
-        top: 35%;
+        top: 6%;
+        float: left;
         width: 45%;
       }
       .g-gallery-img-2 {
         /* position: absolute; */
         position: absolute;
         right: 28px;
-        top: 200%;
+        top: 20%;
         width: 45%;
         /* left: 28px;
         top: 26%; */
+      }
+      .g-gallery-img-3 {
+        position: absolute;
+        /* position: relative; */
+        left: 28px;
+        /* top: 26%; */
+        top: 40%;
+        float: left;
+        width: 45%;
+      }
+      .g-gallery-img-4 {
+        /* position: absolute; */
+        position: absolute;
+        right: 28px;
+        top: 58%;
+        width: 45%;
+        /* left: 28px;
+        top: 26%; */
+      }
+      .g-gallery-img-5 {
+        position: absolute;
+        top: 85%;
+        left: 50%;
+        transform: translate(-50%, 0%);
+        width: 45%;
       }
       h1 {
         display: inline-block;
@@ -188,6 +235,7 @@
         top: 12%;
         left: 28px;
         width: calc(100vw - 56px);
+        padding: 20% 0 13% 0;
       }
       .film-list {
         position: relative;
@@ -254,6 +302,7 @@
         top: 20%;
         left: 28px;
         width: calc(100vw - 56px);
+        padding: 0 0 10% 0;
       }
       .press-image {
         width: calc(100vw - 56px);
@@ -324,7 +373,8 @@
       }
       .about-section-para {
         display: inline-block;
-        width: 45%;
+        width: 30%;
+        text-align: justify;
       }
       .info-text-para-div {
         display: flex;
@@ -347,15 +397,18 @@
         right: 0;
       }
       .legal-info {
-        width: 100%;
-        /* position: absolute; */
-        position: relative;
-        top: 139px;
+        /* width: 100%; */
+        width: calc(100vw - 56px);
+        left: 28px;
+        position: absolute;
+        /* position: relative; */
+        /* top: 139px; */
+        bottom: 28px;
       }
       .submit-form {
         position: relative;
         /* top: 10%; */
-        top: 40px;
+        /* top: 40px; */
       }
       .input-style {
         display: inline-block;
@@ -370,7 +423,7 @@
       }
       .button-style {
         display: inline-block;
-        /* width: 20%; */
+        /* width: 15%; */
         height: 75px;
         background-color: #242424;
         color: #e5dccf;
@@ -380,6 +433,10 @@
         font-size: 25px;
         line-height: 100%;
         padding: 0 40px 0 40px;
+      }
+      .submit-button {
+        width: 15%;
+        padding: 0;
       }
       .view-follow-btn {
         /* position: relative; */
@@ -394,7 +451,8 @@
         position: relative;
         width: calc(100vw - 56px);
         left: 28px;
-        top: 180px;
+        /* top: 180px; */
+        padding-top: 180px;
       }
     </style>
   </head>
@@ -408,25 +466,45 @@
       </nav>
     </div>
     <div class="g-section-head" id="s1">
-      <img class="g-head-logo" src="resources/zendaya_logo.svg" alt="" />
+      <img
+        class="g-head-logo"
+        id="head-logo-top-id"
+        src="resources/zendaya_logo.svg"
+        alt=""
+      />
       <img class="g-head-img" src="resources/zendaya_img_head.png" alt="" />
       <p class="g-head-text head-text-style">Scroll to EXPLORE</p>
       <p class="g-head-text-right head-text-style">Scroll to EXPLORE</p>
     </div>
     <div class="g-section-gallery">
       <img
-        class="g-gallery-img-1"
+        class="g-gallery-img-1 gallery_images"
         src="resources/zendaya_gallery1.png"
         alt=""
       />
       <img
-        class="g-gallery-img-2"
+        class="g-gallery-img-2 gallery_images"
         src="resources/zendaya_gallery2.png"
         alt=""
       />
+      <img
+        class="g-gallery-img-3 gallery_images"
+        src="resources/zendaya_gallery3.png"
+        alt=""
+      />
+      <img
+        class="g-gallery-img-4 gallery_images"
+        src="resources/zendaya_gallery4.png"
+        alt=""
+      />
+      <img
+        class="g-gallery-img-5 gallery_images"
+        src="resources/zendaya_gallery5.png"
+        alt=""
+      />
     </div>
-    <div class="g-section-film-press" id="s2">
-      <div class="g-section-film">
+    <div class="g-section-film-press cover-logo-sections">
+      <div class="g-section-film" id="s2">
         <h1>FILMOGRAPHY</h1>
         <ul class="film-list">
           <li class="film-font-style">
@@ -565,7 +643,7 @@
         </div>
       </div>
     </div>
-    <div class="g-section-social">
+    <div class="g-section-social cover-logo-sections">
       <div class="social-items">
         <h1>SOCIAL</h1>
         <input
@@ -580,29 +658,42 @@
         </div>
       </div>
     </div>
-    <div class="g-section-info" id="s4">
+    <div class="g-section-info cover-logo-sections" id="s4">
       <div class="info-items">
         <img class="g-head-logo" src="resources/zendaya_logo.svg" alt="" />
         <div class="info-text-para-div">
           <p class="info-text-style about-section-para">
-            is an American actress and singer. She is the recipient of numerous
-            accolades, including a Primetime Emmy Award, a Satellite Award, and
-            a Saturn Award. Zendaya began her career as a child model and backup
-            dancer. She rose to mainstream prominence for her role as Rocky Blue
-            on the Disney Channel sitcom Shake It Up. In 2013, Zendaya was a
-            contestant on the 16th season of the dance competition series
-            Dancing with the Stars. She produced and starred as the titular spy,
-            K.C. Cooper, in the sitcom K.C. Undercover.
+            Emmy Award winning actor Zendaya is one of the most prominent and
+            influential names in the entertainment industry today. Born and
+            raised in Oakland, California, Zendaya grew up performing having
+            spent much of her childhood at the local theater where her mother
+            worked.         Zendaya launched her career as an actress on Disney
+            Channel starring in the hit series “Shake It Up” for three seasons
+            and “K.C. Undercover” for three seasons, which she also helped
+            produce.    Most recently, Zendaya can be seen in Jon Watts’
+            “Spider-Man: No Way Home,” the newest film from the Spider-Man
+            series.
           </p>
           <p class="info-text-style about-section-para">
-            Her performance as a struggling, drug addict teenager in the HBO
-            drama series Euphoria made her the youngest recipient of the
-            Primetime Emmy Award for Outstanding Lead Actress in a Drama Series.
-            Her film roles include the musical drama The Greatest Showman, the
-            superhero film Spider-Man: Homecoming and its sequels, the
-            computer-animated musical comedy Smallfoot, the romantic drama
-            Malcolm & Marie, the live-action/animation hybrid sports comedy
-            Space Jam: A New Legacy and the science fiction epic Dune.
+            In 2017, Zendaya joined the Spider-Man Universe in “Spider-Man:
+            Homecoming” followed by “Spider-Man: Far From Home.” Zendaya can
+            also recently be seen as Chani in Denis Villenueve’s film “Dune”
+            opposite Timothee Chalamet and Oscar Isaac. The second installment
+            of “Dune” is expected out in 2023.    Zendaya currently stars in HBO
+            and A24’s second season of “Euphoria.”  Her performance as Rue
+            earned her an Emmy award in 2020 for the first season, making
+            Zendaya the youngest woman to win an Emmy for Lead Drama Actress.
+          </p>
+          <p class="info-text-style about-section-para">
+            Zendaya also be seen as titular character Marie in Netflix’s 2021
+            film “Malcolm and Marie.” Zendaya helped create and produce the film
+            in the beginning of the pandemic.  Other credits include “Space Jam:
+            A New Legacy” with Lebron James, “The Greatest Showman” opposite
+            Hugh Jackman and Zac Efron and the animated film “Smallfoot.”    
+            Zendaya  launched her first fashion collaboration with Tommy
+            Hilfiger titled  TommyXZendaya  in Spring 2019 and currently is the
+            face of Lancome. In 2020, Zendaya became a brand ambassador for
+            Valentino.   
           </p>
         </div>
         <div class="submit-form">
@@ -623,13 +714,13 @@
             value="Submit"
           />
         </div>
-        <div class="legal-info">
-          <p class="legal-text-style">
-            Copyright 2021 Zendaya © All rights reserved.
-          </p>
-          <a class="legal-text-style" href="">Legal</a>
-          <a class="legal-text-style" href="">Privacy Policy </a>
-        </div>
+      </div>
+      <div class="legal-info">
+        <p class="legal-text-style">
+          Copyright 2021 Zendaya © All rights reserved.
+        </p>
+        <a class="legal-text-style" href="">Legal</a>
+        <a class="legal-text-style" href="">Privacy Policy </a>
       </div>
     </div>
     <script>
