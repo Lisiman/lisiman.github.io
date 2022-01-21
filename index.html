@@ -21,7 +21,7 @@
       }
       @font-face {
         font-family: "Klarheit Grotesk";
-        src: url("resources/fonts/KlarheitGrotesk-Semibold.otf");
+        src: url("resources/fonts/KlarheitGrotesk-Medium.otf");
       }
       a {
         text-decoration: none;
@@ -125,13 +125,41 @@
         padding-bottom: 10%;
       }
       .active {
-        color: red;
-        list-style-type: circle;
+        /* display: inline;
+        content: "";
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        background-color: #242424;
+        vertical-align: middle; */
+      }
+      .active::before{
+        /* content: "♥"; */
+        content: "";
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        margin: -7px 5px 0 0;
+        display: inline-block;
+        background-color: #242424;
+        vertical-align: middle;
+
+      }
+      .menu_font::before {
+        /* display: inline;
+        content: "";
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        background-color: #242424;
+        vertical-align: middle; */
+        /* content: "♥"; */
+
       }
       .g-head-text {
         position: absolute;
-        left: 28px;
-        /* left: 0; */
+        /* left: 28px; */
+        left: 4px;
         top: 97%;
         transform: rotate(-90deg);
         transform-origin: top left;
@@ -139,7 +167,8 @@
       .g-head-text-right {
         position: absolute;
         top: 97%;
-        right: 28px;
+        /* right: 28px; */
+        right: 4px;
         transform: rotate(90deg);
         transform-origin: top right;
       }
@@ -216,6 +245,19 @@
         font-weight: normal;
         border-bottom: 3px solid #242424;
         cursor: pointer;
+      }
+      .film-font-style::before {
+        content: "";
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        margin: -7px 5px 0 0;
+        display: inline-block;
+        background-color: #242424;
+        vertical-align: middle;
+      }
+      .film-font-style:hover::before {
+        background-color: #b3a289;
       }
       .film-font-style:first-of-type {
         border-top: 3px solid #242424;
@@ -347,10 +389,12 @@
         width: calc(100vw - 56px);
         display: flex;
         justify-content: space-between;
-        border-top: 3px solid #242424;
         margin-top: 80px;
 
         /* align-items:inherit; */
+      }
+      .first-press-articles {
+        border-top: 3px solid #242424;
       }
       .social-images {
         display: flex;
@@ -454,12 +498,33 @@
         /* top: 180px; */
         padding-top: 180px;
       }
+      .film-achor {
+        position: absolute;
+        top: 6%;
+        height: 10px;
+        width: 100%;
+        /* background-color: crimson; */
+      }
+      .press-anchor {
+        position: absolute;
+        top: -6%;
+        height: 10px;
+        width: 100%;
+        /* background-color: crimson; */
+      }
+      .info-anchor {
+        position: absolute;
+        top: 10%;
+        height: 10px;
+        width: 100%;
+        /* background-color: crimson; */
+      }
     </style>
   </head>
   <body>
     <div class="g-menu">
       <nav>
-        <a class="menu_font active" id="menu_home" href="#s1">HOME</a>
+        <a class="menu_font active" id="menu_home" href="#s1">GALLERY</a>
         <a class="menu_font" id="menu_film" href="#s2">FILM</a>
         <a class="menu_font" id="menu_press" href="#s3">PRESS</a>
         <a class="menu_font" id="menu_info" href="#s4">ABOUT</a>
@@ -504,7 +569,8 @@
       />
     </div>
     <div class="g-section-film-press cover-logo-sections">
-      <div class="g-section-film" id="s2">
+      <div class="film-achor" id="s2"></div>
+      <div class="g-section-film">
         <h1>FILMOGRAPHY</h1>
         <ul class="film-list">
           <li class="film-font-style">
@@ -602,7 +668,8 @@
         </ul>
       </div>
 
-      <div class="g-section-press" id="s3">
+      <div class="g-section-press">
+        <div class="press-anchor" id="s3"></div>
         <h1>PRESS</h1>
         <input
           class="button-style view-follow-btn"
@@ -610,7 +677,7 @@
           value="view all articles"
         />
         <img class="press-image" src="resources/zendaya_press.png" alt="" />
-        <div class="press-articles">
+        <div class="press-articles first-press-articles">
           <div class="articles-div">
             <div class="articles-title">
               <div class="title-dot"></div>
@@ -641,6 +708,37 @@
             </div>
           </div>
         </div>
+        <div class="press-articles">
+          <div class="articles-div">
+            <div class="articles-title">
+              <div class="title-dot"></div>
+              <p class="title-date">September 30, 2020</p>
+            </div>
+            <div class="articles-main">
+              Zendaya Makes History with Her Emmy Win for ‘Euphoria’
+            </div>
+          </div>
+
+          <div class="articles-div">
+            <div class="articles-title">
+              <div class="title-dot"></div>
+              <p class="title-date">November 30, 2021</p>
+            </div>
+            <div class="articles-main">
+              Tom Holland and Zendaya meet 9-year-old Spider-Man fan in adorable
+              interview
+            </div>
+          </div>
+          <div class="articles-div">
+            <div class="articles-title">
+              <div class="title-dot"></div>
+              <p class="title-date">September 30, 2020</p>
+            </div>
+            <div class="articles-main">
+              Zendaya Makes History with Her Emmy Win for ‘Euphoria’
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="g-section-social cover-logo-sections">
@@ -658,7 +756,8 @@
         </div>
       </div>
     </div>
-    <div class="g-section-info cover-logo-sections" id="s4">
+    <div class="g-section-info cover-logo-sections">
+      <div class="info-anchor" id="s4"></div>
       <div class="info-items">
         <img class="g-head-logo" src="resources/zendaya_logo.svg" alt="" />
         <div class="info-text-para-div">
