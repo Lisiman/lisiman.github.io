@@ -228,7 +228,7 @@ function draw() {
     //   canvasDivHeight
     // );
     // vidGraphic.image(capture, 0, 0, canvasDivWidth, canvasDivWidth * 0.75);
-    vidGraphic.image(capture, 0, 0, canvasDivWidth*2, canvasDivWidth*2);
+    vidGraphic.image(capture, 0, 0, canvasDivWidth*2, canvasDivWidth*2*1.33);
 
     //     vidGraphic.image(
     //   capture,
