@@ -259,20 +259,30 @@ function draw() {
   }
 
   //-----the text input---//
-  fill("#E647FB");
   textFont(fontAvenir);
   textAlign(CENTER);
   let upperInput = input.value.toUpperCase();
   textSize(canvasDivWidth * 0.03);
   if (!ifMobile) {
     textSize(canvasDivWidth * 0.045);
+    fill(255,100);
+    text(
+      upperInput,
+      canvasDivWidth-0.5*canvasDivHeight+3,
+      canvasDivHeight * 0.85+3
+    );
+    fill("#E647FB");
     text(
       upperInput,
       canvasDivWidth-0.5*canvasDivHeight,
       canvasDivHeight * 0.85
     );
+
   } else {
     textSize(canvasDivWidth * 0.075);
+    fill(255,100);
+    text(upperInput, canvasDivWidth*0.5+3, canvasDivWidth * 0.85+3);
+    fill("#E647FB");
     text(upperInput, canvasDivWidth*0.5, canvasDivWidth * 0.85);
   }
 
