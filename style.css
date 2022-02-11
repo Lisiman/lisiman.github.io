@@ -23,17 +23,12 @@ body {
 
 h1 {
   position: absolute;
-  font-size: 3.8vw;
   /* margin: auto; */
   letter-spacing: 0.4vw;
-  /* text-align: center; */
   top: 5%;
-  /* opacity: 0.7; */
-  /* left: 50%; */
-  font-family: "Riverside";
-  /* text-align: center; */
+  font-family: Riverside;
   color: white;
-  background: -webkit-linear-gradient(#e647fb,#fdb907, #ff6c03);
+  background: -webkit-linear-gradient(#e647fb, #fdb907, #ff6c03);
   -webkit-background-clip: text;
   background-position: 0% 0%;
 
@@ -42,7 +37,6 @@ h1 {
   animation-duration: 1s;
   animation-direction: alternate-reverse;
   animation-iteration-count: infinite;
-
 }
 @keyframes textColor {
   0% {
@@ -52,21 +46,18 @@ h1 {
     -webkit-text-fill-color: transparent; */
     background-position: 0% 50%;
     opacity: 0.6;
-
-
   }
   /* 50%{
 
   } */
   100% {
     /* color:#FF6C03 ; */
-/* 
+    /* 
     background: -webkit-linear-gradient(#fdb907, #e647fb);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent; */
     background-position: 100% 50%;
     opacity: 1;
-
   }
 }
 .img-logo {
@@ -349,6 +340,5 @@ input:focus {
     font-size: 5vw;
     top: 5%;
     letter-spacing: 0.4vw;
-  
   }
 }
