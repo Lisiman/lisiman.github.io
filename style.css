@@ -13,12 +13,26 @@ body {
   height: 100vh;
   font-size: 24px;
   /* overflow-x: hidden; */
-  background-color: #e647fb;
-  background-image: url("asset/background.png");
-  background-repeat: no-repeat;
-  background-size: cover;
+  /* background-color: #e647fb; */
+  /* background-image: url("asset/background.png"); */
+  background: linear-gradient(45deg, #FDB907, #E647FB, #FF6C03);
+	background-size: 200% 200%;
+	animation: gradient 10s ease infinite;
+  /* background-repeat: no-repeat;
+  background-size: cover; */
   overflow: hidden !important;
   text-align: center;
+}
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
 
 .the-main-title {
