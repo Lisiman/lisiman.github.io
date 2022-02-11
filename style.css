@@ -338,7 +338,8 @@ input:focus {
   .the-main-title {
     position: absolute;
     font-size: 5vw;
-    top: 5%;
+    /* top: 5%; */
+    top: 50px;
     letter-spacing: 0.4vw;
   }
 }
