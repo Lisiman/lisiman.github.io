@@ -1,6 +1,6 @@
 let input = document.getElementById("word-input");
 let capture;
-let vidGraphic;
+let vidGraphic; 
 // let oneBillionFrame, img1, img2, img3;
 let oneBillionFrame;
 let hashtag;
@@ -10,6 +10,8 @@ let palette = ["#0E0E0E", "#FDB907", "#E647FB", "#FF6C03"];
 let xPos = 20;
 let yPos = 50;
 let buttonPressed = false;
+let confettiDone = false;
+let timer = 3; //last 5s
 
 let shapes = [];
 let shapeDef = {};
@@ -30,13 +32,13 @@ let ifMobile = false;
 checkScreenSize();
 
 function checkScreenSize() {
-  console.log("check screen size");
+  // console.log("check screen size");
   if ($(window).width() <= 600) {
     ifMobile = true;
-    console.log(" is mobile");
+    // console.log(" is mobile");
   } else {
     ifMobile = false;
-    console.log(" is desktop");
+    // console.log(" is desktop");
   }
 }
 
@@ -115,9 +117,9 @@ function preload() {
 
 function setup() {
   let canvas = createCanvas(canvasDivWidth, canvasDivHeight);
-  console.log(
-    "box canvasDivWidth is" + canvasDivWidth + "height" + canvasDivHeight
-  );
+  // console.log(
+  //   "box canvasDivWidth is" + canvasDivWidth + "height" + canvasDivHeight
+  // );
   canvas.parent("canvas-div");
   for (let i = 0; i < stickerNum; i++) {
     shapes.push(new Draggable(shapeDef2[i]));
@@ -143,7 +145,8 @@ function setup() {
   if (!ifMobile) {
     capture.size(canvasDivHeight * 1.334, canvasDivHeight);
   } else {
-    capture.size(canvasDivWidth * 1.334, canvasDivWidth);
+    //4:3  on mobile
+    // capture.size(canvasDivWidth * 1.334, canvasDivWidth);
   }
   //   capture.size(1240, 1240);
   capture.hide();
@@ -192,7 +195,7 @@ function draw() {
   }
   //------draw video images
   if (!ifMobile) {
-    console.log("draw video in desktop");
+    // console.log("draw video in desktop");
 
     //flip video
     push();
@@ -208,12 +211,12 @@ function draw() {
       canvasDivHeight
     );
     // vidGraphic.image(capture, 0, 0);
-    console.log(" canvasDivHeight is" + canvasDivHeight);
+    // console.log(" canvasDivHeight is" + canvasDivHeight);
     image(vidGraphic, 0, 0, canvasDivHeight, canvasDivHeight);
     pop();
   } else {
     //if on mobile
-    console.log("draw video in mobile");
+    // console.log("draw video in mobile");
     push();
     translate(canvasDivWidth, 0);
     scale(-1, 1);
@@ -224,13 +227,9 @@ function draw() {
     //   canvasDivHeight * 1.334,
     //   canvasDivHeight
     // );
-    vidGraphic.image(
-      capture,
-      0,
-      0,
-      canvasDivWidth,
-      canvasDivWidth*0.75
-    );
+    // vidGraphic.image(capture, 0, 0, canvasDivWidth, canvasDivWidth * 0.75);
+    vidGraphic.image(capture, 0, 0, canvasDivWidth*2, canvasDivWidth*2);
+
     //     vidGraphic.image(
     //   capture,
     //   0,
@@ -255,19 +254,20 @@ function draw() {
   }
 
   //-----the text input---//
-  fill(255);
+  fill("#E647FB");
+  let upperInput = input.value.toUpperCase();
   textSize(canvasDivWidth * 0.03);
   if (!ifMobile) {
-    textSize(canvasDivWidth * 0.03);
+    textSize(canvasDivWidth * 0.06);
 
     text(
-      input.value,
+      upperInput,
       canvasDivWidth - canvasDivHeight + 20,
-      canvasDivHeight * 0.85
+      canvasDivHeight * 0.55
     );
   } else {
-    textSize(canvasDivWidth * 0.05);
-    text(input.value, 15, canvasDivWidth * 0.87);
+    textSize(canvasDivWidth * 0.1);
+    text(upperInput, 15, canvasDivWidth * 0.55);
   }
 
   //-----the hashtag---//
@@ -295,36 +295,57 @@ function draw() {
     shapes[i].update();
     shapes[i].show();
   }
+  // console.log(
+  //   "buttonPressed is " + buttonPressed + " confettic done is " + confettiDone
+  // );
 
   if (buttonPressed) {
-    for (let i = 0; i < confetti.length / 2; i++) {
-      confetti[i].confettiDisplay();
-      if (confetti[i].y > height) {
-        confetti[i] = new Confetti(
-          // random(0, width),
-          random(0, screenWidth),
+    //start counting down
+    if (frameCount % 60 == 0 && timer > 0) {
+      // if the frameCount is divisible by 60, then a second has passed. it will stop at 0
+      timer--;
+    }
+    if (timer == 0) {
+      confettiDone = true;
+      buttonPressed = false;
+    }
+    // confettiDone=false;
+    if (!confettiDone) {
+      for (let i = 0; i < confetti.length / 2; i++) {
+        confetti[i].confettiDisplay();
+        if (confetti[i].y > height) {
+          confetti[i] = new Confetti(
+            // random(0, width),
+            random(0, screenWidth),
 
-          // random(-height, 0),
-          random(-screenHeight, 0),
+            // random(-height, 0),
+            random(-screenHeight, 0),
 
-          random(-1, 1)
-        );
+            random(-1, 1)
+          );
+        }
+      }
+      // console.log("celebrate");
+      for (let i = int(confetti.length / 2); i < confetti.length; i++) {
+        confetti[i].confettiDisplay();
+        if (confetti[i].y > height) {
+          confetti[i] = new Confetti(
+            random(0, screenWidth),
+            random(-screenHeight, 0),
+            random(-1, 1)
+          );
+        }
       }
     }
-    for (let i = int(confetti.length / 2); i < confetti.length; i++) {
-      confetti[i].confettiDisplay();
-      if (confetti[i].y > height) {
-        confetti[i] = new Confetti(
-          // random(0, width),
-          random(0, screenWidth),
-
-          // random(-height, 0),
-          random(-screenHeight, 0),
-
-          random(-1, 1)
-        );
-      }
+    if (confettiDone) {
+      timer = 3;
+      confettiDone = false;
     }
+
+    // }
+
+    // buttonPressed=false;
+    // confettiDone=false;
   }
 }
 
@@ -345,6 +366,7 @@ function mouseReleased() {
 }
 
 function savePhoto() {
+  buttonPressed = true;
   if (!ifMobile) {
     subImg = get(
       canvasDivWidth - canvasDivHeight,
@@ -357,7 +379,6 @@ function savePhoto() {
   }
 
   subImg.save("BGFW_Photobooth.jpg");
-  buttonPressed = true;
 }
 
 // function windowResized() {
