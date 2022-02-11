@@ -143,7 +143,7 @@ function setup() {
   if (!ifMobile) {
     capture.size(canvasDivHeight * 1.334, canvasDivHeight);
   } else {
-
+    capture.size(canvasDivWidth * 1.334, canvasDivWidth);
   }
   //   capture.size(1240, 1240);
   capture.hide();
@@ -226,10 +226,10 @@ function draw() {
     // );
     vidGraphic.image(
       capture,
-      canvasDivWidth*-0.5,
       0,
-      canvasDivWidth*4,
-      canvasDivWidth*0.75*4
+      0,
+      canvasDivWidth,
+      canvasDivWidth*0.75
     );
     //     vidGraphic.image(
     //   capture,
