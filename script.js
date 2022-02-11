@@ -66,6 +66,9 @@ let stickerGapjMobile = 0.0326 * stickerDivWidth * 4.5;
 
 let stickerGapR = 0.125 * stickerDivWidth;
 let stickerGapj = 0.125 * stickerDivWidth * 2.2;
+
+let fontAvenir;
+
 // let stickerGapj = 0.125 * stickerDivWidth * 1.21;
 
 // -------------click button to save photo---------------//
@@ -79,6 +82,8 @@ document.getElementById("save-btn-id-mobile").onclick = function () {
 function preload() {
   oneBillionFrame = loadImage("asset/OneBillionDollarsMeans.png");
   hashtag = loadImage("asset/hashtag.png");
+  fontAvenir = loadFont('asset/AvenirLTStd-Black.otf');
+
 
   //---------load stickers pattern---------//
   for (let i = 0; i < stickerNum; i++) {
@@ -255,19 +260,20 @@ function draw() {
 
   //-----the text input---//
   fill("#E647FB");
+  textFont(fontAvenir);
+  textAlign(CENTER);
   let upperInput = input.value.toUpperCase();
   textSize(canvasDivWidth * 0.03);
   if (!ifMobile) {
-    textSize(canvasDivWidth * 0.06);
-
+    textSize(canvasDivWidth * 0.045);
     text(
       upperInput,
-      canvasDivWidth - canvasDivHeight + 20,
-      canvasDivHeight * 0.55
+      canvasDivWidth-0.5*canvasDivHeight,
+      canvasDivHeight * 0.85
     );
   } else {
-    textSize(canvasDivWidth * 0.1);
-    text(upperInput, 15, canvasDivWidth * 0.55);
+    textSize(canvasDivWidth * 0.075);
+    text(upperInput, canvasDivWidth*0.5, canvasDivWidth * 0.85);
   }
 
   //-----the hashtag---//

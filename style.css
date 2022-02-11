@@ -16,11 +16,11 @@ body {
   /* background-color: #e647fb; */
   /* background-image: url("asset/background.png"); */
   background: linear-gradient(45deg, #FDB907, #E647FB, #FF6C03);
-	background-size: 200% 200%;
+	background-size: 180% 200%;
 	animation: gradient 10s ease infinite;
   /* background-repeat: no-repeat;
   background-size: cover; */
-  overflow: hidden !important;
+  overflow-x: hidden !important;
   text-align: center;
 }
 @keyframes gradient {
@@ -51,6 +51,14 @@ body {
   animation-duration: 1s;
   animation-direction: alternate-reverse;
   animation-iteration-count: infinite;
+}
+.title-billion{
+  color: white;
+  font-family: Riverside;
+  letter-spacing: 0.4vw;
+  font-size: 2vw;
+  /* font-size: 1.2vw; */
+  text-transform: capitalize;
 }
 @keyframes textColor {
   0% {
