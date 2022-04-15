@@ -80,10 +80,11 @@
 
       function onFilePicked() {
         console.log("changed");
-      
+
         const files = this.files;
-        console.log("how many chosen"+this.files.length);
-        document.getElementById("chosen-image-text").innerHTML="*"+this.files.length+" images are chosen";
+        console.log("how many chosen" + this.files.length - 1);
+        document.getElementById("chosen-image-text").innerHTML =
+          "*" + this.files.length + " images are chosen";
       }
       //submit form
       regForm.addEventListener("submit", function (event) {
