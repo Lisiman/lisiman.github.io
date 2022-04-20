@@ -63,22 +63,22 @@
             .appendChild(projectDisplay);
 
           //draw the grey title
-          const smallTitle=document.createElement("p");
-          smallTitle.className="project-text-grey";
+          const smallTitle = document.createElement("p");
+          smallTitle.className = "project-text-grey";
           smallTitle.innerHTML = "Project";
 
           projectDisplay.appendChild(smallTitle);
 
           //draw the title
           const nameTitle = document.createElement("p");
-          nameTitle.className="project-title-text";
+          nameTitle.className = "project-title-text";
           nameTitle.innerHTML = name;
           projectDisplay.appendChild(nameTitle);
 
           //draw the line
 
-          const projectLine=document.createElement("hr");
-          projectLine.className="project-title-line";
+          const projectLine = document.createElement("hr");
+          projectLine.className = "project-title-line";
           projectDisplay.appendChild(projectLine);
 
           Object.keys(imagesList).forEach((item) => {
@@ -107,11 +107,23 @@
         tangRef
           .getDownloadURL()
           .then(function (url) {
-            // Once we have the download URL, we set it to our img element
+            //draw div
+            const picDiv = document.createElement("div");
+            picDiv.className = "project-image-div";
+
+            //draw image
             const pic = document.createElement("img");
+            pic.className = "project-image";
             pic.src = url;
-            projectDisplay.appendChild(pic);
-            //   console.log(url);
+            //draw image name
+            const picName = document.createElement("p");
+            picName.className = "pic-name";
+            picName.innerHTML = imageName;
+            //append
+            projectDisplay.appendChild(picDiv);
+
+            picDiv.appendChild(pic);
+            picDiv.appendChild(picName);
           })
           .catch(function (error) {
             // If anything goes wrong while getting the download URL, log the error

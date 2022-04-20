@@ -4,6 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js" integrity="sha256-xH4q8N0pEzrZMaRmd7gQVcTZiFei+HfRTBPJ1OGXC0k=" crossorigin="anonymous"></script>
     <script src="js/firebase.js"></script>
     <link rel="stylesheet" href="style.css" />
     <title>SQSP Staging Site</title>
@@ -118,9 +119,6 @@
             //store the image to storage
             var uploadTask = storageRef.put(file);
 
-            // storageRef.put(file).then((snapshot) => {
-            //   console.log(storageRef.getDownloadURL());
-            // });
 
             var sucessUpload = 0;
             //add a progress bar here
