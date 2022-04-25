@@ -9,7 +9,11 @@
   src: url(resources/Clarkson-BookProduct.otf);
 }
 /* change button mouse */
-a, #download-section,#close-list-btn,#all-project-btn,button{
+a,
+#download-section,
+#close-list-btn,
+#all-project-btn,
+button {
   cursor: pointer;
 }
 .sqsp-logo {
@@ -45,8 +49,18 @@ a, #download-section,#close-list-btn,#all-project-btn,button{
   align-items: center;
   justify-content: center;
 }
-#reg-form {
+#log-form,#reg-form {
   width: 88%;
+}
+#log-form{
+  /* height: 247px; */
+}
+#log-form-div{
+    height: 247px;
+}
+#login-text{
+  font-size: 10px;
+  padding-bottom: 6px;
 }
 #upload-btn {
   display: inline-block;
@@ -72,7 +86,7 @@ a, #download-section,#close-list-btn,#all-project-btn,button{
   color: red;
 }
 
-#password,
+#password,#login-password,
 #confirm_password,
 #project-name {
   display: block;
@@ -80,6 +94,9 @@ a, #download-section,#close-list-btn,#all-project-btn,button{
   margin-top: 10px;
   width: 100%;
   border-bottom: 1px solid #000000;
+}
+#login-password{
+ margin-top:20px; 
 }
 .btns {
   display: block;
@@ -90,7 +107,7 @@ a, #download-section,#close-list-btn,#all-project-btn,button{
   color: white;
   font-size: 16px;
 }
-#submit-btn {
+#submit-btn,#login-btn {
   margin-top: 30px;
   width: 100%;
 }
@@ -135,14 +152,14 @@ a, #download-section,#close-list-btn,#all-project-btn,button{
   background-color: black;
   opacity: 0.5;
 }
-#list-array p,.project-name-a{
+#list-array p,
+.project-name-a {
   margin-left: 100px;
   margin-top: 25px;
   text-transform: capitalize;
   white-space: nowrap;
 }
-#list-array p{
-
+#list-array p {
   color: white;
 }
 
@@ -161,7 +178,7 @@ a, #download-section,#close-list-btn,#all-project-btn,button{
 #close-list-btn p {
   color: white;
   margin-right: 10px;
-  margin-left: auto; 
+  margin-left: auto;
   margin-right: 14px;
   margin-top: 0;
 }
@@ -207,12 +224,13 @@ a, #download-section,#close-list-btn,#all-project-btn,button{
   transition: 0.3s;
   opacity: 0.7;
 }
-.project-name-a{
+.project-name-a {
   display: block;
   color: white;
   opacity: 0.5;
 }
-.active,.project-name-a:hover{
+.active,
+.project-name-a:hover {
   opacity: 1;
 }
 .pic-name {
@@ -250,7 +268,7 @@ a, #download-section,#close-list-btn,#all-project-btn,button{
   align-items: center;
   margin-left: auto;
   position: relative;
-  left: 25%;
+  right: 50px;
 }
 #download-section img {
   display: inline-block;
@@ -264,7 +282,7 @@ a, #download-section,#close-list-btn,#all-project-btn,button{
 }
 #share-btn {
   display: inline-block;
-  margin-left: auto;
+  /* margin-left: auto; */
   color: white;
   width: 158px;
   height: 51px;
@@ -276,6 +294,24 @@ a, #download-section,#close-list-btn,#all-project-btn,button{
   display: flex;
   align-items: center;
 }
-.list-array-title{
-  margin-top:140px !important;
+.list-array-title {
+  margin-top: 140px !important;
+}
+#copied-link {
+  display: none;
+  position: fixed;
+  transition: 1s;
+  width: 200px;
+  height: 50px;
+  top: 50vh;
+  left: 50vw;
+  transform: translate(-50%, -50%);
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  color: white;
+  background-color: black;
+  opacity: 0.6;
+  border-radius: 20px;
 }

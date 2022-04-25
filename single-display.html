@@ -39,6 +39,7 @@
 
       <div id="project-list"></div>
     </div>
+    <div id="copied-link">LINK COPIED</div>
 
     <script>
       var title = document.getElementById("title");
@@ -106,7 +107,6 @@
           console.log("all done???");
           listenBtn();
         });
-
       }
 
       function drawImages(imageName, name, projectDisplay) {
@@ -146,6 +146,28 @@
           });
 
         //   console.log(tangRef.getDownloadURL());
+      }
+      //-----------share link----------//
+
+      document.getElementById("share-btn").addEventListener("click", shareLink);
+      function shareLink() {
+        navigator.clipboard.writeText(window.location.href).then(copyAlert());
+
+        // navigator.clipboard.writeText(url).then(
+        //   function () {
+        //     console.log("Copied!");
+        //   },
+        //   function () {
+        //     console.log("Copy error");
+        //   }
+        // );
+      }
+      function copyAlert() {
+        // console.log("copied");
+        alert("Project url copied!");
+
+        // document.getElementById("copied-link").display = "block";
+        // console.log(document.getElementById("copied-link").display );
       }
       //-----------for the sidebar menu click to open----------//
       document
