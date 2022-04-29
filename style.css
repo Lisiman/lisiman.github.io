@@ -45,18 +45,41 @@ button {
   background: #ffffff;
   box-shadow: 0px 4px 80px rgba(0, 0, 0, 0.15);
   border-radius: 20px;
-  display: flex;
+  /* display: flex; */
   align-items: center;
   justify-content: center;
 }
+.reg-box-main{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0px 4px 80px rgba(0, 0, 0, 0.15);
+  align-items: center;
+  justify-content: center;
+}
+.main-inside{
+  padding: 20% 10% 20% 10%;
+}
+#main-page-box{
+  width: 30%;
+  /* height: 40%; */
+}
 #log-form,#reg-form {
   width: 88%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
 }
-#log-form{
-  /* height: 247px; */
-}
+
 #log-form-div{
     height: 247px;
+    display: none;
+
 }
 #login-text{
   font-size: 10px;
@@ -98,6 +121,9 @@ button {
 #login-password{
  margin-top:20px; 
 }
+.project-name-main{
+  display: block;
+}
 .btns {
   display: block;
   background: #000000;
@@ -106,6 +132,17 @@ button {
   cursor: pointer;
   color: white;
   font-size: 16px;
+}
+.main-page-btn{
+width: 70%;
+margin: auto;
+margin-top: 10px;
+
+}
+.center{
+  margin: auto;
+  text-align: center;
+  padding-top: 18px;
 }
 #submit-btn,#login-btn {
   margin-top: 30px;

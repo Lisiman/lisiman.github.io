@@ -1,0 +1,139 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js" integrity="sha256-xH4q8N0pEzrZMaRmd7gQVcTZiFei+HfRTBPJ1OGXC0k=" crossorigin="anonymous"></script>
+    <script src="js/firebase.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>SQSP Staging Site</title>
+  </head>
+
+  <body>
+    <div >
+      <img class="sqsp-logo" src="resources/Squarespace_Logo.svg" alt="" />
+      <div class="login-bg"></div>
+      <div class="reg-box-main" id="main-page-box">
+        <div class="main-inside">
+          <p class="title-font center">To Submit New Project</p>
+          <button  class="btns main-page-btn" id="submit-btn-main">Submit New</button>
+          <p class="title-font center">To View Projects</p>
+          <ul id="main-project-list">
+          </ul>
+        </div>
+    </div>
+    <!-- login in -->
+    <div class="reg-box" id="log-form-div">
+      <form action="" ref="formReg" id="log-form">
+        <p class="project-text-grey" id="login-text">LOG IN TO REVIEW</p>
+        <p class="title-font" id="log-title">Project title</p>
+        <input
+          type="password"
+          placeholder="Password*"
+          id="login-password"
+          required
+        />
+        <button type="submit" class="btns" id="login-btn">Log in</button>
+      </form>
+    </div>
+    <script src="js/index.js"></script>
+    <script>
+
+      document.getElementById("submit-btn-main").addEventListener("click", function (event) {
+        window.location.href = "reg.html"; //jump to reg project page
+      });
+
+      function checkBtn(){
+        var projectsBtns = document.getElementsByClassName("main-page-btn");
+
+      for (var i = 0; i < projectsBtns.length; i++) {
+          projectsBtns[i].setAttribute("data-index", i);
+          // var buttonName=projectsBtns[i].innerHTML;
+          // console.log(buttonName);
+          projectsBtns[i].addEventListener("click", function () {
+            console.log(this.getAttribute("data-index"));
+            var thisPsw = this.getAttribute("password-text");
+            console.log("psw is"+thisPsw);
+
+            var selectedIndex = this.getAttribute("data-index");
+            getIndex(selectedIndex)
+            console.log("selectedIndex is"+selectedIndex);
+            //hide login in page, show the new page
+            // renderLogin();
+            var loginForm = document.getElementById("log-form-div");
+            var mainPageForm = document.getElementById("main-page-box");
+            mainPageForm.style.display="none";
+            loginForm.style.display="block";
+            document.getElementById("log-title").innerHTML= this.innerHTML;
+
+           // ✨ 我不太会的对比密码区域！！ 不知道怎么写最简便最好。click login in from the password page
+      document.getElementById("login-btn").addEventListener("click", function (event) {
+        event.preventDefault();
+         var pswValue=document.getElementById("login-password").value;
+
+        if(pswValue==thisPsw){
+          alert("password right");
+          sessionStorage.setItem("INDEX",selectedIndex);
+
+
+          window.location.href = "single-display.html"; //jump to reg project page
+        }else{
+          alert("password wrong");
+
+        }
+      });
+          });
+        }
+
+
+      }
+
+
+      // function checkPassword(){
+      //   console.log("check password");
+      //   var pswValue=document.getElementById("login-password").value;
+      // }
+      // function renderLogin(){
+      //   var loginForm = document.getElementById("log-form-div");
+      //       var mainPageForm = document.getElementById("main-page-box");
+      //       mainPageForm.style.display="none";
+      //       loginForm.style.display="block";
+      //       document.getElementById("log-title").innerHTML="";
+
+      // }
+
+
+      var projectList=document.getElementById("main-project-list");
+
+      //获取数据
+         dataRef.on("value", function (snapshot) {
+          snapshot.forEach(function (childSnapshot) {
+            // console.log(snapshot);
+            // console.log(snapshot.length);
+
+            var childData = childSnapshot.val();
+            //-----get the project name
+            var infos = childData.info;
+            // console.log(infos);
+            var key = Object.keys(infos)[0];
+
+            //when using variable, or 函数，have to use 中括号
+            const name = infos[key].name;
+            const psw = infos[key].password;
+            //create ALL name on the side menu list
+            const para = document.createElement("button");
+            para.className = "btns main-page-btn";
+            para.setAttribute("password-text", psw);
+
+            para.innerHTML = name;
+            projectList.appendChild(para);
+          });
+          console.log("all done???");
+          checkBtn(); //check buttons when render all done
+
+        });
+     
+    </script>
+  </body>
+</html>

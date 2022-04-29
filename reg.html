@@ -17,7 +17,7 @@
       <div class="reg-box">
         <form action="" ref="formReg" id="reg-form">
           <div class="upload-div">
-            <input
+            <!-- <input
               type="file"
               name="file"
               style="display: none"
@@ -25,6 +25,16 @@
               ref="fileInput"
               webkitdirectory
               directory
+              multiple
+              required
+            /> -->
+                        <input
+              type="file"
+              name="file"
+              style="display: none"
+              id="upload-input"
+              ref="fileInput"
+              accept="image/*"
               multiple
               required
             />
@@ -149,7 +159,7 @@
                 console.log("Upload is done??");
                 sucessUpload++;
                 uploadProgress.innerText =
-                  "Uploaded " + sucessUpload + "/" + imageNum;
+                  "Uploading " + sucessUpload + "/" + imageNum;
                 if (sucessUpload == imageNum) {
                   console.log("all images uploaded");
                   saveMessages(name, password);

@@ -40,8 +40,20 @@
       <div id="project-list"></div>
     </div>
     <div id="copied-link">LINK COPIED</div>
+    <script src="js/index.js"></script>
 
     <script>
+      //get index from password login in page
+      const index = sessionStorage.getItem("INDEX");
+      console.log("now in the single page the index is" + index);
+      var projectIndex = 0;
+
+      if (index) {
+        projectIndex = index - 1;
+      } else {
+        projectIndex = 0;
+      }
+
       var title = document.getElementById("title");
       var title2 = document.getElementById("title2");
       var projectList = document.getElementById("project-list");
@@ -50,9 +62,11 @@
       //----------chose projects from side bars
       var projectsBtns = document.getElementsByClassName("project-name-a");
       //get the project names from the data base
-      renderPage(0);
-      function renderPage(projectIndex) {
-        var index = 0;
+      console.log("projectIndex" + projectIndex);
+
+      renderPage(projectIndex);
+      function renderPage(projectIndex, index) {
+        index = 0;
         projectList.innerHTML = "";
 
         dataRef.on("value", function (snapshot) {
@@ -106,6 +120,8 @@
           });
           console.log("all done???");
           listenBtn();
+          const myTimeout = setTimeout(afterLoad, 1700);
+
         });
       }
 
@@ -191,15 +207,17 @@
 
       //-------for adding images lightbox effects---------//
       //https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_js_lightbox
-      const myTimeout = setTimeout(afterLoad, 500);
+
+
       function afterLoad() {
         lightBox();
-        listenBtn();
+        // listenBtn();
       }
       function lightBox() {
         // click image to enlarge lightbox
         var projectImgs = document.getElementsByClassName("project-image");
         var firstEle = projectImgs[0];
+        console.log(firstEle);
         Array.from(projectImgs).forEach((el) =>
           el.addEventListener("click", (event) => {
             console.log("hhhh");
