@@ -1,23 +1,206 @@
-#canvas, canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+@font-face {
+  font-family: clarkson;
+  src: url(assets/Clarkson-BookProduct.otf);
+}
+@font-face {
+  font-family: clarkson-light;
+  src: url(assets/Clarkson-Light.otf);
+}
+* {
+  font-family: clarkson;
+  padding: 0;
+  margin: 0;
+  color: white;
+}
+.load-icon-page {
+  /* display: none; */
+}
+button{
+  width: auto;
+  background: transparent;
+  /* display: flex; */
 }
 
+.page-div {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 100000;
+  top: 0;
+}
+.lockup {
+  width: 50%;
+  position: fixed;
+  z-index: 100000;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation-name: logoEffects;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  filter: drop-shadow(0px 0px 60px rgba(255, 255, 255, 0.8));
+  -webkit-filter: drop-shadow(0px 0px 60px rgba(255, 255, 255, 0.8));
+}
+@keyframes logoEffects {
+  0% {
+    width: 50%;
+    filter: drop-shadow(0px 0px 60px rgba(255, 255, 255, 0.8));
+    -webkit-filter: drop-shadow(0px 0px 60px rgba(255, 255, 255, 0.8));
+    opacity: 1;
+  }
+  50% {
+    width: 49%;
+    filter: drop-shadow(0px 0px 8px rgba(255, 255, 255, 0.8));
+    -webkit-filter: drop-shadow(0px 0px 8px rgba(255, 255, 255, 0.8));
+    opacity: 0.6;
+  }
+  100% {
+    width: 50%;
+    filter: drop-shadow(0px 0px 60px rgba(255, 255, 255, 0.8));
+    -webkit-filter: drop-shadow(0px 0px 60px rgba(255, 255, 255, 0.8));
+    opacity: 1;
+  }
+}
+
+#canvas,
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* width: 100%; */
+  /* height: 100%; */
+  width: 100vw;
+  height: 100vh;
+}
+.loading-page {
+  width: 100%;
+  height: 100%;
+}
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* loader */
+
+.progress-ring__circle {
+  transition: 0.35s stroke-dashoffset;
+  /* // axis compensation */
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/* button */
+.enter-btn-div{
+  position: absolute;
+  bottom: 10%;
+  width: 100%;
+}
+.enter-btn{
+  width: 350px;
+  cursor: pointer;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  flex-direction: column;
+  position: relative;
+}
+.btn-bg{
+  transition: 0.5s;
+}
+.btn-bg:hover{
+  filter: drop-shadow(0px 0px 6px rgba(255, 255, 255, 1));
+  -webkit-filter: drop-shadow(0px 0px 6px rgba(255, 255, 255, 1));
+}
+.enter-btn p{
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -70%);
+}
 .link-to-article a {
-  background: rgba(0,0,0,0.8);
+  background: rgba(0, 0, 0, 0.8);
   position: absolute;
   bottom: 2rem;
   right: 2rem;
   border-radius: 100px;
   z-index: 9999;
   padding: 0.75rem 1.25rem;
-  color: rgba(255,255,255,0.5);
+  color: rgba(255, 255, 255, 0.5);
   font-size: 1.25rem;
   text-decoration: none;
 }
 .link-to-article a:hover {
-  color: white; 
+  color: white;
+}
+.mini-title {
+  position: fixed;
+  top: 22%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+  line-height: 95.9%;
+  color: white;
+  text-align: center;
+}
+.menu {
+  display: flex;
+  float: right;
+  margin-right: 40px;
+  margin-top: 48px;
+}
+.menu-font {
+  font-size: 16px;
+  margin-left: 23px;
+}
+.low-menu {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  margin-bottom: 30px;
+}
+.uppercase{
+  text-transform: uppercase;
+}
+.low-menu a {
+  padding-left: 20px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 9px;
+  font-family: clarkson-light;
+}
+.float-left {
+  float: left;
+  margin-left: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.float-right {
+  float: right;
+  margin-right: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.float-right a {
+  padding-right: 20px;
 }
