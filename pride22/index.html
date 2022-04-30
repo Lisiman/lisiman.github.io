@@ -132,21 +132,25 @@
     </script>
     <div class="page-div">
       <!-- loading progress -->
-      <div class="loading-page flex-center" style="display: none">
-        <svg class="progress-ring" width="120" height="120">
-          <circle
-            class="progress-ring__circle"
-            stroke="white"
-            stroke-width="4"
-            fill="transparent"
-            r="52"
-            cx="60"
-            cy="60"
-          />
-        </svg>
+      <div class="loading-page flex-center" id="load-page-id">
+        <div class="loading-wheel">
+          <svg class="progress-ring" width="120" height="120">
+            <circle
+              class="progress-ring__circle"
+              stroke="white"
+              stroke-width="2"
+              fill="transparent"
+              r="52"
+              cx="60"
+              cy="60"
+            />
+          </svg>
+          <p id="load-num">0</p>
+        </div>
+        <p class="loading-text">Loading...</p>
       </div>
       <!-- loaded icons+text -->
-      <div class="load-icon-page">
+      <div class="load-icon-page" id="loaded-page-id">
         <div class="menu">
           <p class="menu-font">Gallery</p>
           <p class="menu-font">About</p>
@@ -155,11 +159,10 @@
         <img class="lockup" src="assets/lockup-2.png" alt="" />
         <div class="enter-btn-div">
           <div class="enter-btn flex-center">
-            <img class="btn-bg"src="assets/btn.png" alt="" />
+            <img class="btn-bg" src="assets/btn.png" alt="" />
             <p class="uppercase">Express your pride</p>
           </div>
         </div>
-        
 
         <div class="low-menu">
           <div class="float-left">
@@ -184,6 +187,7 @@
     </div>
     <script>
       //loader
+      window.onload = function () {};
       var circle = document.querySelector("circle");
       var radius = circle.r.baseVal.value;
       var circumference = radius * 2 * Math.PI;
@@ -194,35 +198,35 @@
 
       function setProgress(percent) {
         const offset = circumference - (percent / 100) * circumference;
-        circle.style.strokeDashoffset = -offset;
+        circle.style.strokeDashoffset = offset;
       }
-      for (var i = 0; i <= 100; i++) {
-        //   setTimeout(progressNum++, 4000);
-        setInterval(function () {
+
+      for (var i = 0; i < 100; i++) {
+        setTimeout(function timer() {
           progressNum++;
-        }, 1000);
-        console.log(i);
-      }
-      if (progressNum < 100) {
-        // setInterval(function () {
-        //   progressNum++;
-        // }, 1000);
-        console.log("rogressNum");
-      } else {
-        console.log("done");
+          document.getElementById("load-num").innerHTML = progressNum;
+          setProgress(progressNum);
+          console.log(progressNum);
+          if (progressNum > 99) {
+            // console.log("done");
+            loaderDone();
+          }
+        }, i * 50);
+        //   console.log(i);
       }
 
-      //   setTimeout(loadPro, 1000);
-      //   function loadPro() {
-      //     // progressNum++;
-      //   }
-      setProgress(progressNum);
+      function loaderDone() {
+        var loadingPage = document.getElementById("load-page-id");
+        var loadedPage = document.getElementById("loaded-page-id");
 
-      //   input.addEventListener("change", function (e) {
-      //     if (progressNum < 101 && progressNum > -1) {
-      //       setProgress(progressNum);
-      //     }
-      //   });
+        loadingPage.style.opacity = 0;
+        setTimeout(function timer() {
+          loadingPage.style.display = "none";
+          console.log("none");
+        //   loadedPage.style.display = "block";
+          loadedPage.style.opacity = 1;
+        }, 2000); //2s disapear
+      }
     </script>
   </body>
 </html>
