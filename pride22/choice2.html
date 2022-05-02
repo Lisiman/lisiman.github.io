@@ -1,0 +1,314 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+    />
+
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      padding: 0%;
+      margin: 0;
+      color: white;
+    }
+    @font-face {
+      font-family: clarkson;
+      src: url(assets/Clarkson-BookProduct.otf);
+    }
+    @font-face {
+      font-family: clarkson-light;
+      src: url(assets/Clarkson-Light.otf);
+    }
+    body {
+      font-family: clarkson;
+      background-image: url(assets/bg_blue.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .still-bg {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .s-btn-div {
+      /* position: absolute; */
+      /* top: 30%; */
+      /* left: 10%; */
+      /* width: 10%; */
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .s-btn {
+      /* transition: background 1s; */
+      font-family: clarkson-light;
+      transition: background-color 0.5s ease;
+      background-color: transparent;
+      border: 2px solid white;
+      color: white;
+      /* float: left; */
+      border-radius: 5vw;
+      display: block;
+      /* margin: 2%; */
+      /* padding: 1% 2%; */
+      padding: 1vw 3vw;
+      font-size: 2vw;
+      margin: 0.5vw;
+      /* font-size: 100%; */
+      cursor: pointer;
+    }
+    .l-btn {
+      position: absolute;
+      width: 20vw;
+      height: 20vw;
+      border-radius: 10vw;
+      background-color: transparent;
+      border: 2px solid white;
+      cursor: pointer;
+      color: white;
+      font-size: 2vw;
+    }
+    .l-btn:nth-of-type(1) {
+      top: 20%;
+      left: 5%;
+    }
+    .l-btn:nth-of-type(2) {
+      top: 45%;
+      left: 24%;
+    }
+    .l-btn:nth-of-type(3) {
+      top: 25%;
+      left: 45%;
+    }
+    .l-btn:nth-of-type(4) {
+      top: 60%;
+      left: 60%;
+    }
+    .l-btn:nth-of-type(5) {
+      top: 22%;
+      left: 75%;
+    }
+    .s-btn:hover,
+    .l-btn:hover {
+      background: rgb(34, 179, 0);
+      background: linear-gradient(
+        90deg,
+        rgba(34, 179, 0, 1) 0%,
+        rgba(233, 204, 31, 1) 35%,
+        rgba(255, 241, 231, 1) 100%
+      );
+      background-size: 120% 120%;
+    }
+    /* 
+    .s-btn label {
+      float: left;
+      width: 4em;
+    } */
+
+    #myCanvas {
+      position: fixed;
+      top: 30%;
+      right: 10%;
+      width: 40%;
+      height: 40%;
+      border: 2px solid white;
+    }
+    .question-title-text {
+      position: absolute;
+      top: 15%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      /* font-size: 34px; */
+      font-size: 2.37vw;
+      font-family: clarkson-light;
+      text-transform: uppercase;
+      text-align: center;
+      width: 100%;
+    }
+  </style>
+  <style>
+    .swiper-pagination-bullet {
+      /* width: 3.32px;
+      height: 3.32px; */
+      width: 6px;
+      height: 6px;
+      background: white;
+      opacity: 0.5;
+    }
+    .swiper-pagination-bullet-active {
+      width: 9px;
+      height: 9px;
+      opacity: 1;
+    }
+    .swiper {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      height: 80%;
+    }
+
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+
+      /* Center slide text vertically */
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+    }
+
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .swiper-button-next,
+    .swiper-button-prev {
+      top: 10%;
+    }
+    .swiper-button-next:after,
+    .swiper-rtl .swiper-button-prev:after,
+    .swiper-button-prev:after,
+    .swiper-rtl .swiper-button-next:after {
+      content: "";
+    }
+    .swiper-button-next,
+    .swiper-rtl .swiper-button-prev {
+      width: auto;
+      right: 32px;
+    }
+    .swiper-button-prev,
+    .swiper-rtl .swiper-button-next {
+      width: auto;
+      left: 32px;
+    }
+    .gap {
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+    }
+    .swiper-horizontal > .swiper-pagination-bullets,
+    .swiper-pagination-bullets.swiper-pagination-horizontal,
+    .swiper-pagination-custom,
+    .swiper-pagination-fraction {
+      bottom: 39px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+  <body>
+    <div class="still-bg"></div>
+    <!---------------------- below is swiper -------------------->
+    <!-- Swiper -->
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div class="s-btn-mother-div">
+            <p class="question-title-text">
+              The light you are proud to <br />shine with IS
+            </p>
+            <div class="s-btn-div">
+              <button class="s-btn">Bright</button>
+              <button class="s-btn">Joyful</button>
+              <button class="s-btn">Growing</button>
+              <button class="s-btn">Effervescent</button>
+              <button class="s-btn">Warm</button>
+            </div>
+            <div class="s-btn-div">
+              <button class="s-btn">Compassionate</button>
+              <button class="s-btn">Cheerful</button>
+              <button class="s-btn">Uplifted</button>
+              <button class="s-btn">Resilient</button>
+              <button class="s-btn">Resourceful</button>
+            </div>
+            <div class="s-btn-div">
+              <button class="s-btn">Empathetic</button>
+              <button class="s-btn">Outgoing</button>
+              <button class="s-btn">Reserved</button>
+              <button class="s-btn">Ambitious</button>
+            </div>
+            <div class="s-btn-div">
+              <button class="s-btn">Gentle</button>
+              <button class="s-btn">Resourceful</button>
+              <button class="s-btn">Tender</button>
+            </div>
+            <div class="s-btn-div">
+              <button class="s-btn">Encompassing</button>
+              <button class="s-btn">Outgoing</button>
+              <button class="s-btn">PLeasant</button>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="s-btn-mother-div">
+            <p class="question-title-text">
+              The light the LGBTQIA+ community<br />
+              has provided me is
+            </p>
+            <button class="l-btn">Supporting</button>
+            <button class="l-btn">Understanding</button>
+            <button class="l-btn">Accepting</button>
+            <button class="l-btn">Resourceful</button>
+            <button class="l-btn">Safe</button>
+          </div>
+        </div>
+        <div class="swiper-slide">Slide 3</div>
+        <div class="swiper-slide">Slide 4</div>
+      </div>
+      <div class="swiper-button-next">
+        <p>Next</p>
+        <div class="gap" style="width: 14px"></div>
+        <img src="assets/right-arrow.svg" alt="" />
+      </div>
+      <div class="swiper-button-prev">
+        <img src="assets/left-arrow.svg" alt="" />
+        <div class="gap" style="width: 14px"></div>
+        <p>Previous</p>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        keyboard: {
+          enabled: true,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+    </script>
+  </body>
+</html>

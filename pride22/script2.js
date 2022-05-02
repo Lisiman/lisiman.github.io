@@ -7,26 +7,12 @@ function randomInteger(min, max) {
 function rgb(r, g, b) {
   return new THREE.Vector3(r, g, b);
 }
-
 document.addEventListener("DOMContentLoaded", function (e) {
   const renderer = new THREE.WebGLRenderer();
-  renderer.setSize(window.innerWidth, window.innerHeight);
-
-  // window.onresize = resizeCanvas;
-  window.onresize = function () {
-    console.log("resize!!");
-    renderer.setSize(window.innerWidth, window.innerHeight);
-  };
-
-  // function resizeCanvas() {
-  //   console.log("resize");
-  //   canvas.width = window.innerWidth;
-  //   canvas.height = window.innerHeight;
-
-  //   // Redraw everything after resizing the window
-  // }
-
-  document.body.appendChild(renderer.domElement);
+  var myCanvas = document.getElementById("myCanvas");
+  renderer.setSize(myCanvas.offsetWidth, myCanvas.offsetHeight);
+  // document.body.appendChild(renderer.domElement);
+  myCanvas.appendChild(renderer.domElement);
 
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(
