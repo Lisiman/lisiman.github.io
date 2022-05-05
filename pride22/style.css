@@ -148,6 +148,9 @@ canvas {
   flex-direction: column;
   position: relative;
 }
+.submit-btn{
+  width: 186px;
+}
 .btn-bg {
   transition: 0.5s;
 }

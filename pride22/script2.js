@@ -1,4 +1,6 @@
 import * as THREE from "https://cdn.skypack.dev/three@v0.122.0";
+var renderer;
+var strDownloadMime = "image/octet-stream";
 
 function randomInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -8,11 +10,19 @@ function rgb(r, g, b) {
   return new THREE.Vector3(r, g, b);
 }
 document.addEventListener("DOMContentLoaded", function (e) {
-  const renderer = new THREE.WebGLRenderer();
-  var myCanvas = document.getElementById("myCanvas");
-  renderer.setSize(myCanvas.offsetWidth, myCanvas.offsetHeight);
-  // document.body.appendChild(renderer.domElement);
-  myCanvas.appendChild(renderer.domElement);
+  var myCanvas = document.getElementById("make-image");
+  // const renderer = new THREE.WebGLRenderer();
+  // const renderer = new THREE.WebGLRenderer({
+  renderer = new THREE.WebGLRenderer({
+    preserveDrawingBuffer: true,
+  });
+  renderer.domElement.id = "pic-canvas";
+  // renderer.setSize(myCanvas.offsetWidth, myCanvas.offsetHeight);
+  renderer.setSize(window.innerWidth, window.innerHeight);
+
+  document.body.appendChild(renderer.domElement);
+  
+  // myCanvas.appendChild(renderer.domElement);
 
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(
@@ -53,9 +63,11 @@ document.addEventListener("DOMContentLoaded", function (e) {
   let geometry = new THREE.PlaneGeometry(window.innerWidth / 2, 400, 100, 100);
   let material = new THREE.ShaderMaterial({
     uniforms: {
-      u_bg: { type: "v3", value: rgb(162, 138, 241) },
-      u_bgMain: { type: "v3", value: rgb(162, 138, 241) },
-      u_color1: { type: "v3", value: rgb(162, 138, 241) },
+      // u_bg: { type: "v3", value: rgb(162, 138, 241) },
+      u_bg: { type: "v3", value: rgb(155, 100, 0) },
+
+      u_bgMain: { type: "v3", value: rgb(25, 30, 0) },
+      u_color1: { type: "v3", value: rgb(255, 255, 255) },
       u_color2: { type: "v3", value: rgb(82, 31, 241) },
       u_time: { type: "f", value: 30 },
       u_randomisePosition: { type: "v2", value: randomisePosition },
@@ -109,4 +121,31 @@ document.addEventListener("DOMContentLoaded", function (e) {
     t = t + 0.05;
   };
   animate();
+  document.getElementById("download-btn").onclick = function () {
+    console.log("clickkkkkk");
+    // let canvasImage = document.getElementById('pic-canvas').toDataURL('image/png');
+    var imgData, imgNode;
+
+    try {
+      var strMime = "image/jpeg";
+      imgData = renderer.domElement.toDataURL(strMime);
+
+      saveFile(imgData.replace(strMime, strDownloadMime), "Light.jpg");
+    } catch (e) {
+      console.log(e);
+      return;
+    }
+  };
 });
+var saveFile = function (strData, filename) {
+  var link = document.createElement('a');
+  if (typeof link.download === 'string') {
+      document.body.appendChild(link); //Firefox requires the link to be in the body
+      link.download = filename;
+      link.href = strData;
+      link.click();
+      document.body.removeChild(link); //remove the link when done
+  } else {
+      location.replace(uri);
+  }
+}
