@@ -109,30 +109,14 @@
       }
     </script>
     <!-- partial -->
-    <script type="module" src="./script.js"></script>
-    <script>
-      //resize canvas
-      //   var canvas = document.getElementById("canvas");
-      // var canvas = document.getElementById("canvas");
-
-      // // context = canvas.getContext('2d');
-
-      // // Event handler to resize the canvas when the document view is changed
-      // //   window.addEventListener("resize", resizeCanvas);
-      // window.onresize = resizeCanvas;
-      // //   var canvas = $("#cv").get(0);
-
-      // function resizeCanvas() {
-      //   console.log("resize");
-      //   canvas.width = window.innerWidth;
-      //   canvas.height = window.innerHeight;
-
-      //   // Redraw everything after resizing the window
-      // }
-    </script>
-    <div class="page-div">
+    <!-- <script type="module" src="./script.js"></script> -->
+    <div class="page-div" style="background-color: peru">
       <!-- loading progress -->
-      <div class="loading-page flex-center" id="load-page-id">
+      <div
+        class="loading-page flex-center"
+        id="load-page-id"
+        style="display: none"
+      >
         <div class="loading-wheel">
           <svg class="progress-ring" width="120" height="120">
             <circle
@@ -153,14 +137,34 @@
       <div class="load-icon-page" id="loaded-page-id">
         <div class="menu">
           <p class="menu-font">Gallery</p>
+          <p class="menu-font">Shop</p>
           <p class="menu-font">About</p>
         </div>
-        <p class="mini-title">SQUARESPACE PRESENTS</p>
-        <img class="lockup" src="assets/lockup-2.png" alt="" />
-        <div class="enter-btn-div">
-          <div class="enter-btn flex-center">
-            <img class="btn-bg" src="assets/btn.png" alt="" />
-            <p class="uppercase">Express your pride</p>
+        <div class="flex-center full">
+          <div class="center-flex-sub">
+            <div id="lockup-main-first">
+              <p class="mini-title">SQUARESPACE PRESENTS</p>
+              <img
+                class="lockup"
+                id="lockup-id"
+                src="assets/lockup-2.png"
+                alt=""
+              />
+            </div>
+            <div id="lockup-main-sec">
+              <p class="lockup-font" id="lockup-des-text">
+                The LGBTQIA+ community provides a light for those who identify
+                with and belong to it. Every individual also brings their own
+                light to the community. Create your personal spectrum by
+                selecting the attributes of your light.
+              </p>
+              <div class="enter-btn-div" id="express-button">
+                <div class="enter-btn flex-center">
+                  <img class="btn-bg" src="assets/btn.png" alt="" />
+                  <p class="uppercase">Express your pride</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -186,47 +190,71 @@
       </div>
     </div>
     <script>
-      //loader
-      window.onload = function () {};
-      var circle = document.querySelector("circle");
-      var radius = circle.r.baseVal.value;
-      var circumference = radius * 2 * Math.PI;
-      var progressNum = 0;
+      //loader stuff
+      // var circle = document.querySelector("circle");
+      // var radius = circle.r.baseVal.value;
+      // var circumference = radius * 2 * Math.PI;
+      // var progressNum = 0;
 
-      circle.style.strokeDasharray = `${circumference} ${circumference}`;
-      circle.style.strokeDashoffset = `${circumference}`;
+      // circle.style.strokeDasharray = `${circumference} ${circumference}`;
+      // circle.style.strokeDashoffset = `${circumference}`;
 
-      function setProgress(percent) {
-        const offset = circumference - (percent / 100) * circumference;
-        circle.style.strokeDashoffset = offset;
-      }
+      // function setProgress(percent) {
+      //   const offset = circumference - (percent / 100) * circumference;
+      //   circle.style.strokeDashoffset = offset;
+      // }
 
-      for (var i = 0; i < 100; i++) {
-        setTimeout(function timer() {
-          progressNum++;
-          document.getElementById("load-num").innerHTML = progressNum;
-          setProgress(progressNum);
-          console.log(progressNum);
-          if (progressNum > 99) {
-            // console.log("done");
-            loaderDone();
-          }
-        }, i * 50);
-        //   console.log(i);
-      }
-
+      // for (var i = 0; i < 100; i++) {
+      //   setTimeout(function timer() {
+      //     progressNum++;
+      //     document.getElementById("load-num").innerHTML = progressNum;
+      //     setProgress(progressNum);
+      //     console.log(progressNum);
+      //     if (progressNum > 99) {
+      //       // console.log("done");
+      //       loaderDone();
+      //     }
+      //   }, i * 50);
+      //   //   console.log(i);
+      // }
+      loaderDone();
       function loaderDone() {
         var loadingPage = document.getElementById("load-page-id");
         var loadedPage = document.getElementById("loaded-page-id");
 
         loadingPage.style.opacity = 0;
+        // var delay=2000;
+        // var delay = 0;
+        var delay = 1000;
+
         setTimeout(function timer() {
+          //make loading disappear, make lockup appear
           loadingPage.style.display = "none";
           console.log("none");
-        //   loadedPage.style.display = "block";
           loadedPage.style.opacity = 1;
-        }, 2000); //2s disapear
+          setTimeout(function timer() {
+            //make lock up image smaller
+            document.getElementById("lockup-id").classList.add("lockup-ani");
+            //move lock up section up
+            document
+              .getElementById("lockup-main-first")
+              .classList.add("move-up-ani");
+            setTimeout(function timer() {
+              //appear the below
+              document
+                .getElementById("lockup-main-sec")
+                .classList.add("appear-ani");
+            }, 1000);
+          }, 1600);
+        }, delay); //2s disapear
       }
+      //click to jump to second page
+      document
+        .getElementById("express-button")
+        .addEventListener("click", function () {
+          console.log("clicked");
+          location.href = "choice2.html";
+        });
     </script>
   </body>
 </html>

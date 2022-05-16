@@ -55,6 +55,9 @@
       justify-content: center;
       align-items: center;
     }
+    .left-align{
+  left: 0;
+}
     .s-btn {
       /* transition: background 1s; */
       font-family: clarkson-light;
@@ -264,6 +267,9 @@
     .swiper-button-prev.swiper-button-disabled {
       opacity: 0;
     }
+    .moveDivUp{
+      margin-top: -10%;
+    }
   </style>
   <body>
     <div class="still-bg"></div>
@@ -313,36 +319,24 @@
         </div>
         <!-- slide2 -->
         <div class="swiper-slide">
-          <div class="s-btn-mother-div">
+          <div class="s-btn-mother-div moveDivUp">
             <p class="question-title-text">
-              The light the LGBTQIA+ community<br />
-              has provided me is
+              The light you are proud</br>to shine with IS
             </p>
-            <button class="l-btn">Supporting</button>
-            <button class="l-btn">Understanding</button>
-            <button class="l-btn">Accepting</button>
-            <button class="l-btn">Resourceful</button>
-            <button class="l-btn">Safe</button>
-          </div>
-        </div>
-        <!-- slide3 -->
-        <div class="swiper-slide">
-          <p class="question-title-text">HOW BRIGHT DOES YOUR LIGHT SHINE?</p>
-          <input
-            type="range"
-            min="1"
-            max="100"
-            value="50"
-            class="slider"
-            id="myRange"
-          />
-          <div class="enter-btn-div">
-            <div class="enter-btn submit-btn flex-center" id="submit-btn-id">
-              <img class="btn-bg" src="assets/submit-btn.png" alt="" />
-              <p class="uppercase">SUBMIT</p>
+            <div class="s-btn-div">
+              <button class="s-btn">Resilient</button>
+              <button class="s-btn">Understanding</button>
+              <button class="s-btn">Joyful</button>
+            </div>
+            <div class="enter-btn-div left-align">
+              <div class="enter-btn submit-btn flex-center" id="submit-btn-id">
+                <img class="btn-bg" src="assets/submit-btn.png" alt="" />
+                <p class="uppercase">SUBMIT</p>
+              </div>
             </div>
           </div>
         </div>
+
       </div>
       <div class="swiper-button-next">
         <p>Next</p>
@@ -406,6 +400,7 @@
         //add selected slider value
         selected.push($("#myRange").val());
         console.log("selected are" + selected);
+        // window.location.href="canvas.html";
       });
     </script>
   </body>
