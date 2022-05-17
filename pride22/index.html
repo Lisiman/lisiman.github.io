@@ -3,16 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <title>Pride 2022</title>
-    <link rel="stylesheet" href="./style.css" />
     <script
       src="https://code.jquery.com/jquery-3.6.0.js"
       integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
       crossorigin="anonymous"
     ></script>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@1,500&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <!-- partial:index.partial.html -->
-
     <script id="snoise-function" type="x-shader/x-vertex">
       vec3 mod289(vec3 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
       vec2 mod289(vec2 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
@@ -111,12 +122,8 @@
     <!-- partial -->
     <!-- <script type="module" src="./script.js"></script> -->
     <div class="page-div" style="background-color: peru">
-      <!-- loading progress -->
-      <div
-        class="loading-page flex-center"
-        id="load-page-id"
-        style="display: none"
-      >
+      <!---------------------------- loading progress ------------------------------>
+      <div class="loading-page flex-center" id="load-page-id">
         <div class="loading-wheel">
           <svg class="progress-ring" width="120" height="120">
             <circle
@@ -134,19 +141,15 @@
         <p class="loading-text">Loading...</p>
       </div>
       <!-- loaded icons+text -->
+      <!---------------------------- lock up page ------------------------------>
       <div class="load-icon-page" id="loaded-page-id">
-        <div class="menu">
-          <p class="menu-font">Gallery</p>
-          <p class="menu-font">Shop</p>
-          <p class="menu-font">About</p>
-        </div>
-        <div class="flex-center full">
+        <div class="flex-center full" id="lockup-id">
           <div class="center-flex-sub">
             <div id="lockup-main-first">
               <p class="mini-title">SQUARESPACE PRESENTS</p>
               <img
                 class="lockup"
-                id="lockup-id"
+                id="lockup-img-id"
                 src="assets/lockup-2.png"
                 alt=""
               />
@@ -167,7 +170,132 @@
             </div>
           </div>
         </div>
+      </div>
+      <!------------------------------- questions ----------------------------------->
+      <div id="question-page-id">
+        <div class="swiper mySwiper">
+          <div class="swiper-wrapper">
+            <!-- slide1 -->
+            <div class="swiper-slide">
+              <div class="s-btn-mother-div">
+                <p class="question-title-text">
+                  The light you are proud to <br />shine with IS
+                </p>
+                <div class="s-btn-div">
+                  <button class="s-btn" value="bright">Bright</button>
+                  <button class="s-btn">Joyful</button>
+                  <button class="s-btn">Growing</button>
+                  <button class="s-btn">Effervescent</button>
+                  <button class="s-btn">Warm</button>
+                </div>
+                <div class="s-btn-div">
+                  <button class="s-btn">Tender</button>
+                  <button class="s-btn">Compassionate</button>
+                  <button class="s-btn">Uplifted</button>
+                  <button class="s-btn">Resilient</button>
+                  <button class="s-btn">Resourceful</button>
+                </div>
+                <div class="s-btn-div">
+                  <button class="s-btn">Gentle</button>
+                  <button class="s-btn">Resourceful</button>
+                  <button class="s-btn">Joyful</button>
+                  <button class="s-btn">Cheerful</button>
+                  <button class="s-btn">Uplifted</button>
+                </div>
+                <div class="s-btn-div">
+                  <button class="s-btn">Tender</button>
+                  <button class="s-btn">Resilient</button>
+                  <button class="s-btn">Encompassing</button>
+                  <button class="s-btn">PLeasant</button>
+                </div>
+              </div>
+            </div>
+            <!-- slide2 -->
+            <div class="swiper-slide">
+              <div class="s-btn-mother-div moveDivUp">
+                <p class="question-title-text">
+                  The light you are proud<br />to shine with IS
+                </p>
+                <div class="s-btn-div">
+                  <button class="s-btn">Resilient</button>
+                  <button class="s-btn">Understanding</button>
+                  <button class="s-btn">Joyful</button>
+                </div>
+                <div class="enter-btn-div left-align">
+                  <div
+                    class="enter-btn submit-btn flex-center"
+                    id="submit-btn-id"
+                  >
+                    <img class="btn-bg" src="assets/submit-btn.png" alt="" />
+                    <p class="uppercase">SUBMIT</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-button-next">
+            <p>Next</p>
+            <div class="gap" style="width: 14px"></div>
+            <img src="assets/right-arrow.svg" alt="" />
+          </div>
+          <div class="swiper-button-prev">
+            <img src="assets/left-arrow.svg" alt="" />
+            <div class="gap" style="width: 14px"></div>
+            <p>Previous</p>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+      <!------------------------------- generated canvas ----------------------------------->
+      <div id="canvas-page-id">
+        <div class="canvas-main-div">
+          <div id="make-image">
+            <img src="assets/gradient.jpg" alt="" />
+            <div class="share-div">
+              <p>SHARE</p>
+              <a href="">Fb</a>
+              <a href="">Tw</a>
+              <a href="">Ig</a>
+            </div>
+            <div id="download-btn">
+              DOWNLOAD <img src="assets/download-btn.svg" alt="" />
+            </div>
+          </div>
+          <div class="img-des-div">
+            <p class="img-des-text" id="output-text-id">
 
+            </p>
+          </div>
+
+          <a class="result-a-text result-a" href="">Start from the beginning</a>
+          <a class="result-a-text result-a" href=""
+            >View others in our gallery</a
+          >
+
+          <!-- <div class="back-home-div">
+            <img src="assets/home-arrow.svg" alt="" />
+            <p>Back home</p>
+          </div> -->
+          <!-- <p class="see-your-text">
+            See your light in person at 8 Clarkson Street till June 31st.
+          </p> -->
+        </div>
+      </div>
+      <!------------------------------- all menu ----------------------------------->
+      <!-- small lock up image icon -->
+      <img
+        class="small-lockup"
+        id="small-lockup-id"
+        src="assets/lockup-s.png"
+        alt=""
+      />
+
+      <div id="all-menu-id">
+        <div class="menu">
+          <p class="menu-font">Gallery</p>
+          <p class="menu-font">Shop</p>
+          <p class="menu-font">About</p>
+        </div>
         <div class="low-menu">
           <div class="float-left">
             <img src="assets/shares.png" alt="" />
@@ -190,6 +318,7 @@
       </div>
     </div>
     <script>
+      //------------------!!!! page 0 Loading --------------------------//
       //loader stuff
       // var circle = document.querySelector("circle");
       // var radius = circle.r.baseVal.value;
@@ -217,10 +346,13 @@
       //   }, i * 50);
       //   //   console.log(i);
       // }
+      //------------------!!!!!!! page 1 Loaded lockup page --------------------------//
+      //--------to test directly without loading, uncomment below function-------//
       loaderDone();
       function loaderDone() {
         var loadingPage = document.getElementById("load-page-id");
         var loadedPage = document.getElementById("loaded-page-id");
+        var menuAll = document.getElementById("all-menu-id");
 
         loadingPage.style.opacity = 0;
         // var delay=2000;
@@ -232,9 +364,12 @@
           loadingPage.style.display = "none";
           console.log("none");
           loadedPage.style.opacity = 1;
+          menuAll.style.opacity = 1;
           setTimeout(function timer() {
             //make lock up image smaller
-            document.getElementById("lockup-id").classList.add("lockup-ani");
+            document
+              .getElementById("lockup-img-id")
+              .classList.add("lockup-ani");
             //move lock up section up
             document
               .getElementById("lockup-main-first")
@@ -248,13 +383,112 @@
           }, 1600);
         }, delay); //2s disapear
       }
-      //click to jump to second page
+      //-------- click button to jump to question page
       document
         .getElementById("express-button")
         .addEventListener("click", function () {
           console.log("clicked");
-          location.href = "choice2.html";
+          var lockUpPage = document.getElementById("lockup-id");
+          lockUpPage.classList.add("disappear-ani");
+          if (!lockUpPage.style.opacity) {
+            //make lockup page disappear
+            lockUpPage.style.display = "none";
+            //make question page appear
+            var questionPage = document.getElementById("question-page-id");
+            // questionPage.style.display = "block";
+            questionPage.classList.add("appear-ani-que");
+            setTimeout(function timer() {
+              questionPage.style.opacity = "1";
+              //----show small lockup icon
+              document.getElementById("small-lockup-id").style.opacity = 1;
+            }, 500);
+          }
         });
+
+      //----------------!!!!!!! page2 question page swiper ---------------//
+
+      var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        keyboard: {
+          enabled: true,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        allowTouchMove: false,
+      });
+      // ----------get data from the form----------//
+      var selected = [];
+      // var afterSelected = false;
+      // click buttons for choices small btns
+      $(".s-btn").click(function () {
+        // $("p").toggleClass("main");
+        $(this).toggleClass("s-active selected");
+        console.log($(this).html());
+      });
+      //large btns
+      $(".l-btn").click(function () {
+        $(this).toggleClass("l-active selected");
+        console.log($(this).html());
+      });
+      //slider
+      $("#myRange").change(function () {
+        console.log($("#myRange").val());
+      });
+      // submit-btn-id
+      // on click
+      $("#submit-btn-id").click(function () {
+        console.log("submit");
+        $(".selected").each(function () {
+          //add selected buttons
+          selected.push($(this).html());
+        });
+        //add selected slider value
+        selected.push($("#myRange").val());
+        console.log("selected are" + selected);
+        var quePage = document.getElementById("question-page-id");
+        var canvasPage = document.getElementById("canvas-page-id");
+        hidePage(quePage);
+        showPage(canvasPage);
+        afterSelected();
+
+        //转跳！！！！！ jump to canvas page
+        // window.location.href="canvas.html";
+      });
+
+      //---------------------!!!! page3 generation canvas page ---------------//
+      //only run when after selected
+      function afterSelected() {
+        var outputText = document.getElementById("output-text-id");
+        var selectedToString = selected.toString();
+        console.log("selectedToString is " + selectedToString);
+        outputText.innerHTML = "The light you are proud to shine with IS "+selectedToString;
+      }
+
+      //---------------------page transition animation ---------------//
+
+      function hidePage(page) {
+        page.style.transition = "2s";
+        page.style.opacity = 0;
+        if (!page.style.opacity) {
+          setTimeout(function timer() {
+            page.style.display = "none";
+          }, 500);
+        }
+      }
+      function showPage(page) {
+        page.style.transition = "3s";
+        page.style.display = "block";
+        setTimeout(function timer() {
+          page.style.opacity = 1;
+        }, 500);
+      }
     </script>
   </body>
 </html>
