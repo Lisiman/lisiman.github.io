@@ -412,6 +412,9 @@ margin-top: 10px;
 
 .mySlides {
   display: none;
+  background-color: #000000;
+  text-align:center;
+  border: none;
 }
 
 .cursor {
@@ -453,8 +456,8 @@ margin-top: 10px;
   color: #f2f2f2;
   font-size: 12px;
   padding: 8px 12px;
-  position: absolute;
-  top: 0;
+  /* position: absolute; */
+  /* top: 0; */
 }
 
 img {
@@ -485,5 +488,5 @@ img.hover-shadow {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .boxImg{
-  width:100%;
+  width:70%;
 }

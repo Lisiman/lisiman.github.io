@@ -170,13 +170,14 @@
             boxImg.classList = "mySlides";
             var numDiv = document.createElement("div");
             numDiv.classList = "numbertext";
-            numDiv.innerHTML = "number here";
+            numDiv.innerHTML = imageName;
             var boxImgs = document.createElement("img");
             boxImgs.src = url;
             boxImgs.classList = "boxImg";
             modalDiv.append(boxImg);
-            boxImg.append(numDiv);
             boxImg.append(boxImgs);
+            boxImg.append(numDiv);
+
           })
           .catch(function (error) {
             // If anything goes wrong while getting the download URL, log the error
