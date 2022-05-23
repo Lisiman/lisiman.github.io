@@ -187,8 +187,11 @@
       }
       //-----------share link----------//
 
-      document.getElementById("share-btn").addEventListener("click", shareLink);
-
+      document.getElementById("share-btn").addEventListener("click", copyToClipboard);
+      // function shareLink() {
+      //   console.log(window.location.href);
+      //   navigator.clipboard.writeText(window.location.href).then(copyToClipboard());
+      // }
       function copyToClipboard(text) {
         var inputc = document.body.appendChild(document.createElement("input"));
         inputc.value = window.location.href;
