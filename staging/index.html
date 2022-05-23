@@ -16,12 +16,20 @@
       <div class="login-bg"></div>
       <div class="reg-box-main" id="main-page-box">
         <div class="main-inside">
-          <p class="title-font center">To Submit New Project</p>
-          <button  class="btns main-page-btn" id="submit-btn-main">Submit New</button>
-          <p class="title-font center">To View Projects</p>
-          <ul id="main-project-list">
-          </ul>
+          <div class="flex">
+            <div class="flex-main-title">
+              <img id="submit-btn-main" src="resources/upload-btn.svg" alt="">
+              <p class="title-font ">Submit New Project</p>
+                     <!-- <button  class="btns main-page-btn" id="submit-btn-main">Submit New</button> -->
+            </div>
+          </div>
+          <div class="list-section">
+            <p class="title-font-view ">To View Projects</p>
+            <ul id="main-project-list">
+            </ul>
+          </div>
         </div>
+
     </div>
     <!-- login in -->
     <div class="reg-box" id="log-form-div">
@@ -123,7 +131,7 @@
             const psw = infos[key].password;
             //create ALL name on the side menu list
             const para = document.createElement("button");
-            para.className = "btns main-page-btn";
+            para.className = "main-page-btn";
             para.setAttribute("password-text", psw);
 
             para.innerHTML = name;

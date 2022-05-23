@@ -61,11 +61,26 @@ button {
   justify-content: center;
 }
 .main-inside {
-  padding: 20% 10% 20% 10%;
+  /* padding: 10% 10% 10% 10%; */
 }
 #main-page-box {
-  width: 30%;
+  /* width: 30%; */
+  width: 370px;
+
   /* height: 40%; */
+}
+.list-section {
+  width: 370px;
+  background: #000000;
+  /* position: absolute; */
+  left: 0%;
+  border-radius: 0 0 20px 20px;
+}
+.list-section p,ul{
+  padding-left: 46px;
+}
+.list-section p{
+  padding-top: 31px;
 }
 #log-form,
 #reg-form {
@@ -96,6 +111,19 @@ button {
   font-size: 22px;
   line-height: 100%;
   color: #000000;
+}
+.title-font-view {
+  color: #9c9c9c;
+  font-size: 20px;
+  line-height: 15px;
+  /* or 75% */
+
+  letter-spacing: 0.01em;
+  margin-top: 30px;
+}
+#main-project-list{
+  padding-top: 35px;
+  padding-bottom: 85px;
 }
 .sub-title-font,
 #chosen-image-text {
@@ -137,11 +165,30 @@ button {
   width: 70%;
   margin: auto;
   margin-top: 10px;
+  text-align: left;
+  color: white;
+  font-size: 16px;
+
+  background: transparent;
+}
+#submit-btn-main {
+  padding-right: 17px;
+}
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.flex-main-title{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 24px;
 }
 .center {
   margin: auto;
   text-align: center;
-  padding-top: 18px;
+  /* padding-top: 18px; */
 }
 #submit-btn,
 #login-btn {
