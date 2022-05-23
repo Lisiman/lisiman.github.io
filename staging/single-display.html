@@ -26,6 +26,10 @@
 
         <div class="detail-line"></div>
         <div id="project-images"></div>
+        <div id="myModal" class="modal">
+          <span class="close cursor" onclick="closeModal()">&times;</span>
+          <div class="modal-content" id="modal-content-id"></div>
+        </div>
       </div>
     </div>
     <div id="menu-filter"></div>
@@ -120,8 +124,7 @@
           });
           console.log("all done???");
           listenBtn();
-          const myTimeout = setTimeout(afterLoad, 1700);
-
+          const myTimeout = setTimeout(afterLoad, 4000);
         });
       }
 
@@ -205,25 +208,6 @@
         document.getElementById("menu-filter").style.display = "none";
       }
 
-      //-------for adding images lightbox effects---------//
-      //https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_js_lightbox
-
-
-      function afterLoad() {
-        lightBox();
-        // listenBtn();
-      }
-      function lightBox() {
-        // click image to enlarge lightbox
-        var projectImgs = document.getElementsByClassName("project-image");
-        var firstEle = projectImgs[0];
-        console.log(firstEle);
-        Array.from(projectImgs).forEach((el) =>
-          el.addEventListener("click", (event) => {
-            console.log("hhhh");
-          })
-        );
-      }
       function listenBtn() {
         // check if projects selected in the side menu
         for (var i = 0; i < projectsBtns.length; i++) {
@@ -241,6 +225,80 @@
             console.log(this.innerHTML);
           });
         }
+      }
+      //-------for adding images lightbox effects---------//
+      //https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_js_lightbox
+      var projectImgs = document.getElementsByClassName("project-image");
+
+      function afterLoad() {
+        lightBox();
+        loadBox();
+        // listenBtn();
+      }
+      function lightBox() {
+        // click image to enlarge lightbox
+        var firstEle = projectImgs[0];
+        console.log(firstEle);
+        Array.from(projectImgs).forEach((el) =>
+          el.addEventListener("click", (event) => {
+            console.log("hhhh");
+          })
+        );
+      }
+      function loadBox() {
+        console.log("now load box");
+        var modalDiv = document.getElementById("modal-content-id");
+        for (var i = 0; i < projectImgs.length; i++) {
+          var boxImg = document.createElement("div");
+          boxImg.classList = "mySlides";
+          var numDiv = document.createElement("div");
+          numDiv.classList = "numbertext";
+          numDiv.innerHTML = "number here";
+          var boxImgs = document.createElement("img");
+          modalDiv.append(boxImg);
+          boxImg.append(numDiv);
+        }
+      }
+
+      function openModal() {
+        document.getElementById("myModal").style.display = "block";
+      }
+
+      function closeModal() {
+        document.getElementById("myModal").style.display = "none";
+      }
+
+      var slideIndex = 1;
+      showSlides(slideIndex);
+
+      function plusSlides(n) {
+        showSlides((slideIndex += n));
+      }
+
+      function currentSlide(n) {
+        showSlides((slideIndex = n));
+      }
+
+      function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("demo");
+        var captionText = document.getElementById("caption");
+        if (n > slides.length) {
+          slideIndex = 1;
+        }
+        if (n < 1) {
+          slideIndex = slides.length;
+        }
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+        captionText.innerHTML = dots[slideIndex - 1].alt;
       }
     </script>
   </body>

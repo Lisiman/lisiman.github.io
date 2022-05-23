@@ -121,7 +121,10 @@
     </script>
     <!-- partial -->
     <!-- <script type="module" src="./script.js"></script> -->
-    <div class="page-div" style="background-color: peru">
+    <script type="module" src="./script.js"></script>
+    <script src="./test.js"></script>
+
+    <div class="page-div">
       <!---------------------------- loading progress ------------------------------>
       <div class="loading-page flex-center" id="load-page-id">
         <div class="loading-wheel">
@@ -262,9 +265,7 @@
             </div>
           </div>
           <div class="img-des-div">
-            <p class="img-des-text" id="output-text-id">
-
-            </p>
+            <p class="img-des-text" id="output-text-id"></p>
           </div>
 
           <a class="result-a-text result-a" href="">Start from the beginning</a>
@@ -468,7 +469,10 @@
         var outputText = document.getElementById("output-text-id");
         var selectedToString = selected.toString();
         console.log("selectedToString is " + selectedToString);
-        outputText.innerHTML = "The light you are proud to shine with IS "+selectedToString;
+        outputText.innerHTML =
+          "The light you are proud to shine with IS " + selectedToString;
+        // passColor();
+        testing();
       }
 
       //---------------------page transition animation ---------------//
