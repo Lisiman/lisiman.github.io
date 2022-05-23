@@ -28,7 +28,13 @@
         <div id="project-images"></div>
         <div id="myModal" class="modal">
           <span class="close cursor" onclick="closeModal()">&times;</span>
-          <div class="modal-content" id="modal-content-id"></div>
+          <div class="modal-content" id="modal-content-id">
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            <div class="caption-container">
+              <p id="caption"></p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -141,6 +147,7 @@
         tangRef
           .getDownloadURL()
           .then(function (url) {
+            //----draw the image section
             //draw div
             const picDiv = document.createElement("div");
             picDiv.className = "project-image-div";
@@ -155,9 +162,21 @@
             picName.innerHTML = imageName;
             //append
             projectDisplay.appendChild(picDiv);
-
             picDiv.appendChild(pic);
             picDiv.appendChild(picName);
+            //----draw the lightbox section
+            var modalDiv = document.getElementById("modal-content-id");
+            var boxImg = document.createElement("div");
+            boxImg.classList = "mySlides";
+            var numDiv = document.createElement("div");
+            numDiv.classList = "numbertext";
+            numDiv.innerHTML = "number here";
+            var boxImgs = document.createElement("img");
+            boxImgs.src = url;
+            boxImgs.classList = "boxImg";
+            modalDiv.append(boxImg);
+            boxImg.append(numDiv);
+            boxImg.append(boxImgs);
           })
           .catch(function (error) {
             // If anything goes wrong while getting the download URL, log the error
@@ -232,16 +251,19 @@
 
       function afterLoad() {
         lightBox();
-        loadBox();
+        // loadBox();
         // listenBtn();
       }
       function lightBox() {
         // click image to enlarge lightbox
         var firstEle = projectImgs[0];
         console.log(firstEle);
-        Array.from(projectImgs).forEach((el) =>
+        Array.from(projectImgs).forEach((el, index) =>
           el.addEventListener("click", (event) => {
             console.log("hhhh");
+            // console.log("The current index is: ", index); // 0, 1, 2, 3
+            openModal();
+            currentSlide(index+1)
           })
         );
       }
@@ -252,9 +274,10 @@
           var boxImg = document.createElement("div");
           boxImg.classList = "mySlides";
           var numDiv = document.createElement("div");
-          numDiv.classList = "numbertext";
+          numDiv.classList = i + "/" + projectImgs.length;
           numDiv.innerHTML = "number here";
           var boxImgs = document.createElement("img");
+          boxImgs.src = "";
           modalDiv.append(boxImg);
           boxImg.append(numDiv);
         }
