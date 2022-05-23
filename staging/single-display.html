@@ -177,7 +177,6 @@
             modalDiv.append(boxImg);
             boxImg.append(boxImgs);
             boxImg.append(numDiv);
-
           })
           .catch(function (error) {
             // If anything goes wrong while getting the download URL, log the error
@@ -189,25 +188,17 @@
       //-----------share link----------//
 
       document.getElementById("share-btn").addEventListener("click", shareLink);
-      function shareLink() {
-        navigator.clipboard.writeText(window.location.href).then(copyAlert());
 
-        // navigator.clipboard.writeText(url).then(
-        //   function () {
-        //     console.log("Copied!");
-        //   },
-        //   function () {
-        //     console.log("Copy error");
-        //   }
-        // );
+      function copyToClipboard(text) {
+        var inputc = document.body.appendChild(document.createElement("input"));
+        inputc.value = window.location.href;
+        inputc.focus();
+        inputc.select();
+        document.execCommand("copy");
+        inputc.parentNode.removeChild(inputc);
+        alert("URL Copied.");
       }
-      function copyAlert() {
-        // console.log("copied");
-        alert("Project url copied!");
 
-        // document.getElementById("copied-link").display = "block";
-        // console.log(document.getElementById("copied-link").display );
-      }
       //-----------for the sidebar menu click to open----------//
       document
         .getElementById("all-project-btn")
@@ -264,7 +255,7 @@
             console.log("hhhh");
             // console.log("The current index is: ", index); // 0, 1, 2, 3
             openModal();
-            currentSlide(index+1)
+            currentSlide(index + 1);
           })
         );
       }
