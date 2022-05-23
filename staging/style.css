@@ -49,7 +49,7 @@ button {
   align-items: center;
   justify-content: center;
 }
-.reg-box-main{
+.reg-box-main {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -60,28 +60,27 @@ button {
   align-items: center;
   justify-content: center;
 }
-.main-inside{
+.main-inside {
   padding: 20% 10% 20% 10%;
 }
-#main-page-box{
+#main-page-box {
   width: 30%;
   /* height: 40%; */
 }
-#log-form,#reg-form {
+#log-form,
+#reg-form {
   width: 88%;
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-
 }
 
-#log-form-div{
-    height: 247px;
-    display: none;
-
+#log-form-div {
+  height: 247px;
+  display: none;
 }
-#login-text{
+#login-text {
   font-size: 10px;
   padding-bottom: 6px;
 }
@@ -109,7 +108,8 @@ button {
   color: red;
 }
 
-#password,#login-password,
+#password,
+#login-password,
 #confirm_password,
 #project-name {
   display: block;
@@ -118,10 +118,10 @@ button {
   width: 100%;
   border-bottom: 1px solid #000000;
 }
-#login-password{
- margin-top:20px; 
+#login-password {
+  margin-top: 20px;
 }
-.project-name-main{
+.project-name-main {
   display: block;
 }
 .btns {
@@ -133,18 +133,18 @@ button {
   color: white;
   font-size: 16px;
 }
-.main-page-btn{
-width: 70%;
-margin: auto;
-margin-top: 10px;
-
+.main-page-btn {
+  width: 70%;
+  margin: auto;
+  margin-top: 10px;
 }
-.center{
+.center {
   margin: auto;
   text-align: center;
   padding-top: 18px;
 }
-#submit-btn,#login-btn {
+#submit-btn,
+#login-btn {
   margin-top: 30px;
   width: 100%;
 }
@@ -283,6 +283,7 @@ margin-top: 10px;
   height: 200px;
   /* padding-left: 5%; */
   padding-top: 5%;
+  cursor: pointer;
 }
 /* progress bar */
 #progress-div {
@@ -413,7 +414,7 @@ margin-top: 10px;
 .mySlides {
   display: none;
   background-color: #000000;
-  text-align:center;
+  text-align: center;
   border: none;
 }
 
@@ -487,6 +488,7 @@ img.hover-shadow {
 .hover-shadow:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-.boxImg{
-  width:70%;
+.boxImg {
+  /* width: 70%; */
+  max-height: 70vh;
 }
