@@ -31,9 +31,6 @@
           <div class="modal-content" id="modal-content-id">
             <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
             <a class="next" onclick="plusSlides(1)">&#10095;</a>
-            <div class="caption-container">
-              <p id="caption"></p>
-            </div>
           </div>
         </div>
       </div>
@@ -121,6 +118,13 @@
                 } else {
                   console.log(imageName);
                   console.log(name);
+                  //clear inside the lightbox
+                  const boxImgs = document.querySelectorAll(".mySlides");
+
+                  boxImgs.forEach((box) => {
+                    box.remove();
+                  });
+                  //redraw the page
                   drawImages(imageName, name, projectDisplay);
                 }
               });
@@ -187,7 +191,9 @@
       }
       //-----------share link----------//
 
-      document.getElementById("share-btn").addEventListener("click", copyToClipboard);
+      document
+        .getElementById("share-btn")
+        .addEventListener("click", copyToClipboard);
       // function shareLink() {
       //   console.log(window.location.href);
       //   navigator.clipboard.writeText(window.location.href).then(copyToClipboard());
@@ -212,6 +218,11 @@
         document.getElementById("list-array").style.width = "30%";
         // document.getElementById("main").style.marginLeft = "250px";
         document.getElementById("menu-filter").style.display = "block";
+        //when click the backgorund also close the nav
+        document.getElementById("menu-filter").onclick = function () {
+          document
+        .getElementById("close-list-btn").click();
+        };
       }
       document
         .getElementById("close-list-btn")
