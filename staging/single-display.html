@@ -17,7 +17,7 @@
         <p class="project-text-grey">Project</p>
         <div class="project-des">
           <p id="project-title-text">Project Name</p>
-          <div id="download-section">
+          <div id="download-section" download="http://serverpath/images/50.jpg">
             <img src="resources/download.svg" alt="" />
             <p>Dowload assets</p>
           </div>
@@ -160,6 +160,13 @@
             const pic = document.createElement("img");
             pic.className = "project-image";
             pic.src = url;
+            //des+ link icon div
+            const linkDiv = document.createElement("div");
+            linkDiv.className = "link-div";
+            //draw image icons
+            const linkImg = document.createElement("img");
+            linkImg.className = "icon-img";
+            linkImg.src = "resources/images.png";
             //draw image name
             const picName = document.createElement("p");
             picName.className = "pic-name";
@@ -167,7 +174,11 @@
             //append
             projectDisplay.appendChild(picDiv);
             picDiv.appendChild(pic);
-            picDiv.appendChild(picName);
+            picDiv.appendChild(linkDiv);
+
+            linkDiv.appendChild(linkImg);
+            linkDiv.appendChild(picName);
+
             //----draw the lightbox section
             var modalDiv = document.getElementById("modal-content-id");
             var boxImg = document.createElement("div");
@@ -193,19 +204,21 @@
 
       document
         .getElementById("share-btn")
-        .addEventListener("click", copyToClipboard);
+        .addEventListener("click", function () {
+          copyToClipboard(window.location.href, "Url");
+        });
       // function shareLink() {
       //   console.log(window.location.href);
       //   navigator.clipboard.writeText(window.location.href).then(copyToClipboard());
       // }
-      function copyToClipboard(text) {
+      function copyToClipboard(link, text) {
         var inputc = document.body.appendChild(document.createElement("input"));
-        inputc.value = window.location.href;
+        inputc.value = link;
         inputc.focus();
         inputc.select();
         document.execCommand("copy");
         inputc.parentNode.removeChild(inputc);
-        alert("URL Copied.");
+        alert(text + " is Copied.");
       }
 
       //-----------for the sidebar menu click to open----------//
@@ -220,8 +233,7 @@
         document.getElementById("menu-filter").style.display = "block";
         //when click the backgorund also close the nav
         document.getElementById("menu-filter").onclick = function () {
-          document
-        .getElementById("close-list-btn").click();
+          document.getElementById("close-list-btn").click();
         };
       }
       document
@@ -254,6 +266,8 @@
       //-------for adding images lightbox effects---------//
       //https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_js_lightbox
       var projectImgs = document.getElementsByClassName("project-image");
+      var projectLink = document.getElementsByClassName("icon-img");
+      var projectName = document.getElementsByClassName("pic-name");
 
       function afterLoad() {
         lightBox();
@@ -266,10 +280,22 @@
         console.log(firstEle);
         Array.from(projectImgs).forEach((el, index) =>
           el.addEventListener("click", (event) => {
-            console.log("hhhh");
+            // console.log("hhhh");
             // console.log("The current index is: ", index); // 0, 1, 2, 3
             openModal();
             currentSlide(index + 1);
+          })
+        );
+        Array.from(projectLink).forEach((el, index) =>
+          el.addEventListener("click", (event) => {
+            console.log("hhhh");
+            console.log(index);
+            // console.log();
+            copyToClipboard(projectName[index].innerHTML, "Image name");
+
+            // console.log("The current index is: ", index); // 0, 1, 2, 3
+            // openModal();
+            // currentSlide(index + 1);
           })
         );
       }
