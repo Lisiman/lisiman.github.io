@@ -94,7 +94,7 @@ ul {
 
 #log-form-div {
   height: 247px;
-  display: none;
+  /* display: none; */
 }
 #login-text {
   font-size: 10px;
@@ -304,7 +304,7 @@ ul {
 .project-image-div {
   display: inline-block;
   margin: 2%;
-  max-width: 26vw;
+  max-width: 88vw;
 }
 .project-image:hover {
   transition: 0.3s;
@@ -466,12 +466,18 @@ ul {
 
 /* The Close Button */
 .close {
+  display: flex;
+  align-items: center;
   color: white;
-  position: absolute;
-  top: 10px;
+  position: fixed;
+  top: 25px;
   right: 25px;
-  font-size: 35px;
+  font-size: 20px;
   font-weight: bold;
+}
+.light-close-x{
+  font-size: 30px;
+  padding-left: 10px;
 }
 
 .close:hover,

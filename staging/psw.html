@@ -4,7 +4,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js" integrity="sha256-xH4q8N0pEzrZMaRmd7gQVcTZiFei+HfRTBPJ1OGXC0k=" crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"
+      integrity="sha256-xH4q8N0pEzrZMaRmd7gQVcTZiFei+HfRTBPJ1OGXC0k="
+      crossorigin="anonymous"
+    ></script>
     <script src="js/firebase.js"></script>
     <link rel="stylesheet" href="style.css" />
     <title>SQSP Staging Site</title>
@@ -12,12 +16,12 @@
 
   <body>
     <div id="app">
-      <img class="sqsp-logo" src="resources/Squarespace_Logo.svg" alt="" />
+      <!-- <img class="sqsp-logo" src="resources/Squarespace_Logo.svg" alt="" /> -->
       <div class="login-bg"></div>
       <div class="reg-box" id="log-form-div">
         <form action="" ref="formReg" id="log-form">
           <p class="project-text-grey" id="login-text">LOG IN TO REVIEW</p>
-          <p class="title-font">Project title</p>
+          <p class="title-font" id="log-title">Project title</p>
           <input
             type="password"
             placeholder="Password*"
@@ -29,9 +33,73 @@
       </div>
       <div id="progress-div"></div>
     </div>
+    <script src="js/index.js"></script>
     <script>
+      //get index from password login in page
 
+      const index = sessionStorage.getItem("INDEX");
+      console.log("selectedIndex is" + index);
+      //       // renderLogin();
 
+      // console.log(this.getAttribute("data-index"));
+      //       var thisPsw = this.getAttribute("password-text");
+      //       console.log("psw is"+thisPsw);
+
+      //       var selectedIndex = this.getAttribute("data-index");
+      //       getIndex(selectedIndex)
+      //       console.log("selectedIndex is"+selectedIndex);
+      //       //hide login in page, show the new page
+      //       // renderLogin();
+      //       var loginForm = document.getElementById("log-form-div");
+      //       var mainPageForm = document.getElementById("main-page-box");
+
+      //       document.getElementById("log-title").innerHTML= this.innerHTML;
+
+      //      // ✨ 我不太会的对比密码区域！！ 不知道怎么写最简便最好。click login in from the password page
+      // document.getElementById("login-btn").addEventListener("click", function (event) {
+      //   event.preventDefault();
+      //    var pswValue=document.getElementById("login-password").value;
+
+      //   if(pswValue==thisPsw){
+      //     alert("password right");
+      //     sessionStorage.setItem("INDEX",selectedIndex);
+      //     window.location.href = "single-display.html"; //jump to reg project page
+      //   }else{
+      //     alert("password wrong");
+
+      //   }
+      // });
+
+      //获取数据
+      var i = 0;
+      dataRef.on("value", function (snapshot) {
+        snapshot.forEach(function (childSnapshot) {
+          // console.log(snapshot);
+          // console.log(snapshot.length);
+
+          var childData = childSnapshot.val();
+          //-----get the project name
+          var infos = childData.info;
+          // console.log(infos);
+          var key = Object.keys(infos)[0];
+
+          //when using variable, or 函数，have to use 中括号
+          const name = infos[key].name;
+          const psw = infos[key].password;
+          console.log(i);
+          if (i == index) {
+            document.getElementById("log-title").innerHTML = name;
+            console.log("psw is" + psw);
+            // document.getElementById("log-title").innerHTML = psw;
+          }
+          i++;
+        });
+      });
+
+      function checkPassword() {
+        console.log("check password");
+        var pswValue = document.getElementById("login-password").value;
+      }
     </script>
   </body>
 </html>

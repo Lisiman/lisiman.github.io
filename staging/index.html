@@ -12,7 +12,7 @@
 
   <body>
     <div >
-      <img class="sqsp-logo" src="resources/Squarespace_Logo.svg" alt="" />
+      <!-- <img class="sqsp-logo" src="resources/Squarespace_Logo.svg" alt="" /> -->
       <div class="login-bg"></div>
       <div class="reg-box-main" id="main-page-box">
         <div class="main-inside">
@@ -32,19 +32,6 @@
 
     </div>
     <!-- login in -->
-    <div class="reg-box" id="log-form-div">
-      <form action="" ref="formReg" id="log-form">
-        <p class="project-text-grey" id="login-text">LOG IN TO REVIEW</p>
-        <p class="title-font" id="log-title">Project title</p>
-        <input
-          type="password"
-          placeholder="Password*"
-          id="login-password"
-          required
-        />
-        <button type="submit" class="btns" id="login-btn">Log in</button>
-      </form>
-    </div>
     <script src="js/index.js"></script>
     <script>
 
@@ -60,37 +47,20 @@
           // var buttonName=projectsBtns[i].innerHTML;
           // console.log(buttonName);
           projectsBtns[i].addEventListener("click", function () {
-            console.log(this.getAttribute("data-index"));
-            var thisPsw = this.getAttribute("password-text");
-            console.log("psw is"+thisPsw);
-
             var selectedIndex = this.getAttribute("data-index");
-            getIndex(selectedIndex)
+            getIndex(selectedIndex);
+            sessionStorage.setItem("INDEX",selectedIndex);
             console.log("selectedIndex is"+selectedIndex);
-            //hide login in page, show the new page
-            // renderLogin();
-            var loginForm = document.getElementById("log-form-div");
-            var mainPageForm = document.getElementById("main-page-box");
-            mainPageForm.style.display="none";
-            loginForm.style.display="block";
-            document.getElementById("log-title").innerHTML= this.innerHTML;
 
-           // ✨ 我不太会的对比密码区域！！ 不知道怎么写最简便最好。click login in from the password page
-      document.getElementById("login-btn").addEventListener("click", function (event) {
-        event.preventDefault();
-         var pswValue=document.getElementById("login-password").value;
+            // var thisPsw = this.getAttribute("password-text");
+            // console.log("psw is"+thisPsw);
+            
+            var name = this.innerHTML;
+            // saveName(name);
+            // sessionStorage.setItem("name",name);
 
-        if(pswValue==thisPsw){
-          alert("password right");
-          sessionStorage.setItem("INDEX",selectedIndex);
+            window.location.href = "psw.html"; //jump to reg project page
 
-
-          window.location.href = "single-display.html"; //jump to reg project page
-        }else{
-          alert("password wrong");
-
-        }
-      });
           });
         }
 

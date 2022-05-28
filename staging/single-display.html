@@ -27,7 +27,10 @@
         <div class="detail-line"></div>
         <div id="project-images"></div>
         <div id="myModal" class="modal">
-          <span class="close cursor" onclick="closeModal()">&times;</span>
+          <div class="close cursor" onclick="closeModal()">
+            <p>Close</p>
+            <span class="light-close-x">&times;</span>
+          </div>
           <div class="modal-content" id="modal-content-id">
             <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
             <a class="next" onclick="plusSlides(1)">&#10095;</a>
@@ -252,14 +255,15 @@
           projectsBtns[i].addEventListener("click", function () {
             console.log(this.getAttribute("data-index"));
             var selectedIndex = this.getAttribute("data-index");
+            window.location.href = "psw.html"; //jump to psw project page
+          
+            // projectDisplay.innerHTML = "";
             // renderPage(selectedIndex);
-            projectDisplay.innerHTML = "";
-            renderPage(selectedIndex);
 
-            var current = document.getElementsByClassName("active");
-            current[0].className = current[0].className.replace(" active", "");
-            this.className += " active";
-            console.log(this.innerHTML);
+            // var current = document.getElementsByClassName("active");
+            // current[0].className = current[0].className.replace(" active", "");
+            // this.className += " active";
+            // console.log(this.innerHTML);
           });
         }
       }
